@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SystemTemplateComponent } from './system-template/system-template.component';
 import { AplicationsTemplateComponent } from './aplications-template/aplications-template.component';
 import {RouterModule} from '@angular/router';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 
 
@@ -13,7 +14,8 @@ import {RouterModule} from '@angular/router';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FontAwesomeModule
   ],
   exports: [
     SystemTemplateComponent,

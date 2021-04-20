@@ -1,1 +1,92 @@
-<router-outlet></router-outlet>
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="/system/home">{{appName}}</a>
+  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <ul class="navbar-nav px-3">
+    <li class="nav-item text-nowrap">
+      <a class="nav-link" href="#">Sign out</a>
+    </li>
+  </ul>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+      <div class="sidebar-sticky pt-3">
+        <ul class="nav flex-column">
+
+          <h6 class="sidebar-heading d-flex  align-items-center px-3 mt-4 mb-1 text-muted">
+              <fa-icon [icon]="faCogs" size="ms"></fa-icon> <span class="pl-2"> Sistema</span>
+          </h6>
+          <li class="nav-item  pl-4">
+            <a class="nav-link " href="/system/home">
+              <fa-icon [icon]="faList" size="sm"></fa-icon>
+              Gestionar usuarios
+            </a>
+          </li>
+          <li class="nav-item  pl-4">
+            <a class="nav-link " href="/system/home">
+              <fa-icon [icon]="faList" size="sm"></fa-icon>
+              Gestionar acciones del sistema
+            </a>
+          </li>
+
+          <li class="nav-item  pl-4">
+            <a class="nav-link " href="/system/home">
+              <fa-icon [icon]="faList" size="sm"></fa-icon>
+              Gestionar logs
+            </a>
+          </li>
+
+
+          <h6 class="sidebar-heading d-flex  align-items-center px-3 mt-3 mb-1 text-muted">
+            <fa-icon [icon]="faDatabase" size="ms"></fa-icon> <span class="pl-2"> Nomencladores</span>
+          </h6>
+          <li class="nav-item  pl-4">
+            <a class="nav-link " href="/system/home">
+              <fa-icon [icon]="faList" size="sm"></fa-icon>
+              Gestionar país
+            </a>
+          </li>
+          <li class="nav-item  pl-4">
+            <a class="nav-link " href="/system/home">
+              <fa-icon [icon]="faList" size="sm"></fa-icon>
+              Gestionar provincia
+            </a>
+          </li>
+          <li class="nav-item  pl-4">
+            <a class="nav-link " href="/system/home">
+              <fa-icon [icon]="faList" size="sm"></fa-icon>
+              Gestionar municipio
+            </a>
+          </li>
+
+          <li class="nav-item  pl-4">
+            <a class="nav-link " href="/system/home">
+              <fa-icon [icon]="faList" size="sm"></fa-icon>
+              Gestionar categoría
+            </a>
+          </li>
+
+          <li class="nav-item  pl-4">
+            <a class="nav-link " href="/system/home">
+              <fa-icon [icon]="faList" size="sm"></fa-icon>
+              Gestionar actividad
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+   <div class="col-md-9 ml-sm-auto col-lg-10 px-md-4 pt-2">
+
+       <router-outlet></router-outlet>
+
+   </div>
+
+  </div>
+</div>
+
+
