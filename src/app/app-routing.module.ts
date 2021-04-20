@@ -12,6 +12,10 @@ const routes: Routes = [
     loadChildren: () => import('./security/security.module').then(m => m.SecurityModule)
   },
   {
+    path: 'system',
+    loadChildren: () => import('./system/system.module').then(m => m.SystemModule)
+  },
+  {
     path: 'page_Notfound',
     component: NotFoundComponent
   },
