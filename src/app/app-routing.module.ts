@@ -7,7 +7,10 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('./aplications/aplications.module').then(m => m.AplicationsModule)
   },
-
+  {
+    path: 'security',
+    loadChildren: () => import('./security/security.module').then(m => m.SecurityModule)
+  },
   {
     path: 'page_Notfound',
     component: NotFoundComponent
