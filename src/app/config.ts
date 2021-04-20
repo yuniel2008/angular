@@ -59,7 +59,6 @@ export class Config {
   static groupSistem(): any {
     const arrayGroup = [];
     arrayGroup.push({alias: 'G_ADMIN', name: 'Administrador', status: false});
-    arrayGroup.push({alias: 'G_PUBLIC', name: 'User', status: false});
     return arrayGroup;
   }
 
