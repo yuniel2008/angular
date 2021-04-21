@@ -20,6 +20,15 @@ import {RouterModule} from '@angular/router';
     BtnSearchComponent,
     BtnUpdateComponent
   ],
+  exports: [
+    BtnCancelComponent,
+    BtnDetailsComponent,
+    BtnGobackComponent,
+    BtnNewComponent,
+    BtnSaveComponent,
+    BtnSearchComponent,
+    BtnUpdateComponent
+  ],
   imports: [
     CommonModule,
     FontAwesomeModule,

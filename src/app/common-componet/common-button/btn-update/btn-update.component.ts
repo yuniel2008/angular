@@ -2,7 +2,8 @@ import {Component, Input, OnInit} from '@angular/core';
 import {faEdit} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'app-btn-update',
+  // tslint:disable-next-line:component-selector
+  selector: 'btn-update',
   template: `
     <a class="btn btn-primary btn-sm text-white" href="#" routerLink="{{router}}">
     <fa-icon [icon]="faEdit" size="ms"></fa-icon> Actualizar</a>`

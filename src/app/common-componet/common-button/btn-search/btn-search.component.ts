@@ -2,7 +2,8 @@ import {Component, Input, OnInit} from '@angular/core';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'app-btn-search',
+  // tslint:disable-next-line:component-selector
+  selector: 'btn-search',
   template: `
     <a class="btn btn-primary btn-sm text-white" href="#" routerLink="{{router}}">
     <fa-icon [icon]="faPlus" size="ms"></fa-icon> Nuevo</a>`

@@ -1,0 +1,76 @@
+<title-view [titles]="'Ver detalle'" [subtitle]="'usuarios'"></title-view>
+<section *ngIf="!loading">
+  <loading-view></loading-view>
+</section>
+
+<section *ngIf="loading">
+
+  <section *ngIf="loading">
+
+    <div *ngIf="obj != null">
+      <div class="row">
+        <div class="col-lg-4">
+          <label class="font-weight-bold mr-2">Nombre: </label>
+          <label > {{obj.personal_informations.fullname}} </label>
+        </div>
+
+        <div class="col-lg-4">
+          <label class="font-weight-bold mr-2">Carnet de identidad: </label>
+          <label > {{obj.personal_informations.ci}} </label>
+        </div>
+
+        <div class="col-lg-4">
+          <label class="font-weight-bold mr-2">Género: </label>
+          <label *ngIf="obj.personal_informations.gender === 'm'"> Masculino </label>
+          <label *ngIf="obj.personal_informations.gender === 'f'"> Femenino </label>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4">
+          <label class="font-weight-bold mr-2">Usuario: </label>
+          <label > {{obj.username}} </label>
+        </div>
+
+        <div class="col-lg-4">
+          <label class="font-weight-bold mr-2">Rol: </label>
+          <label > {{obj.roles}} </label>
+        </div>
+
+        <div class="col-lg-4">
+          <label class="font-weight-bold mr-2">Estado: </label>
+          <label *ngIf="obj.status == true" class="text-success"> Habilitado </label>
+          <label *ngIf="obj.status == false" class="text-danger"> No habilitado </label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4">
+          <label class="font-weight-bold mr-2">Correo: </label>
+          <label > {{obj.personal_informations.email}} </label>
+        </div>
+
+        <div class="col-lg-4">
+          <label class="font-weight-bold mr-2">Teléfono: </label>
+          <label > {{obj.personal_informations.phone}} </label>
+        </div>
+
+
+      </div>
+
+    </div>
+
+    <div *ngIf="obj == null">
+      <label>No hay datos que mostrar.</label>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 mt-2">
+        <btn-goback router="/system/user/list"></btn-goback>
+      </div>
+    </div>
+  </section>
+
+
+</section>

@@ -54,12 +54,12 @@ export class Config {
   }
 
   /**
-   * return group of the system
+   * return roles of the system
    */
-  static groupSistem(): any {
-    const arrayGroup = [];
-    arrayGroup.push({alias: 'G_ADMIN', name: 'Administrador', status: false});
-    return arrayGroup;
+  static rolesSistem(): any {
+    const arrayRoles = [];
+    arrayRoles.push({alias: 'ROL_ADMIN', name: 'Administrador'});
+    return arrayRoles;
   }
 
 }
