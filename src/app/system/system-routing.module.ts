@@ -97,7 +97,11 @@ const routes: Routes = [
             component: ViewActionsComponent
           }
         ]
-      }
+      },
+      {
+        path: 'nomenclators',
+        loadChildren: () => import('./system-nomenclators/system-nomenclators.module').then(m => m.SystemNomenclatorsModule)
+      },
     ]
   }
 ];

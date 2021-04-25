@@ -24,6 +24,7 @@ import { SystemActionsComponent } from './system-actions/system-actions.componen
 import { ListActionsComponent } from './system-actions/list-actions/list-actions.component';
 import { ViewActionsComponent } from './system-actions/view-actions/view-actions.component';
 import {ActionsService} from './system-actions/actions.service';
+import {SystemNomenclatorsModule} from './system-nomenclators/system-nomenclators.module';
 
 
 @NgModule({
@@ -50,7 +51,7 @@ import {ActionsService} from './system-actions/actions.service';
     SystemRoutingModule,
     TemplatesModule,
     FontAwesomeModule,
-    CommonComponetModule
+    CommonComponetModule,
   ],
   providers: [
     UserService,
