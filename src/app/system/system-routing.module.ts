@@ -8,6 +8,9 @@ import {NewUserComponent} from './system-user/new-user/new-user.component';
 import {UpdateUserComponent} from './system-user/update-user/update-user.component';
 import {ViewUserComponent} from './system-user/view-user/view-user.component';
 import {ChangePasswordComponent} from './system-user/change-password/change-password.component';
+import {SystemLogComponent} from './system-log/system-log.component';
+import {ListLogComponent} from './system-log/list-log/list-log.component';
+import {ViewLogComponent} from './system-log/view-log/view-log.component';
 
 const routes: Routes = [
   {
@@ -51,6 +54,25 @@ const routes: Routes = [
           {
             path: 'view/:id',
             component: ViewUserComponent
+          }
+        ]
+      },
+      {
+        path: 'log',
+        component: SystemLogComponent,
+        children: [
+          {
+            path: '',
+            redirectTo: 'list',
+            pathMatch: 'full'
+          },
+          {
+            path: 'list',
+            component: ListLogComponent
+          },
+          {
+            path: 'view/:id',
+            component: ViewLogComponent
           }
         ]
       }

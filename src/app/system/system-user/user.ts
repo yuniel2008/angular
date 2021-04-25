@@ -11,9 +11,7 @@ export class User {
        gender: string,
        email: string,
        phone: number
-    },
-
-
+    }
   ) {
   }
 }

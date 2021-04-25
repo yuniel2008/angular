@@ -1,0 +1,68 @@
+<title-view [titles]="'Listar'" [subtitle]="'logs'"></title-view>
+
+
+
+<section *ngIf="!loading">
+  <loading-view></loading-view>
+</section>
+<section *ngIf="loading">
+
+  <section class="pb-2">
+    <btn-new router="/system/user/new"></btn-new>
+  </section>
+
+  <div  class="table table-responsive">
+    <table class="table table-hover">
+      <thead class="thead-light">
+      <tr>
+        <th>Fecha</th>
+
+        <th>Error</th>
+
+        <th>Funcionalidad</th>
+
+        <th>Usuario</th>
+
+        <th>Rol</th>
+
+        <th>Acciones</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr  *ngFor="let item of lists">
+        <td>
+          {{item.dates | date: 'd/M/yy HH:mm'}}
+        </td>
+
+        <td>
+          {{item.error | slice: 0: 50}}...
+        </td>
+
+        <td>
+          {{item.actions}}
+        </td>
+
+        <td>
+          {{item.user_logs.username}}
+        </td>
+
+        <td>
+          {{item.user_logs.roles}}
+        </td>
+
+        <td>
+          <btn-details ngClass="pr-2" router="/system/log/view/{{item.id}}"></btn-details>
+        </td>
+
+      </tr>
+      <tr *ngIf="lists.length === 0" >
+        <td>No hay datos que mostrar.</td>
+        <td></td>
+        <td></td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+</section>
+
