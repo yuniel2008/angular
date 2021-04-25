@@ -20,6 +20,10 @@ import { SystemLogComponent } from './system-log/system-log.component';
 import {LogService} from './system-log/log.service';
 import { ListLogComponent } from './system-log/list-log/list-log.component';
 import { ViewLogComponent } from './system-log/view-log/view-log.component';
+import { SystemActionsComponent } from './system-actions/system-actions.component';
+import { ListActionsComponent } from './system-actions/list-actions/list-actions.component';
+import { ViewActionsComponent } from './system-actions/view-actions/view-actions.component';
+import {ActionsService} from './system-actions/actions.service';
 
 
 @NgModule({
@@ -34,7 +38,10 @@ import { ViewLogComponent } from './system-log/view-log/view-log.component';
     ChangePasswordComponent,
     SystemLogComponent,
     ListLogComponent,
-    ViewLogComponent
+    ViewLogComponent,
+    SystemActionsComponent,
+    ListActionsComponent,
+    ViewActionsComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -47,7 +54,8 @@ import { ViewLogComponent } from './system-log/view-log/view-log.component';
   ],
   providers: [
     UserService,
-    LogService
+    LogService,
+    ActionsService
   ],
 })
 export class SystemModule { }

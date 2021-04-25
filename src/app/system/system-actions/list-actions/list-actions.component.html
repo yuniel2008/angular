@@ -1,4 +1,4 @@
-<title-view [titles]="'Listar'" [subtitle]="'logs'"></title-view>
+<title-view [titles]="'Listar'" [subtitle]="'acciones del sistema'"></title-view>
 
 
 
@@ -11,8 +11,6 @@
       <thead class="thead-light">
       <tr>
         <th>Fecha</th>
-
-        <th>Error</th>
 
         <th>Funcionalidad</th>
 
@@ -28,25 +26,20 @@
         <td>
           {{item.dates | date: 'd/M/yy HH:mm'}}
         </td>
-
-        <td>
-          {{item.error | slice: 0: 50}}...
-        </td>
-
         <td>
           {{item.actions}}
         </td>
 
         <td>
-          {{item.user_logs.username}}
+          {{item.user_actions.username}}
         </td>
 
         <td>
-          {{item.user_logs.roles}}
+          {{item.user_actions.roles}}
         </td>
 
         <td>
-          <btn-details ngClass="pr-2" router="/system/log/view/{{item.id}}"></btn-details>
+          <btn-details ngClass="pr-2" router="/system/actions/view/{{item.id}}"></btn-details>
         </td>
 
       </tr>
@@ -60,4 +53,5 @@
 
   </div>
 </section>
+
 

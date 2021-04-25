@@ -1,0 +1,48 @@
+<title-view [titles]="'Ver detalle'" [subtitle]="'de la acción en el sistema'"></title-view>
+<section *ngIf="!loading">
+  <loading-view></loading-view>
+</section>
+
+<section *ngIf="loading">
+
+  <section *ngIf="loading">
+
+    <div *ngIf="obj != null">
+      <div class="row">
+        <div class="col-lg-3">
+          <label class="font-weight-bold mr-2">Fecha: </label>
+          <label > {{obj.dates | date: 'd/M/yy HH:mm'}} </label>
+        </div>
+
+        <div class="col-lg-3">
+          <label class="font-weight-bold mr-2">Accion: </label>
+          <label > {{obj.actions}} </label>
+        </div>
+
+        <div class="col-lg-3">
+          <label class="font-weight-bold mr-2">Usuario: </label>
+          <label > {{obj.user_actions.username}} </label>
+        </div>
+
+        <div class="col-lg-3">
+          <label class="font-weight-bold mr-2">Rol: </label>
+          <label > {{obj.user_actions.roles}} </label>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="obj == null">
+      <label>No hay datos que mostrar.</label>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 mt-2">
+        <btn-goback router="/system/actions/list"></btn-goback>
+      </div>
+    </div>
+  </section>
+
+
+</section>
+
+

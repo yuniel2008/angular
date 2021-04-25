@@ -11,6 +11,9 @@ import {ChangePasswordComponent} from './system-user/change-password/change-pass
 import {SystemLogComponent} from './system-log/system-log.component';
 import {ListLogComponent} from './system-log/list-log/list-log.component';
 import {ViewLogComponent} from './system-log/view-log/view-log.component';
+import {SystemActionsComponent} from './system-actions/system-actions.component';
+import {ListActionsComponent} from './system-actions/list-actions/list-actions.component';
+import {ViewActionsComponent} from './system-actions/view-actions/view-actions.component';
 
 const routes: Routes = [
   {
@@ -73,6 +76,25 @@ const routes: Routes = [
           {
             path: 'view/:id',
             component: ViewLogComponent
+          }
+        ]
+      },
+      {
+        path: 'actions',
+        component: SystemActionsComponent,
+        children: [
+          {
+            path: '',
+            redirectTo: 'list',
+            pathMatch: 'full'
+          },
+          {
+            path: 'list',
+            component: ListActionsComponent
+          },
+          {
+            path: 'view/:id',
+            component: ViewActionsComponent
           }
         ]
       }

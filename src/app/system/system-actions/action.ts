@@ -1,11 +1,10 @@
-export class Log {
+export class Action {
   constructor(
     public id: string,
     public dates: string,
-    public error: string,
     public actions: string,
     // tslint:disable-next-line:variable-name
-    public user_logs: {
+    public user_actions: {
       id: string,
       username: string,
       roles: string
