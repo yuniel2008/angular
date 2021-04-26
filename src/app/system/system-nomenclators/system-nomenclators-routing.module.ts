@@ -1,24 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {SystemComponent} from '../system.component';
-import {SystemHomePageComponent} from '../system-home-page/system-home-page.component';
-import {SystemUserComponent} from '../system-user/system-user.component';
-import {ListUserComponent} from '../system-user/list-user/list-user.component';
-import {NewUserComponent} from '../system-user/new-user/new-user.component';
-import {UpdateUserComponent} from '../system-user/update-user/update-user.component';
-import {ChangePasswordComponent} from '../system-user/change-password/change-password.component';
-import {ViewUserComponent} from '../system-user/view-user/view-user.component';
-import {SystemLogComponent} from '../system-log/system-log.component';
-import {ListLogComponent} from '../system-log/list-log/list-log.component';
-import {ViewLogComponent} from '../system-log/view-log/view-log.component';
-import {SystemActionsComponent} from '../system-actions/system-actions.component';
-import {ListActionsComponent} from '../system-actions/list-actions/list-actions.component';
-import {ViewActionsComponent} from '../system-actions/view-actions/view-actions.component';
+import {NomenclatorsCountryComponent} from './nomenclators-country/nomenclators-country.component';
+import {ListCountryComponent} from './nomenclators-country/list-country/list-country.component';
+import {NewCountryComponent} from './nomenclators-country/new-country/new-country.component';
+import {UpdateCountryComponent} from './nomenclators-country/update-country/update-country.component';
+import {ViewCountryComponent} from './nomenclators-country/view-country/view-country.component';
+import {SystemNomenclatorsComponent} from './system-nomenclators.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: SystemComponent,
+    component: SystemNomenclatorsComponent,
     children: [
       {
         path: '',
@@ -27,7 +19,7 @@ const routes: Routes = [
       },
       {
         path: 'country',
-        component: SystemUserComponent,
+        component: NomenclatorsCountryComponent,
         children: [
           {
             path: '',
@@ -36,19 +28,19 @@ const routes: Routes = [
           },
           {
             path: 'list',
-            component: ListUserComponent
+            component: ListCountryComponent
           },
           {
             path: 'new',
-            component: NewUserComponent
+            component: NewCountryComponent
           },
           {
             path: 'update/:id',
-            component: UpdateUserComponent
+            component: UpdateCountryComponent
           },
           {
             path: 'view/:id',
-            component: ViewUserComponent
+            component: ViewCountryComponent
           }
         ]
       }
