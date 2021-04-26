@@ -11,6 +11,12 @@ import { ViewCountryComponent } from './nomenclators-country/view-country/view-c
 import {CountryService} from './nomenclators-country/country.service';
 import {CommonComponetModule} from '../../common-componet/common-componet.module';
 import {ReactiveFormsModule} from '@angular/forms';
+import { NomenclatorsProvinceComponent } from './nomenclators-province/nomenclators-province.component';
+import { ListProvinceComponent } from './nomenclators-province/list-province/list-province.component';
+import { NewProvinceComponent } from './nomenclators-province/new-province/new-province.component';
+import { UpdateProvinceComponent } from './nomenclators-province/update-province/update-province.component';
+import { ViewProvinceComponent } from './nomenclators-province/view-province/view-province.component';
+import {ProvinceService} from './nomenclators-province/province.service';
 
 
 @NgModule({
@@ -20,7 +26,12 @@ import {ReactiveFormsModule} from '@angular/forms';
     ListCountryComponent,
     NewCountryComponent,
     UpdateCountryComponent,
-    ViewCountryComponent
+    ViewCountryComponent,
+    NomenclatorsProvinceComponent,
+    ListProvinceComponent,
+    NewProvinceComponent,
+    UpdateProvinceComponent,
+    ViewProvinceComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +40,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     ReactiveFormsModule,
   ],
   providers: [
-   CountryService
+   CountryService,
+    ProvinceService
   ]
 })
 export class SystemNomenclatorsModule { }

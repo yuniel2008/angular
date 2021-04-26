@@ -6,6 +6,11 @@ import {NewCountryComponent} from './nomenclators-country/new-country/new-countr
 import {UpdateCountryComponent} from './nomenclators-country/update-country/update-country.component';
 import {ViewCountryComponent} from './nomenclators-country/view-country/view-country.component';
 import {SystemNomenclatorsComponent} from './system-nomenclators.component';
+import {NomenclatorsProvinceComponent} from './nomenclators-province/nomenclators-province.component';
+import {ListProvinceComponent} from './nomenclators-province/list-province/list-province.component';
+import {NewProvinceComponent} from './nomenclators-province/new-province/new-province.component';
+import {UpdateProvinceComponent} from './nomenclators-province/update-province/update-province.component';
+import {ViewProvinceComponent} from './nomenclators-province/view-province/view-province.component';
 
 const routes: Routes = [
   {
@@ -41,6 +46,33 @@ const routes: Routes = [
           {
             path: 'view/:id',
             component: ViewCountryComponent
+          }
+        ]
+      },
+      {
+        path: 'province',
+        component: NomenclatorsProvinceComponent,
+        children: [
+          {
+            path: '',
+            redirectTo: 'list',
+            pathMatch: 'full'
+          },
+          {
+            path: 'list',
+            component: ListProvinceComponent
+          },
+          {
+            path: 'new',
+            component: NewProvinceComponent
+          },
+          {
+            path: 'update/:id',
+            component: UpdateProvinceComponent
+          },
+          {
+            path: 'view/:id',
+            component: ViewProvinceComponent
           }
         ]
       }
