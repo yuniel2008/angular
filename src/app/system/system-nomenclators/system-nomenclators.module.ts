@@ -17,6 +17,12 @@ import { NewProvinceComponent } from './nomenclators-province/new-province/new-p
 import { UpdateProvinceComponent } from './nomenclators-province/update-province/update-province.component';
 import { ViewProvinceComponent } from './nomenclators-province/view-province/view-province.component';
 import {ProvinceService} from './nomenclators-province/province.service';
+import { NomenclatorsMunicipalityComponent } from './nomenclators-municipality/nomenclators-municipality.component';
+import { ListMunicipalityComponent } from './nomenclators-municipality/list-municipality/list-municipality.component';
+import { ViewMunicipalityComponent } from './nomenclators-municipality/view-municipality/view-municipality.component';
+import { NewMunicipalityComponent } from './nomenclators-municipality/new-municipality/new-municipality.component';
+import { UpdateMunicipalityComponent } from './nomenclators-municipality/update-municipality/update-municipality.component';
+import {MunicipalityService} from './nomenclators-municipality/municipality.service';
 
 
 @NgModule({
@@ -31,7 +37,12 @@ import {ProvinceService} from './nomenclators-province/province.service';
     ListProvinceComponent,
     NewProvinceComponent,
     UpdateProvinceComponent,
-    ViewProvinceComponent
+    ViewProvinceComponent,
+    NomenclatorsMunicipalityComponent,
+    ListMunicipalityComponent,
+    ViewMunicipalityComponent,
+    NewMunicipalityComponent,
+    UpdateMunicipalityComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +52,8 @@ import {ProvinceService} from './nomenclators-province/province.service';
   ],
   providers: [
    CountryService,
-    ProvinceService
+    ProvinceService,
+    MunicipalityService
   ]
 })
 export class SystemNomenclatorsModule { }

@@ -11,6 +11,11 @@ import {ListProvinceComponent} from './nomenclators-province/list-province/list-
 import {NewProvinceComponent} from './nomenclators-province/new-province/new-province.component';
 import {UpdateProvinceComponent} from './nomenclators-province/update-province/update-province.component';
 import {ViewProvinceComponent} from './nomenclators-province/view-province/view-province.component';
+import {ListMunicipalityComponent} from './nomenclators-municipality/list-municipality/list-municipality.component';
+import {NewMunicipalityComponent} from './nomenclators-municipality/new-municipality/new-municipality.component';
+import {UpdateMunicipalityComponent} from './nomenclators-municipality/update-municipality/update-municipality.component';
+import {ViewMunicipalityComponent} from './nomenclators-municipality/view-municipality/view-municipality.component';
+import {NomenclatorsMunicipalityComponent} from './nomenclators-municipality/nomenclators-municipality.component';
 
 const routes: Routes = [
   {
@@ -73,6 +78,33 @@ const routes: Routes = [
           {
             path: 'view/:id',
             component: ViewProvinceComponent
+          }
+        ]
+      },
+      {
+        path: 'municipality',
+        component: NomenclatorsMunicipalityComponent,
+        children: [
+          {
+            path: '',
+            redirectTo: 'list',
+            pathMatch: 'full'
+          },
+          {
+            path: 'list',
+            component: ListMunicipalityComponent
+          },
+          {
+            path: 'new',
+            component: NewMunicipalityComponent
+          },
+          {
+            path: 'update/:id',
+            component: UpdateMunicipalityComponent
+          },
+          {
+            path: 'view/:id',
+            component: ViewMunicipalityComponent
           }
         ]
       }

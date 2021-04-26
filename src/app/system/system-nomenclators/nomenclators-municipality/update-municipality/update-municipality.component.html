@@ -1,0 +1,69 @@
+<title-view [titles]="'Actualizar'" [subtitle]="'provincia'"></title-view>
+<form  novalidate [formGroup]="form">
+
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="form-group">
+        <label for="value">Nombre de la provincia</label>
+        <input type="text" placeholder="Nombre de la provincia"  class="form-control" id="value" formControlName="value">
+        <div *ngIf="f.value.errors && f.value.touched">
+          <div *ngIf="f.value.errors.required">
+            <label for="value" class="text-danger"><i class="fa fa-ban"></i> El campo es requerido.</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4">
+      <div class="form-group">
+        <label for="code">Código de la provincia</label>
+        <input type="text" placeholder="Código de la provincia" class="form-control" id="code" formControlName="code">
+        <div *ngIf="f.code.errors && f.code.touched">
+          <div *ngIf="f.code.errors.required">
+            <label for="code" class="text-danger"><i class="fa fa-ban"></i> El campo es requerido.</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4">
+      <div class="form-group">
+
+        <label for="comboProvince">País</label>
+        <select id="comboProvince"   class="form-control" #comboProvince (change)="setProvince(comboProvince.value)" formControlName="n_province_id">
+          <option value="" selected><<---Seleccione-->></option>
+          <option *ngFor="let i of comboProvinces" value="{{i.id}}">{{i.code}} --- {{i.value}}</option>
+        </select>
+        <div *ngIf="f.n_province_id.errors && f.n_province_id.touched">
+          <div *ngIf="f.n_province_id.errors.required">
+            <label for="comboProvince" class="text-danger"><i class="fa fa-ban"></i> El campo es requerido.</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="form-group">
+        <label  for="status">Estado</label>
+        <br>
+        <common-switch-rounded id="status" [status]="status" (notifyData)='setEmiterData($event)'></common-switch-rounded>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="row">
+      <div class="col-lg-12 mt-2">
+        <btn-save (click)="update()" ngClass="pr-2" [disabled]="!form.valid"></btn-save>
+        <btn-cancel  router="/system/nomenclators/municipality/list"></btn-cancel>
+      </div>
+    </div>
+  </div>
+
+
+
+</form>
+
+
