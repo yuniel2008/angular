@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {CommonTitleModule} from './common-title/common-title.module';
 import {CommonLoadingModule} from './common-loading/common-loading.module';
 import {CommonButtonModule} from './common-button/common-button.module';
+import {CommonSwitchModule} from './common-switch/common-switch.module';
 
 
 
@@ -14,7 +15,9 @@ import {CommonButtonModule} from './common-button/common-button.module';
   exports: [
     CommonTitleModule,
     CommonLoadingModule,
-    CommonButtonModule
+    CommonButtonModule,
+    CommonSwitchModule
+
   ]
 })
 export class CommonComponetModule { }
