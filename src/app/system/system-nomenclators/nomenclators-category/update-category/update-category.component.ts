@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Config} from '../../../../config';
-import {UserService} from '../../../system-user/user.service';
+import {CountryService} from '../../nomenclators-country/country.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {CountryService} from '../country.service';
+import {CategoryService} from '../category.service';
 
 @Component({
-  selector: 'app-update-country',
-  templateUrl: './update-country.component.html',
-  styleUrls: ['./update-country.component.css']
+  selector: 'app-update-category',
+  templateUrl: './update-category.component.html',
+  styleUrls: ['./update-category.component.css']
 })
-export class UpdateCountryComponent implements OnInit {
+export class UpdateCategoryComponent implements OnInit {
   public form: FormGroup;
   public obj: any;
   public msgError = 'null';
@@ -18,7 +17,7 @@ export class UpdateCountryComponent implements OnInit {
   public status: boolean;
 
   constructor(
-    private service: CountryService,
+    private service: CategoryService,
     private router: Router,
     private  route: ActivatedRoute,
     private formBuilder: FormBuilder,
@@ -94,7 +93,7 @@ export class UpdateCountryComponent implements OnInit {
   }
 
   golist(): void {
-    const link = ['/system/nomenclators/country/list'];
+    const link = ['/system/nomenclators/category/list'];
     this.router.navigate(link);
   }
 

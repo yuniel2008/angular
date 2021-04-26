@@ -23,6 +23,12 @@ import { ViewMunicipalityComponent } from './nomenclators-municipality/view-muni
 import { NewMunicipalityComponent } from './nomenclators-municipality/new-municipality/new-municipality.component';
 import { UpdateMunicipalityComponent } from './nomenclators-municipality/update-municipality/update-municipality.component';
 import {MunicipalityService} from './nomenclators-municipality/municipality.service';
+import { NomenclatorsCategoryComponent } from './nomenclators-category/nomenclators-category.component';
+import { ListCategoryComponent } from './nomenclators-category/list-category/list-category.component';
+import { ViewCategoryComponent } from './nomenclators-category/view-category/view-category.component';
+import { NewCategoryComponent } from './nomenclators-category/new-category/new-category.component';
+import { UpdateCategoryComponent } from './nomenclators-category/update-category/update-category.component';
+import {CategoryService} from './nomenclators-category/category.service';
 
 
 @NgModule({
@@ -42,7 +48,12 @@ import {MunicipalityService} from './nomenclators-municipality/municipality.serv
     ListMunicipalityComponent,
     ViewMunicipalityComponent,
     NewMunicipalityComponent,
-    UpdateMunicipalityComponent
+    UpdateMunicipalityComponent,
+    NomenclatorsCategoryComponent,
+    ListCategoryComponent,
+    ViewCategoryComponent,
+    NewCategoryComponent,
+    UpdateCategoryComponent
   ],
   imports: [
     CommonModule,
@@ -53,7 +64,8 @@ import {MunicipalityService} from './nomenclators-municipality/municipality.serv
   providers: [
    CountryService,
     ProvinceService,
-    MunicipalityService
+    MunicipalityService,
+    CategoryService
   ]
 })
 export class SystemNomenclatorsModule { }
