@@ -21,6 +21,11 @@ import {ListCategoryComponent} from './nomenclators-category/list-category/list-
 import {NewCategoryComponent} from './nomenclators-category/new-category/new-category.component';
 import {UpdateCategoryComponent} from './nomenclators-category/update-category/update-category.component';
 import {ViewCategoryComponent} from './nomenclators-category/view-category/view-category.component';
+import {NomenclatorsActivityComponent} from './nomenclators-activity/nomenclators-activity.component';
+import {ListActivityComponent} from './nomenclators-activity/list-activity/list-activity.component';
+import {NewActivityComponent} from './nomenclators-activity/new-activity/new-activity.component';
+import {UpdateActivityComponent} from './nomenclators-activity/update-activity/update-activity.component';
+import {ViewActivityComponent} from './nomenclators-activity/view-activity/view-activity.component';
 
 const routes: Routes = [
   {
@@ -137,6 +142,33 @@ const routes: Routes = [
           {
             path: 'view/:id',
             component: ViewCategoryComponent
+          }
+        ]
+      },
+      {
+        path: 'activity',
+        component: NomenclatorsActivityComponent,
+        children: [
+          {
+            path: '',
+            redirectTo: 'list',
+            pathMatch: 'full'
+          },
+          {
+            path: 'list',
+            component: ListActivityComponent
+          },
+          {
+            path: 'new',
+            component: NewActivityComponent
+          },
+          {
+            path: 'update/:id',
+            component: UpdateActivityComponent
+          },
+          {
+            path: 'view/:id',
+            component: ViewActivityComponent
           }
         ]
       }

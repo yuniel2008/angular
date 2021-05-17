@@ -29,6 +29,12 @@ import { ViewCategoryComponent } from './nomenclators-category/view-category/vie
 import { NewCategoryComponent } from './nomenclators-category/new-category/new-category.component';
 import { UpdateCategoryComponent } from './nomenclators-category/update-category/update-category.component';
 import {CategoryService} from './nomenclators-category/category.service';
+import { NomenclatorsActivityComponent } from './nomenclators-activity/nomenclators-activity.component';
+import { ListActivityComponent } from './nomenclators-activity/list-activity/list-activity.component';
+import { NewActivityComponent } from './nomenclators-activity/new-activity/new-activity.component';
+import { ViewActivityComponent } from './nomenclators-activity/view-activity/view-activity.component';
+import { UpdateActivityComponent } from './nomenclators-activity/update-activity/update-activity.component';
+import {ActivityService} from './nomenclators-activity/activity.service';
 
 
 @NgModule({
@@ -53,7 +59,12 @@ import {CategoryService} from './nomenclators-category/category.service';
     ListCategoryComponent,
     ViewCategoryComponent,
     NewCategoryComponent,
-    UpdateCategoryComponent
+    UpdateCategoryComponent,
+    NomenclatorsActivityComponent,
+    ListActivityComponent,
+    NewActivityComponent,
+    ViewActivityComponent,
+    UpdateActivityComponent
   ],
   imports: [
     CommonModule,
@@ -65,7 +76,8 @@ import {CategoryService} from './nomenclators-category/category.service';
    CountryService,
     ProvinceService,
     MunicipalityService,
-    CategoryService
+    CategoryService,
+    ActivityService
   ]
 })
 export class SystemNomenclatorsModule { }
