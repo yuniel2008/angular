@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Config} from '../../../config';
 import {UserService} from '../user.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {faBan} from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -11,9 +12,9 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./new-user.component.css']
 })
 export class NewUserComponent implements OnInit {
-
+  public faBan = faBan;
   public form: FormGroup;
-  public arrayRoles: [{alias: string, name: string}] = Config.rolesSistem();
+  public arrayRoles: [] = [];
   public msgError = 'null';
 
   constructor(
@@ -26,6 +27,22 @@ export class NewUserComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.service.listRoles()
+      .subscribe(
+        rtRol => {
+          if (rtRol.error){
+            this.msgError = rtRol.error;
+          } else {
+            this.arrayRoles = rtRol.data;
+          }
+        },
+        er => {
+          this.msgError = er;
+        },
+        () => {
+          console.log('ready');
+        }
+      );
   }
 
   crearControles(): void {

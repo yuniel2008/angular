@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Config} from '../../../config';
 import {UserService} from '../user.service';
 import {ActivatedRoute, Router} from '@angular/router';
 
@@ -12,7 +11,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class UpdateUserComponent implements OnInit {
 
   public form: FormGroup;
-  public arrayRoles: [{alias: string, name: string}] = Config.rolesSistem();
+  public arrayRoles: [] = [];
   private obj: any;
   public msgError = 'null';
   private id: string;
@@ -28,8 +27,24 @@ export class UpdateUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params.id;
-    console.log(this.id);
     if (!this.id) { return; }
+
+    this.service.listRoles()
+      .subscribe(
+        rtRol => {
+          if (rtRol.error){
+            this.msgError = rtRol.error;
+          } else {
+            this.arrayRoles = rtRol.data;
+          }
+        },
+        er => {
+          this.msgError = er;
+        },
+        () => {
+          console.log('ready');
+        }
+      );
 
     this.service.getByid(this.id)
       .subscribe(

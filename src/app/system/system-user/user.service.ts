@@ -32,6 +32,16 @@ export class UserService {
         catchError(this.handleError<any>('list')));
   }
 
+  listRoles(): Observable<any> {
+    const options = {
+      headers: Config.getheaders('ROLES'),
+    };
+
+    return this.http.get(`${Config.urlApiRes()}/core/roles`, options)
+      .pipe(map(r => r),
+        catchError(this.handleError<any>('list')));
+  }
+
   getByid(id: string): Observable<any> {
     let params = new HttpParams();
     params = params.append('id', id);
