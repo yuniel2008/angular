@@ -35,6 +35,7 @@ import { NewActivityComponent } from './nomenclators-activity/new-activity/new-a
 import { ViewActivityComponent } from './nomenclators-activity/view-activity/view-activity.component';
 import { UpdateActivityComponent } from './nomenclators-activity/update-activity/update-activity.component';
 import {ActivityService} from './nomenclators-activity/activity.service';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -66,12 +67,13 @@ import {ActivityService} from './nomenclators-activity/activity.service';
     ViewActivityComponent,
     UpdateActivityComponent
   ],
-  imports: [
-    CommonModule,
-    SystemNomenclatorsRoutingModule,
-    CommonComponetModule,
-    ReactiveFormsModule,
-  ],
+    imports: [
+        CommonModule,
+        SystemNomenclatorsRoutingModule,
+        CommonComponetModule,
+        ReactiveFormsModule,
+        FontAwesomeModule,
+    ],
   providers: [
    CountryService,
     ProvinceService,

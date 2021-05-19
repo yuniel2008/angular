@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Category} from '../../nomenclators-category/category';
 import {CategoryService} from '../../nomenclators-category/category.service';
 import {ActivityService} from '../activity.service';
+import {faBan} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-new-activity',
@@ -11,6 +12,7 @@ import {ActivityService} from '../activity.service';
   styleUrls: ['./new-activity.component.css']
 })
 export class NewActivityComponent implements OnInit {
+  public faBan = faBan;
   public form: FormGroup;
   public msgError = 'null';
   public comboCategory: Category[] = [];

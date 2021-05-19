@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Country} from '../../nomenclators-country/country';
 import {ProvinceService} from '../../nomenclators-province/province.service';
-import {CountryService} from '../../nomenclators-country/country.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Province} from '../../nomenclators-province/province';
 import {MunicipalityService} from '../municipality.service';
+import {faBan} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-new-municipality',
@@ -13,6 +12,7 @@ import {MunicipalityService} from '../municipality.service';
   styleUrls: ['./new-municipality.component.css']
 })
 export class NewMunicipalityComponent implements OnInit {
+  public faBan = faBan;
   public form: FormGroup;
   public msgError = 'null';
   public comboProvinces: Province[] = [];

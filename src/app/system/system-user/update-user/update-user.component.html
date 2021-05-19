@@ -8,7 +8,7 @@
         <input type="text" placeholder="Nombre completo"  class="form-control" id="name" formControlName="fullname">
         <div *ngIf="f.fullname.errors && f.fullname.touched">
           <div *ngIf="f.fullname.errors.required">
-            <label for="name" class="text-danger"><i class="fa fa-ban"></i> El campo es requerido.</label>
+            <label for="name" class="text-danger"><fa-icon [icon]="faBan" size="ms"></fa-icon> El campo es requerido.</label>
           </div>
         </div>
       </div>
@@ -20,7 +20,7 @@
         <input type="text" placeholder="Carnet de identidad" class="form-control" id="ci" formControlName="ci">
         <div *ngIf="f.ci.errors && f.ci.touched">
           <div *ngIf="f.ci.errors.required">
-            <label for="name" class="text-danger"><i class="fa fa-ban"></i> El campo es requerido.</label>
+            <label for="name" class="text-danger"><fa-icon [icon]="faBan" size="ms"></fa-icon> El campo es requerido.</label>
           </div>
         </div>
       </div>
@@ -36,7 +36,7 @@
         </select>
         <div *ngIf="f.gender.errors && f.gender.touched">
           <div *ngIf="f.gender.errors.required">
-            <label for="gender" class="text-danger"><i class="fa fa-ban"></i> El campo es requerido.</label>
+            <label for="gender" class="text-danger"><fa-icon [icon]="faBan" size="ms"></fa-icon> El campo es requerido.</label>
           </div>
         </div>
       </div>
@@ -51,11 +51,11 @@
         <label for="roles">Rol</label>
         <select id="roles"   class="form-control"  #rol (change)="setRol(rol.value)" formControlName="roles">
           <option value="" selected><<---Seleccione-->></option>
-          <option *ngFor="let i of arrayRoles" value="{{i.alias}}">{{i.name}}</option>
+          <option *ngFor="let i of arrayRoles" value="{{i.rol}}">{{i.name}}</option>
         </select>
         <div *ngIf="f.roles.errors && f.roles.touched">
           <div *ngIf="f.roles.errors.required">
-            <label for="roles" class="text-danger"><i class="fa fa-ban"></i> El campo es requerido.</label>
+            <label for="roles" class="text-danger"><fa-icon [icon]="faBan" size="ms"></fa-icon> El campo es requerido.</label>
           </div>
         </div>
       </div>
@@ -74,10 +74,10 @@
         <input  type="email" placeholder="Correo"  class="form-control" id="email" formControlName="email">
         <div *ngIf="f.email.errors && f.email.touched">
           <div *ngIf="f.email.errors.email">
-            <label for="email" class="text-danger"><i class="fa fa-ban"></i> El correo no es correcto.</label>
+            <label for="email" class="text-danger"><fa-icon [icon]="faBan" size="ms"></fa-icon> El correo no es correcto.</label>
           </div>
           <div *ngIf="f.email.errors.required">
-            <label for="email" class="text-danger"><i class="fa fa-ban"></i> El campo es requerido.</label>
+            <label for="email" class="text-danger"><fa-icon [icon]="faBan" size="ms"></fa-icon> El campo es requerido.</label>
           </div>
         </div>
       </div>

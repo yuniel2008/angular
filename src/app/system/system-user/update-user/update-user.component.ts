@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../user.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {faBan} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-update-user',
@@ -10,6 +11,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class UpdateUserComponent implements OnInit {
 
+  public faBan = faBan;
   public form: FormGroup;
   public arrayRoles: [] = [];
   private obj: any;

@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {MunicipalityService} from '../../nomenclators-municipality/municipality.service';
-import {ProvinceService} from '../../nomenclators-province/province.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Activity} from '../activity';
 import {Category} from '../../nomenclators-category/category';
 import {ActivityService} from '../activity.service';
 import {CategoryService} from '../../nomenclators-category/category.service';
+import {faBan} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-update-activity',
@@ -14,6 +12,7 @@ import {CategoryService} from '../../nomenclators-category/category.service';
   styleUrls: ['./update-activity.component.css']
 })
 export class UpdateActivityComponent implements OnInit {
+  public faBan = faBan;
   public form: FormGroup;
   public obj: any;
   public msgError = 'null';

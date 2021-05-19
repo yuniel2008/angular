@@ -4,6 +4,7 @@ import {CountryService} from '../../nomenclators-country/country.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ProvinceService} from '../province.service';
 import {Country} from '../../nomenclators-country/country';
+import {faBan} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-new-province',
@@ -11,6 +12,7 @@ import {Country} from '../../nomenclators-country/country';
   styleUrls: ['./new-province.component.css']
 })
 export class NewProvinceComponent implements OnInit {
+  public faBan = faBan;
   public form: FormGroup;
   public msgError = 'null';
   public comboCountry: Country[] = [];
@@ -40,7 +42,7 @@ export class NewProvinceComponent implements OnInit {
     });
   }
 
-  getComboContry(): void {
+  getComboContry(): void {console.log('paso');
     this.serviceCountry.list()
       .subscribe(
         rt => {

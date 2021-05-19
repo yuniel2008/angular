@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Config} from '../../../config';
 import {UserService} from '../user.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {faBan} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-change-password',
@@ -10,6 +11,7 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./change-password.component.css']
 })
 export class ChangePasswordComponent implements OnInit {
+  public faBan = faBan;
   public form: FormGroup;
   private obj: any;
   public msgError = 'null';

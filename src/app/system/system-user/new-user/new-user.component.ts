@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Config} from '../../../config';
 import {UserService} from '../user.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {faBan} from '@fortawesome/free-solid-svg-icons';

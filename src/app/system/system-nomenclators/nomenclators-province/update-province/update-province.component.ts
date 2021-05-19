@@ -4,6 +4,7 @@ import {Country} from '../../nomenclators-country/country';
 import {ProvinceService} from '../province.service';
 import {CountryService} from '../../nomenclators-country/country.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {faBan} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-update-province',
@@ -11,7 +12,7 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./update-province.component.css']
 })
 export class UpdateProvinceComponent implements OnInit {
-
+  public faBan = faBan;
   public form: FormGroup;
   public obj: any;
   public msgError = 'null';

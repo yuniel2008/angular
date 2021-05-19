@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {CountryService} from '../../nomenclators-country/country.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {CategoryService} from '../category.service';
+import {faBan} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-update-category',
@@ -10,6 +10,7 @@ import {CategoryService} from '../category.service';
   styleUrls: ['./update-category.component.css']
 })
 export class UpdateCategoryComponent implements OnInit {
+  public faBan = faBan;
   public form: FormGroup;
   public obj: any;
   public msgError = 'null';

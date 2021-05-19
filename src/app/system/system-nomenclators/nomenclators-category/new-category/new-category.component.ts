@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {CountryService} from '../../nomenclators-country/country.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {CategoryService} from '../category.service';
+import {faBan} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-new-category',
@@ -10,6 +11,7 @@ import {CategoryService} from '../category.service';
   styleUrls: ['./new-category.component.css']
 })
 export class NewCategoryComponent implements OnInit {
+  public faBan = faBan;
   public form: FormGroup;
   public msgError = 'null';
 

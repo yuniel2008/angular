@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {CountryService} from '../country.service';
+import {faBan} from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-new-country',
@@ -9,6 +11,7 @@ import {CountryService} from '../country.service';
   styleUrls: ['./new-country.component.css']
 })
 export class NewCountryComponent implements OnInit {
+  public faBan = faBan;
   public form: FormGroup;
   public msgError = 'null';
 

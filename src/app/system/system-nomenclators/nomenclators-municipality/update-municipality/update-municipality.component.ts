@@ -4,6 +4,7 @@ import {ProvinceService} from '../../nomenclators-province/province.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Province} from '../../nomenclators-province/province';
 import {MunicipalityService} from '../municipality.service';
+import {faBan} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-update-municipality',
@@ -11,6 +12,7 @@ import {MunicipalityService} from '../municipality.service';
   styleUrls: ['./update-municipality.component.css']
 })
 export class UpdateMunicipalityComponent implements OnInit {
+  public faBan = faBan;
   public form: FormGroup;
   public obj: any;
   public msgError = 'null';
