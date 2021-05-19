@@ -27,6 +27,13 @@ export class Config {
   }
 
   /**
+   * return userLogin name
+   */
+  static rol(): string {
+    return `userRol` + this.systemName();
+  }
+
+  /**
    * return system name
    */
   static systemName(): string {
@@ -51,15 +58,6 @@ export class Config {
       'functionality': functionality
     });
     return headers;
-  }
-
-  /**
-   * return roles of the system
-   */
-  static rolesSistem(): any {
-    const arrayRoles = [];
-    arrayRoles.push({alias: 'ROL_ADMIN', name: 'Administrador'});
-    return arrayRoles;
   }
 
 }
