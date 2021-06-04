@@ -4,7 +4,6 @@ import {Config} from '../../config';
 import {SecurityService} from '../security.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {faLock} from '@fortawesome/free-solid-svg-icons';
-
 @Component({
   selector: 'app-login-system',
   templateUrl: './login-system.component.html',
@@ -18,6 +17,8 @@ export class LoginSystemComponent implements OnInit {
 
   public msgError = 'null';
 
+  public copyrigth = '';
+
 
   constructor(
     private service: SecurityService,
@@ -25,6 +26,7 @@ export class LoginSystemComponent implements OnInit {
     private  route: ActivatedRoute,
     private formBuilder: FormBuilder,
   ) {
+    this.copyrigth = Config.copyrigth();
     this.crearControles();
   }
 

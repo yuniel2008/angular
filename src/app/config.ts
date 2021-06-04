@@ -60,4 +60,17 @@ export class Config {
     return headers;
   }
 
+  /**
+   * return copyrigth
+   */
+  static copyrigth(): string {
+    const years =  new Date().getFullYear();
+    if (years === 2021)
+    {
+      return '2021';
+    } else {
+      return `2021-` + years;
+    }
+  }
+
 }
