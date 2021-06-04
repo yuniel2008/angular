@@ -14,11 +14,13 @@ import {ViewLogComponent} from './system-log/view-log/view-log.component';
 import {SystemActionsComponent} from './system-actions/system-actions.component';
 import {ListActionsComponent} from './system-actions/list-actions/list-actions.component';
 import {ViewActionsComponent} from './system-actions/view-actions/view-actions.component';
+import {AuthGuardSystem} from '../autgard/authSystem.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: SystemComponent,
+    canActivate: [AuthGuardSystem],
     children: [
       {
         path: '',

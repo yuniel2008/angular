@@ -1,22 +1,33 @@
-<nav class="navbar navbar-light sticky-top bg-dark flex-md-nowrap p-0 shadow">
-  <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#" routerLink="/system/home">{{appName}}</a>
+<nav class="navbar navbar-light sticky-top bg-secondary flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3 text-white" href="#" routerLink="/system/home">{{appName}}</a>
   <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <ul class="navbar-nav px-3">
     <li class="nav-item text-nowrap">
-      <a class="nav-link" href="#">Sign out</a>
+      <a class="nav-link text-white" (click)="logout()" href="#" routerLink="/system/home"><fa-icon [icon]="faSign" size="ms"></fa-icon> Salir</a>
     </li>
   </ul>
 </nav>
 
 <div class="container-fluid">
   <div class="row">
+
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
       <div class="sidebar-sticky pt-3">
-        <ul class="nav flex-column">
+        <div  class="col-lg-12 text-center">
+          <img class="rounded-circle" src="img/person_notfound.png" alt="" width="50" height="50"/>
+          <p class="text-center text-muted mt-2 mb-0">
+            {{userLogin}}
+          </p>
+        <p class="text-muted mt-0 text-center" style="font-size: small">
+          ({{rolLogin}})
+        </p>
+        </div>
+        <hr>
 
+        <ul class="nav flex-column">
           <h6 class="sidebar-heading d-flex  align-items-center px-3 mt-4 mb-1 text-muted">
               <fa-icon [icon]="faCogs" size="ms"></fa-icon> <span class="pl-2"> Sistema</span>
           </h6>
@@ -85,8 +96,9 @@
        <router-outlet></router-outlet>
 
    </div>
-
   </div>
 </div>
+
+
 
 

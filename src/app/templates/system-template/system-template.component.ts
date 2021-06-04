@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Config} from '../../config';
 import {
-   faList, faPlus, faCogs, faDatabase
+   faList, faPlus, faCogs, faDatabase, faSignOutAlt
 } from '@fortawesome/free-solid-svg-icons';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-system-template',
@@ -13,14 +14,35 @@ export class SystemTemplateComponent implements OnInit {
   public faCogs = faCogs;
   public faList = faList;
   public faPlus = faPlus;
+  public faSign = faSignOutAlt;
   public faDatabase = faDatabase;
   public appName: string;
+  public userLogin: string;
+  public rolLogin: string;
 
-  constructor() {
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
     this.appName = Config.systemName();
+    this.userLogin = atob(localStorage.getItem(Config.userLogin()));
+    this.rolLogin = atob(localStorage.getItem(Config.rol()));
   }
 
   ngOnInit(): void {
+  }
+
+  logout(): void {
+    localStorage.setItem(Config.token(), '');
+    localStorage.setItem(Config.userLogin(), '');
+    localStorage.setItem(Config.rol(), '');
+    localStorage.setItem(Config.isLogin(), btoa('false'));
+    this.goLogin();
+  }
+
+  goLogin(): void {
+    const link = ['/security/system'];
+    this.router.navigate(link);
   }
 
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Config} from '../config';
-import {HttpClient, HttpParams} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
 import {catchError, map} from 'rxjs/operators';
 import {Login} from './login';
@@ -11,6 +11,12 @@ import {Login} from './login';
 export class SecurityService {private url = Config.urlApiRes() ;
   private functionality = 'LOGING';
 
+  private headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'authorization':  ``,
+    'functionality': 'LOGING'
+  });
+
   constructor(
     private  http: HttpClient
   ) { }
@@ -20,26 +26,16 @@ export class SecurityService {private url = Config.urlApiRes() ;
   login(login: Login): Observable<any> {
 
     const options = {
-      headers: Config.getheaders(this.functionality)
+        headers: this.headers
     };
 
     return this.http.post(`${this.url}/login`, login, options)
       .pipe( map(r => r),
-        catchError(this.handleError<any>('insert')))
+        catchError(this.handleError<any>('login')))
       ;
   }
 
-  getRol(username: string): Observable<any> {
 
-    const options = {
-      headers: Config.getheaders(this.functionality)
-    };
-
-    return this.http.post(`${this.url}/getrol`, username, options)
-      .pipe( map(r => r),
-        catchError(this.handleError<any>('insert')))
-      ;
-  }
 
   /**
    * Handle Http operation that failed.

@@ -24,7 +24,7 @@ import { SystemActionsComponent } from './system-actions/system-actions.componen
 import { ListActionsComponent } from './system-actions/list-actions/list-actions.component';
 import { ViewActionsComponent } from './system-actions/view-actions/view-actions.component';
 import {ActionsService} from './system-actions/actions.service';
-import {SystemNomenclatorsModule} from './system-nomenclators/system-nomenclators.module';
+import {AuthGuardSystem} from '../autgard/authSystem.guard';
 
 
 @NgModule({
@@ -56,7 +56,8 @@ import {SystemNomenclatorsModule} from './system-nomenclators/system-nomenclator
   providers: [
     UserService,
     LogService,
-    ActionsService
+    ActionsService,
+    AuthGuardSystem
   ],
 })
 export class SystemModule { }

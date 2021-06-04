@@ -43,8 +43,8 @@ export class LoginSystemComponent implements OnInit {
   login(): void {
     this.msgError = 'null';
     localStorage.setItem(Config.token(), '');
-    localStorage.setItem(Config.userLogin(), btoa(''));
-    localStorage.setItem(Config.rol(), btoa(''));
+    localStorage.setItem(Config.userLogin(), '');
+    localStorage.setItem(Config.rol(), '');
     localStorage.setItem(Config.isLogin(), btoa('false'));
     this.service.login(this.form.value)
       .subscribe(
@@ -55,16 +55,8 @@ export class LoginSystemComponent implements OnInit {
             localStorage.setItem(Config.token(), rt.token);
             localStorage.setItem(Config.userLogin(), btoa(rt.username));
             localStorage.setItem(Config.isLogin(), btoa('true'));
-            this.service.getRol(rt.username)
-              .subscribe(
-                rt1 => {
-                  if (rt.error) {
-                    this.msgError = rt.error;
-                  } else {
-                    localStorage.setItem(Config.rol(), btoa(rt1.roles));
-                    this.golist();
-                  }
-                });
+            localStorage.setItem(Config.rol(), btoa(rt.rol));
+            this.golist();
           }
         },
         er => {
