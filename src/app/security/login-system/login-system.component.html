@@ -32,11 +32,16 @@
       </div>
     </div>
 
-
     <div class="row">
       <div class="col-lg-12 mt-2">
         <button class="btn btn-lg btn-primary btn-block" (click)="login()" [disabled]="!form.valid" >
           <fa-icon [icon]="faLock" size="ms"></fa-icon> Autenticar</button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 mt-0">
+        <a class="text-danger"  href="#" routerLink="/security/recovery_password">Olvidé mi contraseña</a>
       </div>
     </div>
     <p class="mt-5 mb-3 text-muted">&copy; {{copyrigth}}</p>

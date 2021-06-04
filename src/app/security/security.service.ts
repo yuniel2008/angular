@@ -35,7 +35,15 @@ export class SecurityService {private url = Config.urlApiRes() ;
       ;
   }
 
-
+   recoveryPassword(email: string): Observable<any> {
+    const options = {
+      headers: this.headers
+    };
+    return this.http.post(`${this.url}/recover_password`, email, options)
+      .pipe( map(r => r),
+        catchError(this.handleError<any>('recovery')))
+      ;
+  }
 
   /**
    * Handle Http operation that failed.

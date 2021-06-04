@@ -1,0 +1,38 @@
+<div class="text-center pt-5">
+  <form class="form-signin"  novalidate [formGroup]="form">
+    <alert *ngIf="msgError != 'null'" [type]="'danger'" [dismissible]="!dismissible" (onClosed)="onClosed()">{{msgError}}</alert>
+    <alert *ngIf="msgSusses != 'null'" [type]="'success'" [dismissible]="!dismissible" (onClosed)="onClosed()">{{msgSusses}}</alert>
+    <img class="mb-4" src="img/logo.png" alt="" width="72" height="72">
+    <p class="text-justify">
+      Estimado usuario para poder recuperar la contraseña introduzca el correo y recibirá las indicaciones para recuperarla.
+    </p>
+    <div class="row">
+      <div class="col-lg-12">
+
+        <div class="input-group mb-3">
+          <input id="user" type="text" class="form-control" placeholder="Correo" aria-label="Correo" aria-describedby="basic-addon2" formControlName="email">
+          <div class="input-group-append">
+            <button class="btn btn-outline-primary" type="button" (click)="recovery()" [disabled]="!form.valid">Recuperar</button>
+          </div>
+        </div>
+        <div *ngIf="f.email.errors && f.email.touched">
+          <div *ngIf="f.email.errors.required">
+            <label for="user" class="text-danger"><i class="fa fa-ban"></i> El campo es requerido.</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-12">
+        <a href="#" routerLink="/">Regresar</a>
+      </div>
+    </div>
+
+
+    <p class="mt-5 mb-3 text-muted">&copy; {{copyrigth}}</p>
+
+  </form>
+</div>
+
+
+
+
