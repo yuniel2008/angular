@@ -31,6 +31,11 @@ import { NewLaboratoryComponent } from './nomenclators-laboratory/new-laboratory
 import { UpdateLaboratoryComponent } from './nomenclators-laboratory/update-laboratory/update-laboratory.component';
 import { ViewLaboratoryComponent } from './nomenclators-laboratory/view-laboratory/view-laboratory.component';
 import {LaboratoryService} from './nomenclators-laboratory/laboratory.service';
+import { ListIsolationsCenterComponent } from './nomenclators-isolations-center/list-isolations-center/list-isolations-center.component';
+import { NewIsolationsCenterComponent } from './nomenclators-isolations-center/new-isolations-center/new-isolations-center.component';
+import { UpdateIsolationsCenterComponent } from './nomenclators-isolations-center/update-isolations-center/update-isolations-center.component';
+import { ViewIsolationsCenterComponent } from './nomenclators-isolations-center/view-isolations-center/view-isolations-center.component';
+import {IsolationsCenterService} from './nomenclators-isolations-center/isolations-center.service';
 
 
 @NgModule({
@@ -57,6 +62,10 @@ import {LaboratoryService} from './nomenclators-laboratory/laboratory.service';
     NewLaboratoryComponent,
     UpdateLaboratoryComponent,
     ViewLaboratoryComponent,
+    ListIsolationsCenterComponent,
+    NewIsolationsCenterComponent,
+    UpdateIsolationsCenterComponent,
+    ViewIsolationsCenterComponent,
   ],
     imports: [
         CommonModule,
@@ -69,7 +78,8 @@ import {LaboratoryService} from './nomenclators-laboratory/laboratory.service';
    CountryService,
     ProvinceService,
     MunicipalityService,
-    LaboratoryService
+    LaboratoryService,
+    IsolationsCenterService
   ]
 })
 export class SystemNomenclatorsModule { }

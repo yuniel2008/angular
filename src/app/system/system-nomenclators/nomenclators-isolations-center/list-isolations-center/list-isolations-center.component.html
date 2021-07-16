@@ -1,0 +1,78 @@
+<title-view [titles]="'Listar'" [subtitle]="'centros de ailsamientos'"></title-view>
+
+
+
+<section *ngIf="!loading">
+  <loading-view></loading-view>
+</section>
+<section *ngIf="loading">
+
+  <section class="pb-2">
+    <btn-new router="/system/nomenclators/isolationsCenter/new"></btn-new>
+  </section>
+
+  <div  class="table table-responsive">
+    <table class="table table-hover">
+      <thead class="thead-light">
+      <tr>
+        <th>Centro de aislamiento</th>
+
+        <th>Capacidad</th>
+
+        <th>Ocupados</th>
+
+        <th>Tipo</th>
+
+        <th>Municipio</th>
+
+        <th>Estado</th>
+
+        <th>Acciones</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr  *ngFor="let item of lists">
+        <td>
+          {{item.value}}
+        </td>
+
+        <td>
+          {{item.capacity}}
+        </td>
+
+        <td>
+          {{item.capacity_occupies}}
+        </td>
+
+        <td>
+          {{item.type}}
+        </td>
+
+        <td>
+          {{item.municipalities.value}}
+        </td>
+
+        <td>
+          <span class="text-success" *ngIf="item.status === true"> Habilitado</span>
+          <span class="text-danger" *ngIf="item.status === false"> Deshabilitado</span>
+        </td>
+
+        <td style="width: 25%">
+          <btn-update ngClass="pr-2" router="/system/nomenclators/isolationsCenter/update/{{item.id}}"></btn-update>
+          <btn-details ngClass="pr-2" router="/system/nomenclators/isolationsCenter/view/{{item.id}}"></btn-details>
+        </td>
+
+      </tr>
+      <tr *ngIf="lists.length === 0" >
+        <td>No hay datos que mostrar.</td>
+        <td></td>
+        <td></td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+</section>
+
+
+

@@ -21,6 +21,11 @@ import {ListLaboratoryComponent} from './nomenclators-laboratory/list-laboratory
 import {NewLaboratoryComponent} from './nomenclators-laboratory/new-laboratory/new-laboratory.component';
 import {UpdateLaboratoryComponent} from './nomenclators-laboratory/update-laboratory/update-laboratory.component';
 import {ViewLaboratoryComponent} from './nomenclators-laboratory/view-laboratory/view-laboratory.component';
+import {NomenclatorsIsolationsCenterComponent} from './nomenclators-isolations-center/nomenclators-isolations-center.component';
+import {ListIsolationsCenterComponent} from './nomenclators-isolations-center/list-isolations-center/list-isolations-center.component';
+import {NewIsolationsCenterComponent} from './nomenclators-isolations-center/new-isolations-center/new-isolations-center.component';
+import {UpdateIsolationsCenterComponent} from './nomenclators-isolations-center/update-isolations-center/update-isolations-center.component';
+import {ViewIsolationsCenterComponent} from './nomenclators-isolations-center/view-isolations-center/view-isolations-center.component';
 
 
 const routes: Routes = [
@@ -138,6 +143,33 @@ const routes: Routes = [
           {
             path: 'view/:id',
             component: ViewLaboratoryComponent
+          }
+        ]
+      },
+      {
+        path: 'isolationsCenter',
+        component: NomenclatorsIsolationsCenterComponent,
+        children: [
+          {
+            path: '',
+            redirectTo: 'list',
+            pathMatch: 'full'
+          },
+          {
+            path: 'list',
+            component: ListIsolationsCenterComponent
+          },
+          {
+            path: 'new',
+            component: NewIsolationsCenterComponent
+          },
+          {
+            path: 'update/:id',
+            component: UpdateIsolationsCenterComponent
+          },
+          {
+            path: 'view/:id',
+            component: ViewIsolationsCenterComponent
           }
         ]
       }

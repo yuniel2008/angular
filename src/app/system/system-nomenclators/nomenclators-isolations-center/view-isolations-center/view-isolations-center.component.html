@@ -1,0 +1,83 @@
+<title-view [titles]="'Ver detalle'" [subtitle]="'centro de aislamientos'"></title-view>
+<section *ngIf="!loading">
+  <loading-view></loading-view>
+</section>
+
+<section *ngIf="loading">
+
+  <section *ngIf="loading">
+
+    <div *ngIf="obj != null">
+      <div class="row">
+        <div class="col-lg-4">
+          <label class="font-weight-bold mr-2">Nombre: </label>
+          <label > {{obj.value}} </label>
+        </div>
+
+        <div class="col-lg-4">
+          <label class="font-weight-bold mr-2">Código: </label>
+          <label > {{obj.code}} </label>
+        </div>
+
+        <div class="col-lg-4">
+          <label class="font-weight-bold mr-2">Estado: </label>
+          <label *ngIf="obj.status == true" class="text-success"> Habilitado </label>
+          <label *ngIf="obj.status == false" class="text-danger"> No habilitado </label>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4">
+          <label class="font-weight-bold mr-2">Capacidad: </label>
+          <label > {{obj.capacity}} </label>
+        </div>
+
+        <div class="col-lg-4">
+          <label class="font-weight-bold mr-2">Capacidades ocupadas: </label>
+          <label > {{obj.capacity_occupies}} </label>
+        </div>
+
+        <div class="col-lg-4">
+          <label class="font-weight-bold mr-2">Tipo: </label>
+          <label > {{obj.type}} </label>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4">
+          <label class="font-weight-bold mr-2">Dirección: </label>
+          <label > {{obj.address}} </label>
+        </div>
+
+        <div class="col-lg-4">
+          <label class="font-weight-bold mr-2">Teléfono: </label>
+          <label > {{obj.phone}} </label>
+        </div>
+
+        <div class="col-lg-4">
+          <label class="font-weight-bold mr-2">Municipio: </label>
+          <label > {{obj.municipalities.value}} </label>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div *ngIf="obj == null">
+      <label>No hay datos que mostrar.</label>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 mt-2">
+        <btn-goback router="/system/nomenclators/isolationsCenter/list"></btn-goback>
+      </div>
+    </div>
+  </section>
+
+
+</section>
+
+
+
