@@ -68,7 +68,7 @@ export class LoginSystemComponent implements OnInit {
   }
 
   golist(): void {
-    const link = ['/system'];
+    const link = [''];
     this.router.navigate(link);
   }
 
