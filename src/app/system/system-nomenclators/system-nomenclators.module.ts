@@ -24,6 +24,13 @@ import { NewMunicipalityComponent } from './nomenclators-municipality/new-munici
 import { UpdateMunicipalityComponent } from './nomenclators-municipality/update-municipality/update-municipality.component';
 import {MunicipalityService} from './nomenclators-municipality/municipality.service';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import { NomenclatorsLaboratoryComponent } from './nomenclators-laboratory/nomenclators-laboratory.component';
+import { NomenclatorsIsolationsCenterComponent } from './nomenclators-isolations-center/nomenclators-isolations-center.component';
+import { ListLaboratoryComponent } from './nomenclators-laboratory/list-laboratory/list-laboratory.component';
+import { NewLaboratoryComponent } from './nomenclators-laboratory/new-laboratory/new-laboratory.component';
+import { UpdateLaboratoryComponent } from './nomenclators-laboratory/update-laboratory/update-laboratory.component';
+import { ViewLaboratoryComponent } from './nomenclators-laboratory/view-laboratory/view-laboratory.component';
+import {LaboratoryService} from './nomenclators-laboratory/laboratory.service';
 
 
 @NgModule({
@@ -44,6 +51,12 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
     ViewMunicipalityComponent,
     NewMunicipalityComponent,
     UpdateMunicipalityComponent,
+    NomenclatorsLaboratoryComponent,
+    NomenclatorsIsolationsCenterComponent,
+    ListLaboratoryComponent,
+    NewLaboratoryComponent,
+    UpdateLaboratoryComponent,
+    ViewLaboratoryComponent,
   ],
     imports: [
         CommonModule,
@@ -55,7 +68,8 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
   providers: [
    CountryService,
     ProvinceService,
-    MunicipalityService
+    MunicipalityService,
+    LaboratoryService
   ]
 })
 export class SystemNomenclatorsModule { }

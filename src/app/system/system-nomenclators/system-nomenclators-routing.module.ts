@@ -16,6 +16,11 @@ import {NewMunicipalityComponent} from './nomenclators-municipality/new-municipa
 import {UpdateMunicipalityComponent} from './nomenclators-municipality/update-municipality/update-municipality.component';
 import {ViewMunicipalityComponent} from './nomenclators-municipality/view-municipality/view-municipality.component';
 import {NomenclatorsMunicipalityComponent} from './nomenclators-municipality/nomenclators-municipality.component';
+import {NomenclatorsLaboratoryComponent} from './nomenclators-laboratory/nomenclators-laboratory.component';
+import {ListLaboratoryComponent} from './nomenclators-laboratory/list-laboratory/list-laboratory.component';
+import {NewLaboratoryComponent} from './nomenclators-laboratory/new-laboratory/new-laboratory.component';
+import {UpdateLaboratoryComponent} from './nomenclators-laboratory/update-laboratory/update-laboratory.component';
+import {ViewLaboratoryComponent} from './nomenclators-laboratory/view-laboratory/view-laboratory.component';
 
 
 const routes: Routes = [
@@ -106,6 +111,33 @@ const routes: Routes = [
           {
             path: 'view/:id',
             component: ViewMunicipalityComponent
+          }
+        ]
+      },
+      {
+        path: 'laboratory',
+        component: NomenclatorsLaboratoryComponent,
+        children: [
+          {
+            path: '',
+            redirectTo: 'list',
+            pathMatch: 'full'
+          },
+          {
+            path: 'list',
+            component: ListLaboratoryComponent
+          },
+          {
+            path: 'new',
+            component: NewLaboratoryComponent
+          },
+          {
+            path: 'update/:id',
+            component: UpdateLaboratoryComponent
+          },
+          {
+            path: 'view/:id',
+            component: ViewLaboratoryComponent
           }
         ]
       }
