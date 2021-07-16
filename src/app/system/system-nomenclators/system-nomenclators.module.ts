@@ -23,18 +23,6 @@ import { ViewMunicipalityComponent } from './nomenclators-municipality/view-muni
 import { NewMunicipalityComponent } from './nomenclators-municipality/new-municipality/new-municipality.component';
 import { UpdateMunicipalityComponent } from './nomenclators-municipality/update-municipality/update-municipality.component';
 import {MunicipalityService} from './nomenclators-municipality/municipality.service';
-import { NomenclatorsCategoryComponent } from './nomenclators-category/nomenclators-category.component';
-import { ListCategoryComponent } from './nomenclators-category/list-category/list-category.component';
-import { ViewCategoryComponent } from './nomenclators-category/view-category/view-category.component';
-import { NewCategoryComponent } from './nomenclators-category/new-category/new-category.component';
-import { UpdateCategoryComponent } from './nomenclators-category/update-category/update-category.component';
-import {CategoryService} from './nomenclators-category/category.service';
-import { NomenclatorsActivityComponent } from './nomenclators-activity/nomenclators-activity.component';
-import { ListActivityComponent } from './nomenclators-activity/list-activity/list-activity.component';
-import { NewActivityComponent } from './nomenclators-activity/new-activity/new-activity.component';
-import { ViewActivityComponent } from './nomenclators-activity/view-activity/view-activity.component';
-import { UpdateActivityComponent } from './nomenclators-activity/update-activity/update-activity.component';
-import {ActivityService} from './nomenclators-activity/activity.service';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 
@@ -56,16 +44,6 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
     ViewMunicipalityComponent,
     NewMunicipalityComponent,
     UpdateMunicipalityComponent,
-    NomenclatorsCategoryComponent,
-    ListCategoryComponent,
-    ViewCategoryComponent,
-    NewCategoryComponent,
-    UpdateCategoryComponent,
-    NomenclatorsActivityComponent,
-    ListActivityComponent,
-    NewActivityComponent,
-    ViewActivityComponent,
-    UpdateActivityComponent
   ],
     imports: [
         CommonModule,
@@ -77,9 +55,7 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
   providers: [
    CountryService,
     ProvinceService,
-    MunicipalityService,
-    CategoryService,
-    ActivityService
+    MunicipalityService
   ]
 })
 export class SystemNomenclatorsModule { }

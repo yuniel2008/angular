@@ -37,7 +37,7 @@ export class Config {
    * return system name
    */
   static systemName(): string {
-    return `LineaBase`;
+    return `Covid`;
   }
 
   /**
