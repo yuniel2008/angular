@@ -1,0 +1,100 @@
+<title-view [titles]="'Registrar'" [subtitle]="'historias clínicas'"></title-view>
+<form  novalidate [formGroup]="form">
+
+  <div class="row">
+
+    <div class="col-lg-4">
+      <div class="form-group">
+        <label for="name">Nombre del paciente</label>
+        <input type="text" placeholder="Nombre del paciente" class="form-control" id="name" formControlName="name">
+        <div *ngIf="f.name.errors && f.name.touched">
+          <div *ngIf="f.name.errors.required">
+            <label for="name" class="text-danger"><fa-icon [icon]="faBan" size="ms"></fa-icon> El campo es requerido.</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4">
+      <div class="form-group">
+        <label for="ci">Carnet de identidad</label>
+        <input type="number" placeholder="Carnet de identidad"  class="form-control" id="ci" formControlName="ci">
+        <div *ngIf="f.ci.errors && f.ci.touched">
+          <div *ngIf="f.ci.errors.required">
+            <label for="ci" class="text-danger"><fa-icon [icon]="faBan" size="ms"></fa-icon> El campo es requerido.</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4">
+      <div class="form-group">
+
+        <label for="comboMunicipality">Municipio</label>
+        <select id="comboMunicipality"   class="form-control" #comboMunicipalitie (change)="setMunicipality(comboMunicipalitie.value)" formControlName="id_municipalities_hc">
+          <option value="" selected><<---Seleccione-->></option>
+          <option *ngFor="let i of comboMunicipality"  value="{{i.id}}">{{i.code}} --- {{i.value}}</option>
+        </select>
+        <div *ngIf="f.id_municipalities_hc.errors && f.id_municipalities_hc.touched">
+          <div *ngIf="f.id_municipalities_hc.errors.required">
+            <label for="comboMunicipality" class="text-danger"><fa-icon [icon]="faBan" size="ms"></fa-icon> El campo es requerido.</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+
+
+
+    <div class="col-lg-4">
+      <div class="form-group">
+        <label for="phone">Teléfono del centro de aislamiento</label>
+        <input type="tel" placeholder="Teléfono del centro de aislamiento"  class="form-control" id="phone" formControlName="phone">
+        <div *ngIf="f.phone.errors && f.phone.touched">
+          <div *ngIf="f.phone.errors.required">
+            <label for="phone" class="text-danger"><fa-icon [icon]="faBan" size="ms"></fa-icon> El campo es requerido.</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4">
+      <div class="form-group">
+        <label for="address">Dirección del paciente</label>
+        <textarea type="text" placeholder="Dirección del paciente" class="form-control" id="address" formControlName="address"></textarea>
+        <div *ngIf="f.address.errors && f.address.touched">
+          <div *ngIf="f.address.errors.required">
+            <label for="address" class="text-danger"><fa-icon [icon]="faBan" size="ms"></fa-icon> El campo es requerido.</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4">
+      <div class="form-group">
+        <label for="patologies">Patologías</label>
+        <textarea type="text" placeholder="Patologías" class="form-control" id="patologies" formControlName="patologies"></textarea>
+        <div *ngIf="f.patologies.errors && f.patologies.touched">
+          <div *ngIf="f.patologies.errors.required">
+            <label for="patologies" class="text-danger"><fa-icon [icon]="faBan" size="ms"></fa-icon> El campo es requerido.</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="row">
+      <div class="col-lg-12 mt-2">
+        <btn-save (click)="new()" ngClass="pr-2" [disabled]="!form.valid"></btn-save>
+        <btn-cancel  router="/hc/list"></btn-cancel>
+      </div>
+    </div>
+  </div>
+
+
+
+</form>
+

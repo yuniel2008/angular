@@ -8,21 +8,41 @@ import { AplicationsHcComponent } from './aplications-hc/aplications-hc.componen
 import { AplicationsHomePageComponent } from './aplications-home-page/aplications-home-page.component';
 
 import {AuthGuardSystem} from '../autgard/authSystem.guard';
+import { ListHcComponent } from './aplications-hc/list-hc/list-hc.component';
+import { NewHcComponent } from './aplications-hc/new-hc/new-hc.component';
+import { ViewHcComponent } from './aplications-hc/view-hc/view-hc.component';
+import { UpdateHcComponent } from './aplications-hc/update-hc/update-hc.component';
+import {HcService} from './aplications-hc/hc.service';
+import {CommonComponetModule} from '../common-componet/common-componet.module';
+import {ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {MunicipalityService} from '../system/system-nomenclators/nomenclators-municipality/municipality.service';
 
 
 @NgModule({
   declarations: [
     AplicationsComponent,
     AplicationsHcComponent,
-    AplicationsHomePageComponent
+    AplicationsHomePageComponent,
+    ListHcComponent,
+    NewHcComponent,
+    ViewHcComponent,
+    UpdateHcComponent
   ],
   imports: [
     CommonModule,
     AplicationsRoutingModule,
-    TemplatesModule
+    TemplatesModule,
+    CommonComponetModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    FontAwesomeModule
   ],
   providers: [
-    AuthGuardSystem
+    AuthGuardSystem,
+    HcService,
+    MunicipalityService
   ],
   })
 export class AplicationsModule { }
