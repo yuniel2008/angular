@@ -1,17 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Admitions} from '../../../../aplications/aplications-admitions/admitions';
-import {AdmitionsService} from '../../../../aplications/aplications-admitions/admitions.service';
+import {Admitions} from '../admitions';
+import {AdmitionsService} from '../admitions.service';
+
 
 @Component({
-  selector: 'app-view-country',
-  templateUrl: './view-country.component.html',
-  styleUrls: ['./view-country.component.css']
+  selector: 'app-view-admitions',
+  templateUrl: './view-admitions.component.html',
+  styleUrls: ['./view-admitions.component.css']
 })
-export class ViewCountryComponent implements OnInit {
+export class ViewAdmitionsComponent implements OnInit {
   public obj: Admitions = null;
   public msgError = 'null';
   public loading = false;
+  public id;
 
   constructor(
     private service: AdmitionsService,
@@ -21,6 +23,7 @@ export class ViewCountryComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.params.id;
+    this.id = this.route.snapshot.params.idhc;
     if (!id) { return; }
 
     this.getByid(id);
@@ -61,4 +64,5 @@ export class ViewCountryComponent implements OnInit {
   onClosed(): void {
     this.msgError = 'null';
   }
+
 }

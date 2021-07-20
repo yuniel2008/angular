@@ -9,17 +9,17 @@
 
       <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
-          <a class="nav-link active" id="datos-tab" data-toggle="tab" href="#datos" role="tab" aria-controls="datos" aria-selected="true">Datos del paciente</a>
+          <a class="nav-link {{selectTap('1')}}" id="datos-tab" data-toggle="tab" href="#datos" role="tab" aria-controls="datos" aria-selected="true">Datos del paciente</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="admision-tab" data-toggle="tab" href="#admision" role="tab" aria-controls="admision" aria-selected="false">Admisiones</a>
+          <a class="nav-link {{selectTap('2')}}" id="admision-tab" data-toggle="tab" href="#admision" role="tab" aria-controls="admision" aria-selected="false">Admisiones</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="pruebas-tab" data-toggle="tab" href="#pruebas" role="tab" aria-controls="pruebas" aria-selected="false">Pruebas de PCR</a>
+          <a class="nav-link {{selectTap('3')}}" id="pruebas-tab" data-toggle="tab" href="#pruebas" role="tab" aria-controls="pruebas" aria-selected="false">Pruebas de PCR</a>
         </li>
       </ul>
       <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active pt-3" id="datos" role="tabpanel" aria-labelledby="datos-tab">
+        <div class="tab-pane fade  {{selectTap('1')}} pt-3" id="datos" role="tabpanel" aria-labelledby="datos-tab">
           <div *ngIf="obj != null">
             <div class="row">
               <div class="col-lg-4">
@@ -68,12 +68,12 @@
           </div>
 
         </div>
-        <div class="tab-pane fade pt-3" id="admision" role="tabpanel" aria-labelledby="admision-tab">
-                   
+        <div class="tab-pane fade {{selectTap('2')}} pt-3" id="admision" role="tabpanel" aria-labelledby="admision-tab">
+            <app-list-admitions idhc="{{obj.id}}"></app-list-admitions>
         </div>
 
-        <div class="tab-pane fade" id="pruebas pt-3" role="tabpanel" aria-labelledby="pruebas-tab">
-
+        <div class="tab-pane fade {{selectTap('3')}} pt-3" id="pruebas" role="tabpanel" aria-labelledby="pruebas-tab">
+              hola mundo
         </div>
 
       </div>

@@ -1,0 +1,73 @@
+<title-view [titles]="'Ver detalle'" [subtitle]="'admisión'"></title-view>
+<section *ngIf="!loading">
+  <loading-view></loading-view>
+</section>
+
+<section *ngIf="loading">
+
+  <section *ngIf="loading">
+
+    <div *ngIf="obj != null">
+      <div class="row">
+        <div class="col-lg-4">
+          <label class="font-weight-bold mr-2">Fecha ingreso: </label>
+          <label > {{obj.entry | date: 'd/M/yy' : 'UTC'}} </label>
+        </div>
+
+        <div class="col-lg-4">
+          <label class="font-weight-bold mr-2">Fecha egreso: </label>
+          <label > {{obj.egress | date: 'd/M/yy' : 'UTC'}} </label>
+        </div>
+
+        <div class="col-lg-4">
+          <label class="font-weight-bold mr-2">Estado: </label>
+          <label *ngIf="obj.status == true" class="text-success"> Abierta </label>
+          <label *ngIf="obj.status == false" class="text-secondary"> Cerrada </label>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4">
+          <label class="font-weight-bold mr-2">Número HC: </label>
+          <label > {{obj.hcs.nohc}} </label>
+        </div>
+
+        <div class="col-lg-4">
+          <label class="font-weight-bold mr-2">Nombre del paciente: </label>
+          <label > {{obj.hcs.name}} </label>
+        </div>
+
+        <div class="col-lg-4">
+          <label class="font-weight-bold mr-2">CI: </label>
+          <label > {{obj.hcs.ci}} </label>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12">
+          <label class="font-weight-bold mr-2">Ultimo Centro de aislamiento: </label>
+          <label > {{obj.isolation_center.value}} </label>
+        </div>
+      </div>
+
+
+
+    </div>
+
+    <div *ngIf="obj == null">
+      <label>No hay datos que mostrar.</label>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 mt-2">
+        <btn-goback router="/hc/view/{{id}}/2"></btn-goback>
+      </div>
+    </div>
+  </section>
+
+
+</section>
+
+

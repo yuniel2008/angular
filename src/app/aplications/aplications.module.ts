@@ -18,6 +18,14 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {MunicipalityService} from '../system/system-nomenclators/nomenclators-municipality/municipality.service';
+import { AplicationsAdmitionsComponent } from './aplications-admitions/aplications-admitions.component';
+import { ListAdmitionsComponent } from './aplications-admitions/list-admitions/list-admitions.component';
+import { NewAdmitionsComponent } from './aplications-admitions/new-admitions/new-admitions.component';
+import { UpdateAdmitionsComponent } from './aplications-admitions/update-admitions/update-admitions.component';
+import { ViewAdmitionsComponent } from './aplications-admitions/view-admitions/view-admitions.component';
+import {AdmitionsService} from './aplications-admitions/admitions.service';
+import {IsolationsCenterService} from '../system/system-nomenclators/nomenclators-isolations-center/isolations-center.service';
+import {AlertModule} from 'ngx-bootstrap/alert';
 
 
 @NgModule({
@@ -28,7 +36,12 @@ import {MunicipalityService} from '../system/system-nomenclators/nomenclators-mu
     ListHcComponent,
     NewHcComponent,
     ViewHcComponent,
-    UpdateHcComponent
+    UpdateHcComponent,
+    AplicationsAdmitionsComponent,
+    ListAdmitionsComponent,
+    NewAdmitionsComponent,
+    UpdateAdmitionsComponent,
+    ViewAdmitionsComponent
   ],
   imports: [
     CommonModule,
@@ -37,12 +50,15 @@ import {MunicipalityService} from '../system/system-nomenclators/nomenclators-mu
     CommonComponetModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    AlertModule
   ],
   providers: [
     AuthGuardSystem,
     HcService,
-    MunicipalityService
+    MunicipalityService,
+    AdmitionsService,
+    IsolationsCenterService
   ],
   })
 export class AplicationsModule { }

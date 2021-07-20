@@ -8,6 +8,10 @@ import {ListHcComponent} from './aplications-hc/list-hc/list-hc.component';
 import {NewHcComponent} from './aplications-hc/new-hc/new-hc.component';
 import {UpdateHcComponent} from './aplications-hc/update-hc/update-hc.component';
 import {ViewHcComponent} from './aplications-hc/view-hc/view-hc.component';
+import {AplicationsAdmitionsComponent} from './aplications-admitions/aplications-admitions.component';
+import {NewAdmitionsComponent} from './aplications-admitions/new-admitions/new-admitions.component';
+import {ViewAdmitionsComponent} from './aplications-admitions/view-admitions/view-admitions.component';
+import {UpdateAdmitionsComponent} from './aplications-admitions/update-admitions/update-admitions.component';
 
 
 const routes: Routes = [
@@ -47,8 +51,31 @@ const routes: Routes = [
             component: UpdateHcComponent
           },
           {
-            path: 'view/:id',
+            path: 'view/:id/:tap',
             component: ViewHcComponent
+          }
+        ]
+      },
+      {
+        path: 'admitions',
+        component: AplicationsAdmitionsComponent,
+        children: [
+          {
+            path: '',
+            redirectTo: 'new',
+            pathMatch: 'full'
+          },
+          {
+            path: 'new/:idhc',
+            component: NewAdmitionsComponent
+          },
+          {
+            path: 'update/:id/:idhc',
+            component: UpdateAdmitionsComponent
+          },
+          {
+            path: 'view/:id/:idhc',
+            component: ViewAdmitionsComponent
           }
         ]
       },
