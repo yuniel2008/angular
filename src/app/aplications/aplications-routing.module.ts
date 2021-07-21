@@ -12,6 +12,8 @@ import {AplicationsAdmitionsComponent} from './aplications-admitions/aplications
 import {NewAdmitionsComponent} from './aplications-admitions/new-admitions/new-admitions.component';
 import {ViewAdmitionsComponent} from './aplications-admitions/view-admitions/view-admitions.component';
 import {UpdateAdmitionsComponent} from './aplications-admitions/update-admitions/update-admitions.component';
+import {ListAdmitionsComponent} from './aplications-admitions/list-admitions/list-admitions.component';
+import {CommonListHcComponent} from './aplications-common-view/common-list-hc/common-list-hc.component';
 
 
 const routes: Routes = [
@@ -28,6 +30,10 @@ const routes: Routes = [
       {
         path: 'home',
         component: AplicationsHomePageComponent
+      },
+      {
+        path: 'select/hc',
+        component: CommonListHcComponent
       },
       {
         path: 'hc',
@@ -51,7 +57,7 @@ const routes: Routes = [
             component: UpdateHcComponent
           },
           {
-            path: 'view/:id/:tap',
+            path: 'view/:id',
             component: ViewHcComponent
           }
         ]
@@ -62,19 +68,23 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            redirectTo: 'new',
+            redirectTo: 'list',
             pathMatch: 'full'
+          },
+          {
+            path: 'list',
+            component: ListAdmitionsComponent
           },
           {
             path: 'new/:idhc',
             component: NewAdmitionsComponent
           },
           {
-            path: 'update/:id/:idhc',
+            path: 'update/:id',
             component: UpdateAdmitionsComponent
           },
           {
-            path: 'view/:id/:idhc',
+            path: 'view/:id',
             component: ViewAdmitionsComponent
           }
         ]

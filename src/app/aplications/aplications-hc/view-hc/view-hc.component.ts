@@ -12,7 +12,6 @@ export class ViewHcComponent implements OnInit {
   public obj: Hc = null;
   public msgError = 'null';
   public loading = false;
-  public tap = '1';
 
   constructor(
     private service: HcService,
@@ -22,7 +21,6 @@ export class ViewHcComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.params.id;
-    this.tap = this.route.snapshot.params.tap;
     if (!id) { return; }
 
     this.getByid(id);
@@ -58,13 +56,6 @@ export class ViewHcComponent implements OnInit {
           console.log('ready');
         }
       );
-  }
-
-  selectTap(id: string ): string {
-   if (this.tap === id){
-      return 'show active';
-   }
-   return '';
   }
 
   onClosed(): void {

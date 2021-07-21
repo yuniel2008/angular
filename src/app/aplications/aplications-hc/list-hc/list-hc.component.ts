@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {faRetweet, faUserShield} from '@fortawesome/free-solid-svg-icons';
 import {Hc} from '../hc';
 import {HcService} from '../hc.service';
 
@@ -12,8 +11,6 @@ export class ListHcComponent implements OnInit {
   public lists: Hc[] = [];
   public msgError = 'null';
   public loading = false;
-  public faRetweet = faRetweet;
-  public faUserShield = faUserShield;
 
   constructor(
     private service: HcService
