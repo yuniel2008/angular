@@ -15,18 +15,23 @@ export class ListHcComponent implements OnInit {
   constructor(
     private service: HcService
   ) {
-    this.list();
+    this.list('', '', '');
   }
 
   ngOnInit(): void {
   }
 
   // tslint:disable-next-line:typedef
-  list() {
+  list(
+    nohc: string,
+    name: string,
+    ci: string
+  ) {
 
+    this.loading = false;
     this.lists = [];
 
-    this.service.list()
+    this.service.list(nohc, name, ci)
       .subscribe(
         rt => {
           if (rt.error) {

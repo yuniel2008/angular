@@ -1,5 +1,30 @@
 <title-view [titles]="'Listar'" [subtitle]="'historias clínicas'"></title-view>
+<alert *ngIf="msgError != 'null'" [type]="'danger'" [dismissible]="!dismissible" (onClosed)="onClosed()">{{msgError}}</alert>
 
+<section>
+  <div class="row">
+
+    <div class="col-lg-4 form-group">
+      <label for="nohc" class="font-weight-bold">Número de historia clínica</label>
+      <input id="nohc" placeholder="Número de historia clínica" class="form-control" type="search" #nohcBusqueda >
+    </div>
+
+    <div class="col-lg-4 form-group">
+      <label for="name" class="font-weight-bold">Nombre</label>
+      <input id="name" placeholder="Nombre" class="form-control" type="search" #namebusqueda >
+    </div>
+
+    <div class="col-lg-4 form-group">
+      <label for="ci" class="font-weight-bold">Carnet Identidad</label>
+      <input id="ci" placeholder="Carnet Identidad" class="form-control" type="search" #cibusqueda >
+    </div>
+
+  </div>
+
+  <btn-search router="/hc/list"
+              (click)="list( nohcBusqueda.value, namebusqueda.value, cibusqueda.value)">
+  </btn-search>
+</section>
 
 
 <section *ngIf="!loading">
@@ -7,7 +32,7 @@
 </section>
 <section *ngIf="loading">
 
-  <section class="pb-2">
+  <section class="pb-2 pt-3">
     <btn-new router="/hc/new"></btn-new>
   </section>
 

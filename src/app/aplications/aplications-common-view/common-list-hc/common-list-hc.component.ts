@@ -20,7 +20,7 @@ export class CommonListHcComponent implements OnInit {
     private router: Router,
     private  route: ActivatedRoute
   ) {
-    this.list();
+    this.list('', '', '');
   }
 
   ngOnInit(): void {
@@ -33,11 +33,15 @@ export class CommonListHcComponent implements OnInit {
   }
 
   // tslint:disable-next-line:typedef
-  list() {
+  list(
+    nohc: string,
+    name: string,
+    ci: string
+  ) {
 
     this.lists = [];
 
-    this.service.list()
+    this.service.list(nohc, name, ci)
       .subscribe(
         rt => {
           if (rt.error) {

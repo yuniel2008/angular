@@ -17,14 +17,28 @@ export class HcService {
     private  http: HttpClient
   ) { }
 
-  list(): Observable<any> {
-    /*let params = new HttpParams();
+  list(
+    nohc: string,
+    name: string,
+    ci: string
+  ): Observable<any> {
+    let params = new HttpParams();
 
-    params = params.append('start', start.toString());
-    params = params.append('length', length.toString());*/
+    if (nohc){
+      params = params.append('nohc', nohc);
+    }
+
+    if (name){
+      params = params.append('name', name);
+    }
+
+    if (ci){
+      params = params.append('ci', ci);
+    }
 
     const options = {
       headers: Config.getheaders(this.functionality),
+      params
     };
 
     return this.http.get(`${this.url}`, options)
