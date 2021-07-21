@@ -17,14 +17,33 @@ export class AdmitionsService {
     private  http: HttpClient
   ) { }
 
-  list(): Observable<any> {
-    /*let params = new HttpParams();
+  list(
+    nohc: string,
+    name: string,
+    value: string,
+    status: string
+  ): Observable<any> {
+    let params = new HttpParams();
 
-    params = params.append('start', start.toString());
-    params = params.append('length', length.toString());*/
+    if (nohc){
+      params = params.append('nohc', nohc);
+    }
+
+    if (name){
+      params = params.append('name', name);
+    }
+
+    if (value){
+      params = params.append('value', value);
+    }
+
+    if ((status) && (status !== 'null')) {
+      params = params.append('status', status);
+    }
 
     const options = {
       headers: Config.getheaders(this.functionality),
+      params
     };
 
     return this.http.get(`${this.url}`, options)

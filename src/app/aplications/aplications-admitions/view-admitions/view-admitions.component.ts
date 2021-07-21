@@ -13,7 +13,6 @@ export class ViewAdmitionsComponent implements OnInit {
   public obj: Admitions = null;
   public msgError = 'null';
   public loading = false;
-  public id;
 
   constructor(
     private service: AdmitionsService,
@@ -23,7 +22,6 @@ export class ViewAdmitionsComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.params.id;
-    this.id = this.route.snapshot.params.idhc;
     if (!id) { return; }
 
     this.getByid(id);

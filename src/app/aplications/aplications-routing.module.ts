@@ -32,7 +32,7 @@ const routes: Routes = [
         component: AplicationsHomePageComponent
       },
       {
-        path: 'select/hc',
+        path: 'select/hc/:origen',
         component: CommonListHcComponent
       },
       {

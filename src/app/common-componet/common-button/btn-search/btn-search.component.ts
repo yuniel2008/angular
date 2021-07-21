@@ -1,15 +1,15 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'btn-search',
   template: `
     <a class="btn btn-primary btn-sm text-white" href="#" routerLink="{{router}}">
-    <fa-icon [icon]="faPlus" size="ms"></fa-icon> Nuevo</a>`
+    <fa-icon [icon]="faSearch" size="ms"></fa-icon> Buscar</a>`
 })
 export class BtnSearchComponent implements OnInit {
-  public faPlus = faPlus;
+  public faSearch = faSearch;
 
   @Input()
   router: string;

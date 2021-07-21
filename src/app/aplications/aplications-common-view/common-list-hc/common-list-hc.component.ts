@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Hc} from '../../aplications-hc/hc';
 import {HcService} from '../../aplications-hc/hc.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-common-list-hc',
@@ -12,16 +13,23 @@ export class CommonListHcComponent implements OnInit {
   public lists: Hc[] = [];
   public msgError = 'null';
   public loading = false;
-  @Input()
-  router: string;
+  public rout = '';
 
   constructor(
-    private service: HcService
+    private service: HcService,
+    private router: Router,
+    private  route: ActivatedRoute
   ) {
     this.list();
   }
 
   ngOnInit(): void {
+    const origen = this.route.snapshot.params.origen;
+    if (origen === 'admitions'){
+      this.rout = '/admitions/new';
+    } else {
+      this.rout = '/test/new';
+    }
   }
 
   // tslint:disable-next-line:typedef

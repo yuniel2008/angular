@@ -15,18 +15,21 @@ export class CommonListAdmitionsComponent implements OnInit {
   constructor(
     private service: AdmitionsService
   ) {
-    this.list();
+    this.list('', '', '', 'null');
   }
 
   ngOnInit(): void {
   }
 
   // tslint:disable-next-line:typedef
-  list() {
+  list(nohc: string,
+       name: string,
+       value: string,
+       status: string) {
 
     this.lists = [];
 
-    this.service.list()
+    this.service.list(nohc, name, value, status)
       .subscribe(
         rt => {
           if (rt.error) {

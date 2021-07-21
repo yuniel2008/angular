@@ -7,10 +7,6 @@
 </section>
 <section *ngIf="loading">
 
-  <section class="pb-2">
-    <btn-new router="/hc/new"></btn-new>
-  </section>
-
   <div  class="table table-responsive">
     <table class="table table-hover">
       <thead class="thead-light">
@@ -45,7 +41,7 @@
         </td>
 
         <td style="width: 25%">
-          <btn-select ngClass="pr-2" router="{{router}}"></btn-select>
+          <btn-select ngClass="pr-2" router="{{rout}}/{{item.id}}"></btn-select>
         </td>
 
       </tr>

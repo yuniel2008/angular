@@ -2,6 +2,8 @@ import {Component, Input, OnInit} from '@angular/core';
 import {faRetweet} from '@fortawesome/free-solid-svg-icons';
 import {Admitions} from '../admitions';
 import {AdmitionsService} from '../admitions.service';
+import {IsolationsCenterService} from '../../../system/system-nomenclators/nomenclators-isolations-center/isolations-center.service';
+import {IsolationsCenter} from '../../../system/system-nomenclators/nomenclators-isolations-center/isolations-center';
 
 
 @Component({
@@ -13,25 +15,47 @@ export class ListAdmitionsComponent implements OnInit {
   public lists: Admitions[] = [];
   public msgError = 'null';
   public loading = false;
+  public comboIC: IsolationsCenter[] = [];
   public faRetweet = faRetweet;
-  @Input()
-  idhc: string;
 
   constructor(
-    private service: AdmitionsService
+    private service: AdmitionsService,
+    private serviceIC: IsolationsCenterService,
   ) {
-    this.list();
+    this.list('', '', '', 'true');
+    this.getComboIC();
   }
 
   ngOnInit(): void {
   }
 
-  // tslint:disable-next-line:typedef
-  list() {
+  getComboIC(): void {
+    this.serviceIC.list()
+      .subscribe(
+        rt => {
+          if (rt.error) {
+            this.msgError = rt.error;
+          } else {
+            this.comboIC = rt.data;
+          }
+        },
+        er => {
+          this.msgError = er;
+        },
+        () => console.log('ready')
+      );
+  }
 
+  // tslint:disable-next-line:typedef
+  list( nohc: string,
+        name: string,
+        value: string,
+        status: string) {
+
+    this.loading = false;
     this.lists = [];
 
-    this.service.list()
+    this.service.list(nohc, name, value, status)
       .subscribe(
         rt => {
           if (rt.error) {

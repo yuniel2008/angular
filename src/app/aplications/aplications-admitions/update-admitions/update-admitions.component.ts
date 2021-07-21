@@ -17,7 +17,6 @@ export class UpdateAdmitionsComponent implements OnInit {
   public msgError = 'null';
   private id: string;
   public status: boolean;
-  public idHC;
 
   constructor(
     private service: AdmitionsService,
@@ -31,8 +30,6 @@ export class UpdateAdmitionsComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params.id;
-
-    this.idHC = this.route.snapshot.params.idhc;
 
     if (!this.id) { return; }
 
@@ -87,7 +84,7 @@ export class UpdateAdmitionsComponent implements OnInit {
   }
 
   golist(): void {
-    const link = ['/hc/view/' + this.idHC + '/2'];
+    const link = ['admitions/list'];
     this.router.navigate(link);
   }
 

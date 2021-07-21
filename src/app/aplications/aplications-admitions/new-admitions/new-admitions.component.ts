@@ -97,7 +97,7 @@ export class NewAdmitionsComponent implements OnInit {
   }
 
   golist(): void {
-    const link = ['/hc/view/' + this.id + '/2'];
+    const link = ['/admitions/list'];
     this.router.navigate(link);
   }
 
