@@ -26,6 +26,10 @@ import { ViewAdmitionsComponent } from './aplications-admitions/view-admitions/v
 import {AdmitionsService} from './aplications-admitions/admitions.service';
 import {IsolationsCenterService} from '../system/system-nomenclators/nomenclators-isolations-center/isolations-center.service';
 import {AlertModule} from 'ngx-bootstrap/alert';
+import { CommonListHcComponent } from './aplications-common-view/common-list-hc/common-list-hc.component';
+import { CommonListAdmitionsComponent } from './aplications-common-view/common-list-admitions/common-list-admitions.component';
+import { CommonListTestComponent } from './aplications-common-view/common-list-test/common-list-test.component';
+import { CommonListTransferComponent } from './aplications-common-view/common-list-transfer/common-list-transfer.component';
 
 
 @NgModule({
@@ -41,7 +45,11 @@ import {AlertModule} from 'ngx-bootstrap/alert';
     ListAdmitionsComponent,
     NewAdmitionsComponent,
     UpdateAdmitionsComponent,
-    ViewAdmitionsComponent
+    ViewAdmitionsComponent,
+    CommonListHcComponent,
+    CommonListAdmitionsComponent,
+    CommonListTestComponent,
+    CommonListTransferComponent
   ],
   imports: [
     CommonModule,
