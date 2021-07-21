@@ -9,6 +9,7 @@ import { BtnSearchComponent } from './btn-search/btn-search.component';
 import { BtnUpdateComponent } from './btn-update/btn-update.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {RouterModule} from '@angular/router';
+import {BtnSelectComponent} from './btn-select/btn-select.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {RouterModule} from '@angular/router';
     BtnNewComponent,
     BtnSaveComponent,
     BtnSearchComponent,
-    BtnUpdateComponent
+    BtnUpdateComponent,
+    BtnSelectComponent
   ],
   exports: [
     BtnCancelComponent,
@@ -27,7 +29,8 @@ import {RouterModule} from '@angular/router';
     BtnNewComponent,
     BtnSaveComponent,
     BtnSearchComponent,
-    BtnUpdateComponent
+    BtnUpdateComponent,
+    BtnSelectComponent
   ],
   imports: [
     CommonModule,
