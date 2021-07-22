@@ -30,7 +30,7 @@ export class ListAdmitionsComponent implements OnInit {
   }
 
   getComboIC(): void {
-    this.serviceIC.list()
+    this.serviceIC.getCombo()
       .subscribe(
         rt => {
           if (rt.error) {

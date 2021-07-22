@@ -41,7 +41,7 @@
         <label for="comboIsolaceCenter">Centro de aislamiento</label>
         <select id="comboIsolaceCenter"   class="form-control" #comboIsolaceCenter (change)="setIC(comboIsolaceCenter.value)" formControlName="id_isolation_center">
           <option value="" selected><<---Seleccione-->></option>
-          <option *ngFor="let i of comboIC"  value="{{i.id}}">{{i.code}} --- {{i.value}}</option>
+          <option *ngFor="let i of comboIC"  value="{{i.id}}">{{i.value}}</option>
         </select>
         <div *ngIf="f.id_isolation_center.errors && f.id_isolation_center.touched">
           <div *ngIf="f.id_isolation_center.errors.required">

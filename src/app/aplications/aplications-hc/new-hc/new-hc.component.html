@@ -33,7 +33,7 @@
         <label for="comboMunicipality">Municipio</label>
         <select id="comboMunicipality"   class="form-control" #comboMunicipalitie (change)="setMunicipality(comboMunicipalitie.value)" formControlName="id_municipalities_hc">
           <option value="" selected><<---Seleccione-->></option>
-          <option *ngFor="let i of comboMunicipality"  value="{{i.id}}">{{i.code}} --- {{i.value}}</option>
+          <option *ngFor="let i of comboMunicipality"  value="{{i.id}}">{{i.value}}</option>
         </select>
         <div *ngIf="f.id_municipalities_hc.errors && f.id_municipalities_hc.touched">
           <div *ngIf="f.id_municipalities_hc.errors.required">

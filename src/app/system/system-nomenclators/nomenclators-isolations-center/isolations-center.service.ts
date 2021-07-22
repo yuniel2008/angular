@@ -32,6 +32,17 @@ export class IsolationsCenterService {
         catchError(this.handleError<any>('list')));
   }
 
+  getCombo(): Observable<any> {
+
+    const options = {
+      headers: Config.getheaders(this.functionality),
+    };
+
+    return this.http.get(`${this.url}/getcombo`, options)
+      .pipe(map(r => r),
+        catchError(this.handleError<any>('list')));
+  }
+
   getByid(id: string): Observable<any> {
     let params = new HttpParams();
     params = params.append('id', id);
