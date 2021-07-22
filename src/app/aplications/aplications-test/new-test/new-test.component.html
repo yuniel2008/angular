@@ -1,0 +1,54 @@
+<title-view [titles]="'Registrar'" [subtitle]="'admisión'"></title-view>
+
+<alert *ngIf="msgError != 'null'" [type]="'danger'" [dismissible]="!dismissible" (onClosed)="onClosed()">{{msgError}}</alert>
+
+<form  novalidate [formGroup]="form">
+
+  <div class="row">
+
+    <div class="col-lg-6">
+      <div class="form-group">
+        <label for="date_samples">Fecha de toma de muestra</label>
+        <input type="date" placeholder="Fecha de toma de muestra" class="form-control" id="date_samples" formControlName="date_samples">
+        <div *ngIf="f.date_samples.errors && f.date_samples.touched">
+          <div *ngIf="f.date_samples.errors.required">
+            <label for="date_samples" class="text-danger"><fa-icon [icon]="faBan" size="ms"></fa-icon> El campo es requerido.</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="form-group">
+
+        <label for="id_laboratories">Laboratorio</label>
+        <select id="id_laboratories"   class="form-control" #combolab (change)="setLab(combolab.value)" formControlName="id_laboratories">
+          <option value="" selected><<---Seleccione-->></option>
+          <option *ngFor="let i of comboLab"  value="{{i.id}}">{{i.code}} --- {{i.value}}</option>
+        </select>
+        <div *ngIf="f.id_laboratories.errors && f.id_laboratories.touched">
+          <div *ngIf="f.id_laboratories.errors.required">
+            <label for="id_laboratories" class="text-danger"><fa-icon [icon]="faBan" size="ms"></fa-icon> El campo es requerido.</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div>
+    <div class="row">
+      <div class="col-lg-12 mt-2">
+        <btn-save (click)="new()" ngClass="pr-2" [disabled]="!form.valid"></btn-save>
+        <btn-cancel  router="/test/list"></btn-cancel>
+      </div>
+    </div>
+  </div>
+
+
+
+</form>
+
+
+

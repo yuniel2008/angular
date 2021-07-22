@@ -30,6 +30,14 @@ import { CommonListHcComponent } from './aplications-common-view/common-list-hc/
 import { CommonListAdmitionsComponent } from './aplications-common-view/common-list-admitions/common-list-admitions.component';
 import { CommonListTestComponent } from './aplications-common-view/common-list-test/common-list-test.component';
 import { CommonListTransferComponent } from './aplications-common-view/common-list-transfer/common-list-transfer.component';
+import {TestService} from './aplications-test/test.service';
+import {AplicationsTestComponent} from './aplications-test/aplications-test.component';
+import {ListTestComponent} from './aplications-test/list-test/list-test.component';
+import {NewTestComponent} from './aplications-test/new-test/new-test.component';
+import {UpdateTestComponent} from './aplications-test/update-test/update-test.component';
+import {ViewTestComponent} from './aplications-test/view-test/view-test.component';
+import {LaboratoryService} from '../system/system-nomenclators/nomenclators-laboratory/laboratory.service';
+import { ClosedTestComponent } from './aplications-test/closed-test/closed-test.component';
 
 
 @NgModule({
@@ -49,7 +57,13 @@ import { CommonListTransferComponent } from './aplications-common-view/common-li
     CommonListHcComponent,
     CommonListAdmitionsComponent,
     CommonListTestComponent,
-    CommonListTransferComponent
+    CommonListTransferComponent,
+    AplicationsTestComponent,
+    ListTestComponent,
+    NewTestComponent,
+    UpdateTestComponent,
+    ViewTestComponent,
+    ClosedTestComponent
   ],
   imports: [
     CommonModule,
@@ -66,7 +80,9 @@ import { CommonListTransferComponent } from './aplications-common-view/common-li
     HcService,
     MunicipalityService,
     AdmitionsService,
-    IsolationsCenterService
+    IsolationsCenterService,
+    TestService,
+    LaboratoryService
   ],
   })
 export class AplicationsModule { }

@@ -14,6 +14,12 @@ import {ViewAdmitionsComponent} from './aplications-admitions/view-admitions/vie
 import {UpdateAdmitionsComponent} from './aplications-admitions/update-admitions/update-admitions.component';
 import {ListAdmitionsComponent} from './aplications-admitions/list-admitions/list-admitions.component';
 import {CommonListHcComponent} from './aplications-common-view/common-list-hc/common-list-hc.component';
+import {AplicationsTestComponent} from './aplications-test/aplications-test.component';
+import {ListTestComponent} from './aplications-test/list-test/list-test.component';
+import {NewTestComponent} from './aplications-test/new-test/new-test.component';
+import {UpdateTestComponent} from './aplications-test/update-test/update-test.component';
+import {ViewTestComponent} from './aplications-test/view-test/view-test.component';
+import {ClosedTestComponent} from './aplications-test/closed-test/closed-test.component';
 
 
 const routes: Routes = [
@@ -86,6 +92,37 @@ const routes: Routes = [
           {
             path: 'view/:id',
             component: ViewAdmitionsComponent
+          }
+        ]
+      },
+      {
+        path: 'test',
+        component: AplicationsTestComponent,
+        children: [
+          {
+            path: '',
+            redirectTo: 'list',
+            pathMatch: 'full'
+          },
+          {
+            path: 'list',
+            component: ListTestComponent
+          },
+          {
+            path: 'new/:idhc',
+            component: NewTestComponent
+          },
+          {
+            path: 'update/:id',
+            component: UpdateTestComponent
+          },
+          {
+            path: 'closed/:id',
+            component: ClosedTestComponent
+          },
+          {
+            path: 'view/:id',
+            component: ViewTestComponent
           }
         ]
       },
