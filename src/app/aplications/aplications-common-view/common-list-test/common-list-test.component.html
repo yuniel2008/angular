@@ -1,1 +1,64 @@
-<p>common-list-test works!</p>
+<section *ngIf="!loading">
+  <loading-view></loading-view>
+</section>
+<section *ngIf="loading">
+
+
+
+  <div  class="table table-responsive">
+    <table class="table table-hover">
+      <thead class="thead-light">
+      <tr>
+        <th>Fecha envio</th>
+
+        <th>Fecha resultado</th>
+
+        <th>Laboratorio</th>
+
+        <th>Estado de la prueba</th>
+
+        <th>Resultado</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr  *ngFor="let item of lists">
+
+        <td>
+          {{ item.date_samples | date: 'd/M/yy' : 'UTC'}}
+        </td>
+
+        <td>
+          {{ item.result_date | date: 'dd/MM/yyyy'  : 'UTC'}}
+        </td>
+
+        <td>
+          {{item.laboratory.value}}
+        </td>
+
+        <td>
+          <span class="text-success" *ngIf="item.status_test === '2'"> Procesada</span>
+          <span class="text-primary" *ngIf="item.status_test === '1'"> En Proceso</span>
+          <span class="text-secondary" *ngIf="item.status_test === '3'"> Inivida</span>
+        </td>
+
+        <td>
+          <span class="text-success" *ngIf="item.result === true"> Positiva</span>
+          <span class="text-secondary" *ngIf="item.result === false"> Negativa</span>
+        </td>
+      </tr>
+      <tr *ngIf="lists.length === 0" >
+        <td>No hay datos que mostrar.</td>
+        <td></td>
+        <td></td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+</section>
+
+
+
+
+
+

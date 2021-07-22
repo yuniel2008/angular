@@ -12,13 +12,16 @@ export class CommonListAdmitionsComponent implements OnInit {
   public msgError = 'null';
   public loading = false;
 
+  @Input()
+  nohc: string;
+
   constructor(
     private service: AdmitionsService
   ) {
-    this.list('', '', '', 'null');
   }
 
   ngOnInit(): void {
+    this.list('', '', '', 'null');
   }
 
   // tslint:disable-next-line:typedef
@@ -28,6 +31,7 @@ export class CommonListAdmitionsComponent implements OnInit {
        status: string) {
 
     this.lists = [];
+    nohc = this.nohc;
 
     this.service.list(nohc, name, value, status)
       .subscribe(
