@@ -1,1 +1,77 @@
-<p>view-test works!</p>
+<title-view [titles]="'Ver detalle'" [subtitle]="'prueba pcr'"></title-view>
+<section *ngIf="!loading">
+  <loading-view></loading-view>
+</section>
+
+<section *ngIf="loading">
+
+  <section *ngIf="loading">
+
+    <div *ngIf="obj != null">
+      <div class="row">
+
+
+        <div class="col-lg-4">
+          <label class="font-weight-bold mr-2">HC: </label>
+          <label > {{obj.hc.nohc }} </label>
+        </div>
+
+        <div class="col-lg-4">
+          <label class="font-weight-bold mr-2">Nombre: </label>
+          <label > {{obj.hc.name }} </label>
+        </div>
+
+        <div class="col-lg-4">
+          <label class="font-weight-bold mr-2">Fecha toma muestra: </label>
+          <label > {{obj.date_samples | date: 'd/M/yy' : 'UTC'}} </label>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4">
+          <label class="font-weight-bold mr-2">Laboratorio: </label>
+          <label > {{obj.laboratory.value }} </label>
+        </div>
+
+        <div class="col-lg-4">
+          <label class="font-weight-bold mr-2">Estado de la prueba: </label>
+          <label class="text-success" *ngIf="obj.status_test === '2'"> Procesada </label>
+          <label class="text-primary" *ngIf="obj.status_test === '1'"> En proceso </label>
+          <label class="text-secondary" *ngIf="obj.status_test === '3'"> Inivida </label>
+        </div>
+
+        <div class="col-lg-4">
+          <label class="font-weight-bold mr-2">Fecha resultado: </label>
+          <label > {{obj.date_samples | date: 'd/M/yy' : 'UTC'}} </label>
+        </div>
+
+        <div class="col-lg-4">
+          <label class="font-weight-bold mr-2">Resultado: </label>
+          <label class="text-success" *ngIf="obj.result === true"> Positiva </label>
+          <label class="text-secondary" *ngIf="obj.result === false"> Negativa </label>
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+    <div *ngIf="obj == null">
+      <label>No hay datos que mostrar.</label>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 mt-2">
+        <btn-goback router="/test/list"></btn-goback>
+      </div>
+    </div>
+  </section>
+
+
+</section>
+
+
+
+
