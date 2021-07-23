@@ -79,7 +79,7 @@ export class UpdateMunicipalityComponent implements OnInit {
   }
 
   getComboProvince(): void {
-    this.serviceCountry.list()
+    this.serviceCountry.list('', '')
       .subscribe(
         rt => {
           if (rt.error) {

@@ -42,8 +42,8 @@ export class NewProvinceComponent implements OnInit {
     });
   }
 
-  getComboContry(): void {console.log('paso');
-    this.serviceCountry.list()
+  getComboContry(): void {
+    this.serviceCountry.list('')
       .subscribe(
         rt => {
           if (rt.error) {

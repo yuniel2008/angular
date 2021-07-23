@@ -36,6 +36,7 @@ import { NewIsolationsCenterComponent } from './nomenclators-isolations-center/n
 import { UpdateIsolationsCenterComponent } from './nomenclators-isolations-center/update-isolations-center/update-isolations-center.component';
 import { ViewIsolationsCenterComponent } from './nomenclators-isolations-center/view-isolations-center/view-isolations-center.component';
 import {IsolationsCenterService} from './nomenclators-isolations-center/isolations-center.service';
+import {AlertModule} from 'ngx-bootstrap/alert';
 
 
 @NgModule({
@@ -73,6 +74,7 @@ import {IsolationsCenterService} from './nomenclators-isolations-center/isolatio
         CommonComponetModule,
         ReactiveFormsModule,
         FontAwesomeModule,
+        AlertModule,
     ],
   providers: [
    CountryService,

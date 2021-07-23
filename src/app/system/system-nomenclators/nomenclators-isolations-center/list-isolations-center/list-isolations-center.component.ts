@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {faRetweet, faUserShield} from '@fortawesome/free-solid-svg-icons';
 import {IsolationsCenter} from '../isolations-center';
 import {IsolationsCenterService} from '../isolations-center.service';
+import {Municipality} from '../../nomenclators-municipality/municipality';
+import {MunicipalityService} from '../../nomenclators-municipality/municipality.service';
 
 
 @Component({
@@ -15,22 +17,44 @@ export class ListIsolationsCenterComponent implements OnInit {
   public loading = false;
   public faRetweet = faRetweet;
   public faUserShield = faUserShield;
+  public comboMunicipality: Municipality[] = [];
 
   constructor(
-    private service: IsolationsCenterService
+    private service: IsolationsCenterService,
+    private serviceMunicipality: MunicipalityService,
   ) {
-    this.list();
+    this.list('', '', '');
+    this.getComboMunicipality();
   }
 
   ngOnInit(): void {
   }
 
+  getComboMunicipality(): void {
+    this.serviceMunicipality.getCombo()
+      .subscribe(
+        rt => {
+          if (rt.error) {
+            this.msgError = rt.error;
+          } else {
+            this.comboMunicipality = rt.data;
+          }
+        },
+        er => {
+          this.msgError = er;
+        },
+        () => console.log('ready')
+      );
+  }
+
   // tslint:disable-next-line:typedef
-  list() {
+  list(value: string,
+       type: string,
+       municipality: string) {
 
     this.lists = [];
 
-    this.service.list()
+    this.service.list(value, type, municipality)
       .subscribe(
         rt => {
           if (rt.error) {

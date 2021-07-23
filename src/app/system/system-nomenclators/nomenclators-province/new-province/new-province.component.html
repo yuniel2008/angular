@@ -32,7 +32,7 @@
         <label for="comboCountries">País</label>
         <select id="comboCountries"   class="form-control" #comboCountrie (change)="setCountry(comboCountrie.value)" formControlName="n_country_id">
           <option value="" selected><<---Seleccione-->></option>
-          <option *ngFor="let i of comboCountry"  value="{{i.id}}">{{i.code}} --- {{i.value}}</option>
+          <option *ngFor="let i of comboCountry"  value="{{i.id}}">{{i.value}}</option>
         </select>
         <div *ngIf="f.n_country_id.errors && f.n_country_id.touched">
           <div *ngIf="f.n_country_id.errors.required">

@@ -17,17 +17,34 @@ export class ProvinceService {
     private  http: HttpClient
   ) { }
 
-  list(): Observable<any> {
-    /*let params = new HttpParams();
+  list(value: string,
+       country: string): Observable<any> {
+    let params = new HttpParams();
 
-    params = params.append('start', start.toString());
-    params = params.append('length', length.toString());*/
+    if (value){
+      params = params.append('value', value);
+    }
 
+    if (country){
+      params = params.append('country', country);
+    }
+
+    const options = {
+      headers: Config.getheaders(this.functionality),
+      params
+    };
+
+    return this.http.get(`${this.url}`, options)
+      .pipe(map(r => r),
+        catchError(this.handleError<any>('list')));
+  }
+
+  getCombo(): Observable<any> {
     const options = {
       headers: Config.getheaders(this.functionality),
     };
 
-    return this.http.get(`${this.url}`, options)
+    return this.http.get(`${this.url}/getcombo`, options)
       .pipe(map(r => r),
         catchError(this.handleError<any>('list')));
   }

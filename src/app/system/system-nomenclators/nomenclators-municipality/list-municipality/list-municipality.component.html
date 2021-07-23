@@ -1,13 +1,40 @@
 <title-view [titles]="'Listar'" [subtitle]="'municipios'"></title-view>
 
+<alert *ngIf="msgError != 'null'" [type]="'danger'" [dismissible]="!dismissible" (onClosed)="onClosed()">{{msgError}}</alert>
 
+<section>
+  <div class="row">
+
+    <div class="col-lg-4 form-group">
+      <label for="value" class="font-weight-bold">Nombre del municipio</label>
+      <input id="value" placeholder="Nombre del municipio" class="form-control" type="search" #valueBusqueda >
+    </div>
+
+    <div class="col-lg-4">
+      <div class="form-group">
+
+        <label for="comboProvinces" class="font-weight-bold">Provincia</label>
+        <select id="comboProvinces"   class="form-control" #comboProvinces  >
+          <option value="" selected><<---Seleccione-->></option>
+          <option *ngFor="let i of comboProvince"  value="{{i.value}}">{{i.value}}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+
+
+  <btn-search router="/system/nomenclators/municipality/list"
+              (click)="list( valueBusqueda.value.trim(), comboProvinces.value.trim())">
+  </btn-search>
+</section>
 
 <section *ngIf="!loading">
   <loading-view></loading-view>
 </section>
 <section *ngIf="loading">
 
-  <section class="pb-2">
+  <section class="pb-2 mt-3 pt-3">
     <btn-new router="/system/nomenclators/municipality/new"></btn-new>
   </section>
 

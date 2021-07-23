@@ -17,14 +17,21 @@ export class MunicipalityService {
     private  http: HttpClient
   ) { }
 
-  list(): Observable<any> {
-    /*let params = new HttpParams();
+  list(value: string,
+       province: string): Observable<any> {
+    let params = new HttpParams();
 
-    params = params.append('start', start.toString());
-    params = params.append('length', length.toString());*/
+    if (value){
+      params = params.append('value', value);
+    }
+
+    if (province){
+      params = params.append('province', province);
+    }
 
     const options = {
       headers: Config.getheaders(this.functionality),
+      params
     };
 
     return this.http.get(`${this.url}`, options)

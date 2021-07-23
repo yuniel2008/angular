@@ -17,14 +17,19 @@ export class LaboratoryService {
     private  http: HttpClient
   ) { }
 
-  list(): Observable<any> {
-    /*let params = new HttpParams();
+  list(value: string): Observable<any> {
+    let params = new HttpParams();
 
-    params = params.append('start', start.toString());
+    if (value){
+      params = params.append('value', value);
+    }
+
+   /* params = params.append('start', start.toString());
     params = params.append('length', length.toString());*/
 
     const options = {
       headers: Config.getheaders(this.functionality),
+      params
     };
 
     return this.http.get(`${this.url}`, options)

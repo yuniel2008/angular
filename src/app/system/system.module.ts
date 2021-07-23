@@ -25,6 +25,7 @@ import { ListActionsComponent } from './system-actions/list-actions/list-actions
 import { ViewActionsComponent } from './system-actions/view-actions/view-actions.component';
 import {ActionsService} from './system-actions/actions.service';
 import {AuthGuardSystem} from '../autgard/authSystem.guard';
+import {AlertModule} from 'ngx-bootstrap/alert';
 
 
 @NgModule({
@@ -44,15 +45,16 @@ import {AuthGuardSystem} from '../autgard/authSystem.guard';
     ListActionsComponent,
     ViewActionsComponent
   ],
-  imports: [
-    ReactiveFormsModule,
-    HttpClientModule,
-    CommonModule,
-    SystemRoutingModule,
-    TemplatesModule,
-    FontAwesomeModule,
-    CommonComponetModule,
-  ],
+    imports: [
+        ReactiveFormsModule,
+        HttpClientModule,
+        CommonModule,
+        SystemRoutingModule,
+        TemplatesModule,
+        FontAwesomeModule,
+        CommonComponetModule,
+        AlertModule,
+    ],
   providers: [
     UserService,
     LogService,

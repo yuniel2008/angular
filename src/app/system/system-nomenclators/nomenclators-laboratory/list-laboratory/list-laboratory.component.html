@@ -1,13 +1,29 @@
 <title-view [titles]="'Listar'" [subtitle]="'laboratorios'"></title-view>
 
+<alert *ngIf="msgError != 'null'" [type]="'danger'" [dismissible]="!dismissible" (onClosed)="onClosed()">{{msgError}}</alert>
 
+<section>
+  <div class="row">
+
+    <div class="col-lg-4 form-group">
+      <label for="value" class="font-weight-bold">Nombre del laboratorio</label>
+      <input id="value" placeholder="Nombre del laboratorio" class="form-control" type="search" #valueBusqueda >
+    </div>
+  </div>
+
+
+
+  <btn-search router="/system/nomenclators/laboratory/list"
+              (click)="list( valueBusqueda.value.trim())">
+  </btn-search>
+</section>
 
 <section *ngIf="!loading">
   <loading-view></loading-view>
 </section>
 <section *ngIf="loading">
 
-  <section class="pb-2">
+  <section class="pb-2 mt-3 pt-3">
     <btn-new router="/system/nomenclators/laboratory/new"></btn-new>
   </section>
 
@@ -15,9 +31,9 @@
     <table class="table table-hover">
       <thead class="thead-light">
       <tr>
-        <th>Código del país</th>
+        <th>Código del laboratorio</th>
 
-        <th>País</th>
+        <th>Laboratorio</th>
 
         <th>Estado</th>
 

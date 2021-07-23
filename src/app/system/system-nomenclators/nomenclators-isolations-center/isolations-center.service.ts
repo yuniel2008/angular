@@ -17,14 +17,29 @@ export class IsolationsCenterService {
     private  http: HttpClient
   ) { }
 
-  list(): Observable<any> {
-    /*let params = new HttpParams();
+  list(value: string,
+       type: string,
+       municipality: string): Observable<any> {
+    let params = new HttpParams();
 
-    params = params.append('start', start.toString());
+    if (value){
+      params = params.append('value', value);
+    }
+
+    if (type){
+      params = params.append('type', type);
+    }
+
+    if (municipality){
+      params = params.append('municipality', municipality);
+    }
+
+   /* params = params.append('start', start.toString());
     params = params.append('length', length.toString());*/
 
     const options = {
       headers: Config.getheaders(this.functionality),
+      params
     };
 
     return this.http.get(`${this.url}`, options)

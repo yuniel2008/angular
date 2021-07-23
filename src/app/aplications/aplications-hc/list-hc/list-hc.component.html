@@ -22,7 +22,7 @@
   </div>
 
   <btn-search router="/hc/list"
-              (click)="list( nohcBusqueda.value, namebusqueda.value, cibusqueda.value)">
+              (click)="list( nohcBusqueda.value.trim(), namebusqueda.value.trim(), cibusqueda.value.trim())">
   </btn-search>
 </section>
 

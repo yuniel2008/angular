@@ -84,7 +84,7 @@ export class UpdateHcComponent implements OnInit {
   }
 
   getComboMunicipality(): void {
-    this.serviceMunicipality.list()
+    this.serviceMunicipality.getCombo()
       .subscribe(
         rt => {
           if (rt.error) {

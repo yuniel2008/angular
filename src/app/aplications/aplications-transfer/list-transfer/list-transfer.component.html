@@ -16,7 +16,7 @@
   </div>
 
   <btn-search router="/transfer/list"
-              (click)="list( nohcBusqueda.value, namebusqueda.value)">
+              (click)="list( nohcBusqueda.value.trim(), namebusqueda.value.trim())">
   </btn-search>
 </section>
 

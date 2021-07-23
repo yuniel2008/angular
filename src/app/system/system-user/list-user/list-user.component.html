@@ -1,13 +1,34 @@
 <title-view [titles]="'Listar'" [subtitle]="'usuarios'"></title-view>
 
+<alert *ngIf="msgError != 'null'" [type]="'danger'" [dismissible]="!dismissible" (onClosed)="onClosed()">{{msgError}}</alert>
 
+<section>
+  <div class="row">
+
+    <div class="col-lg-4 form-group">
+      <label for="username" class="font-weight-bold">Usuario</label>
+      <input id="username" placeholder="Usuario" class="form-control" type="search" #usernameBusqueda >
+    </div>
+
+    <div class="col-lg-4 form-group">
+      <label for="fullname" class="font-weight-bold">Nombre del usuario</label>
+      <input id="fullname" placeholder="Nombre del usuario" class="form-control" type="search" #fullnameBusqueda >
+    </div>
+  </div>
+
+
+
+  <btn-search router="/system/user/list"
+              (click)="list( usernameBusqueda.value.trim(), fullnameBusqueda.value.trim())">
+  </btn-search>
+</section>
 
 <section *ngIf="!loading">
   <loading-view></loading-view>
 </section>
 <section *ngIf="loading">
 
-  <section class="pb-2">
+  <section class="pb-2 mt-3 pt-3">
     <btn-new router="/system/user/new"></btn-new>
   </section>
 
@@ -48,7 +69,7 @@
         <td>
           <btn-update ngClass="pr-2" router="/system/user/update/{{item.id}}"></btn-update>
           <btn-details ngClass="pr-2" router="/system/user/view/{{item.id}}"></btn-details>
-          <a (click)="changeStatus(item)" class="btn btn-primary btn-sm text-white mr-2"  href="#" routerLink="/system/user/list">
+          <a (click)="changeStatus(item, usernameBusqueda.value.trim(), fullnameBusqueda.value.trim())" class="btn btn-primary btn-sm text-white mr-2"  href="#" routerLink="/system/user/list">
             <fa-icon [icon]="faRetweet" size="ms"></fa-icon> Cambiar estado</a>
           <a  class="btn btn-primary btn-sm text-white" href="#" routerLink="/system/user/updatePassword/{{item.id}}">
             <fa-icon [icon]="faUserShield" size="ms"></fa-icon> Cambiar contraseña</a>

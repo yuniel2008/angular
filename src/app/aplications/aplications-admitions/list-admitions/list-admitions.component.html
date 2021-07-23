@@ -34,7 +34,7 @@
   </div>
 
   <btn-search router="/admitions/list"
-              (click)="list( nohcBusqueda.value, namebusqueda.value, comboIsolaceCenter.value, statusbusqueda.value)">
+              (click)="list( nohcBusqueda.value.trim(), namebusqueda.value.trim(), comboIsolaceCenter.value.trim(), statusbusqueda.value.trim())">
   </btn-search>
 </section>
 

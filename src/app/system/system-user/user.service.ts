@@ -17,14 +17,23 @@ export class UserService {
     private  http: HttpClient
   ) { }
 
-  list(): Observable<any> {
-    /*let params = new HttpParams();
+  list(username: string,
+       fullname: string): Observable<any> {
+    let params = new HttpParams();
 
-    params = params.append('start', start.toString());
+    if (username){
+      params = params.append('username', username);
+    }
+
+    if (fullname){
+      params = params.append('fullname', fullname);
+    }
+   /* params = params.append('start', start.toString());
     params = params.append('length', length.toString());*/
 
     const options = {
       headers: Config.getheaders(this.functionality),
+      params
     };
 
     return this.http.get(`${this.url}`, options)

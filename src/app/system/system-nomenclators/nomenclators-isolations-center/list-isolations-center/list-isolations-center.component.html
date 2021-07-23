@@ -1,13 +1,51 @@
 <title-view [titles]="'Listar'" [subtitle]="'centros de ailsamientos'"></title-view>
 
+<alert *ngIf="msgError != 'null'" [type]="'danger'" [dismissible]="!dismissible" (onClosed)="onClosed()">{{msgError}}</alert>
 
+<section>
+  <div class="row">
+
+    <div class="col-lg-4 form-group">
+      <label for="value" class="font-weight-bold">Nombre del centro de aislamiento</label>
+      <input id="value" placeholder="Nombre del centro de aislamiento" class="form-control" type="search" #valueBusqueda >
+    </div>
+
+    <div class="col-lg-4">
+      <div class="form-group">
+        <label for="type" class="font-weight-bold">Tipo de centro</label>
+        <select id="type"   class="form-control" #comboType >
+          <option value="" selected><<---Seleccione-->></option>
+          <option value="positivos" >Positivos</option>
+          <option value="sospechosos" >Sospechosos</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="col-lg-4">
+      <div class="form-group">
+        <label for="comboMunicipalities" class="font-weight-bold">Municipio</label>
+        <select id="comboMunicipalities"   class="form-control" #comboMunicipalities  >
+          <option value="" selected><<---Seleccione-->></option>
+          <option *ngFor="let i of comboMunicipality"  value="{{i.value}}">{{i.value}}</option>
+        </select>
+      </div>
+    </div>
+
+  </div>
+
+
+
+  <btn-search router="/system/nomenclators/isolationsCenter/list"
+              (click)="list( valueBusqueda.value.trim(), comboType.value.trim(), comboMunicipalities.value.trim() )">
+  </btn-search>
+</section>
 
 <section *ngIf="!loading">
   <loading-view></loading-view>
 </section>
 <section *ngIf="loading">
 
-  <section class="pb-2">
+  <section class="pb-2  mt-3 pt-3">
     <btn-new router="/system/nomenclators/isolationsCenter/new"></btn-new>
   </section>
 

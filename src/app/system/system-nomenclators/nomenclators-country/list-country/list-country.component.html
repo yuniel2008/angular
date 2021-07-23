@@ -1,5 +1,20 @@
 <title-view [titles]="'Listar'" [subtitle]="'paises'"></title-view>
 
+<alert *ngIf="msgError != 'null'" [type]="'danger'" [dismissible]="!dismissible" (onClosed)="onClosed()">{{msgError}}</alert>
+
+<section>
+  <div class="row">
+
+    <div class="col-lg-4 form-group">
+      <label for="value" class="font-weight-bold">Nombre del país</label>
+      <input id="value" placeholder="Nombre del país" class="form-control" type="search" #valueBusqueda >
+    </div>
+  </div>
+
+  <btn-search router="/system/nomenclators/country/list"
+              (click)="list( valueBusqueda.value.trim())">
+  </btn-search>
+</section>
 
 
 <section *ngIf="!loading">
@@ -7,7 +22,7 @@
 </section>
 <section *ngIf="loading">
 
-  <section class="pb-2">
+  <section class="pb-2 mt-3 pt-3">
     <btn-new router="/system/nomenclators/country/new"></btn-new>
   </section>
 

@@ -18,18 +18,18 @@ export class ListLaboratoryComponent implements OnInit {
   constructor(
     private service: LaboratoryService
   ) {
-    this.list();
+    this.list('');
   }
 
   ngOnInit(): void {
   }
 
   // tslint:disable-next-line:typedef
-  list() {
+  list(value: string) {
 
     this.lists = [];
 
-    this.service.list()
+    this.service.list(value)
       .subscribe(
         rt => {
           if (rt.error) {

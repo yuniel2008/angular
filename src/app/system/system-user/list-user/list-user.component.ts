@@ -19,18 +19,19 @@ export class ListUserComponent implements OnInit {
   constructor(
     private service: UserService
   ) {
-    this.list();
+    this.list('', '');
   }
 
   ngOnInit(): void {
   }
 
   // tslint:disable-next-line:typedef
-  list() {
+  list(username: string,
+       fullname: string) {
 
     this.lists = [];
 
-    this.service.list()
+    this.service.list(username, fullname)
       .subscribe(
         rt => {
           if (rt.error) {
@@ -48,7 +49,8 @@ export class ListUserComponent implements OnInit {
       );
   }
 
-  changeStatus(obj: User): void {
+  changeStatus(obj: User, username: string,
+               fullname: string): void {
     this.loading = false;
     if (obj.status === true) {
       obj.status = false;
@@ -72,7 +74,7 @@ export class ListUserComponent implements OnInit {
         },
         () => {
           console.log('ready');
-          this.list();
+          this.list(username, fullname);
 
         }
       );
