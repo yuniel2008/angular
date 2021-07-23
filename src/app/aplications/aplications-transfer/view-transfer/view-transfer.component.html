@@ -1,0 +1,75 @@
+<title-view [titles]="'Ver detalle'" [subtitle]="'traslado'"></title-view>
+<section *ngIf="!loading">
+  <loading-view></loading-view>
+</section>
+
+<section *ngIf="loading">
+
+  <section *ngIf="loading">
+
+    <div *ngIf="obj != null">
+      <div class="row">
+
+
+        <div class="col-lg-4">
+          <label class="font-weight-bold mr-2">HC: </label>
+          <label > {{obj.app_admitions.hcs.nohc }} </label>
+        </div>
+
+        <div class="col-lg-4">
+          <label class="font-weight-bold mr-2">Nombre: </label>
+          <label > {{obj.app_admitions.hcs.name }} </label>
+        </div>
+
+        <div class="col-lg-4">
+          <label class="font-weight-bold mr-2">Fecha del traslado: </label>
+          <label > {{obj.date | date: 'd/M/yy' : 'UTC'}} </label>
+        </div>
+
+      </div>
+
+      <h5 class="mt-3">Origen</h5>
+      <div class="row">
+        <div class="col-lg-6">
+          <label class="font-weight-bold mr-2">Centro de aislamiento: </label>
+          <label > {{obj.isolation_center_source.value}} </label>
+        </div>
+
+        <div class="col-lg-6">
+          <label class="font-weight-bold mr-2">Municipio: </label>
+          <label > {{obj.isolation_center_destinations.municipalities.value}} </label>
+        </div>
+
+      </div>
+
+      <h5 class="mt-3">Destino</h5>
+      <div class="row">
+        <div class="col-lg-6">
+          <label class="font-weight-bold mr-2">Origen: </label>
+          <label > {{obj.isolation_center_source.value}} </label>
+        </div>
+
+        <div class="col-lg-6">
+          <label class="font-weight-bold mr-2">Municipio: </label>
+          <label > {{obj.isolation_center_destinations.municipalities.value}} </label>
+        </div>
+
+      </div>
+    </div>
+
+    <div *ngIf="obj == null">
+      <label>No hay datos que mostrar.</label>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 mt-2">
+        <btn-goback router="/transfer/list"></btn-goback>
+      </div>
+    </div>
+  </section>
+
+
+</section>
+
+
+

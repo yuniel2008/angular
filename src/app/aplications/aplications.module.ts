@@ -38,6 +38,12 @@ import {UpdateTestComponent} from './aplications-test/update-test/update-test.co
 import {ViewTestComponent} from './aplications-test/view-test/view-test.component';
 import {LaboratoryService} from '../system/system-nomenclators/nomenclators-laboratory/laboratory.service';
 import { ClosedTestComponent } from './aplications-test/closed-test/closed-test.component';
+import { AplicationsTransferComponent } from './aplications-transfer/aplications-transfer.component';
+import { ListTransferComponent } from './aplications-transfer/list-transfer/list-transfer.component';
+import { NewTransferComponent } from './aplications-transfer/new-transfer/new-transfer.component';
+import { ViewTransferComponent } from './aplications-transfer/view-transfer/view-transfer.component';
+import { CommonListAdmitionsActivesComponent } from './aplications-common-view/common-list-admitions-actives/common-list-admitions-actives.component';
+import {TransferService} from './aplications-transfer/transfer.service';
 
 
 @NgModule({
@@ -63,7 +69,12 @@ import { ClosedTestComponent } from './aplications-test/closed-test/closed-test.
     NewTestComponent,
     UpdateTestComponent,
     ViewTestComponent,
-    ClosedTestComponent
+    ClosedTestComponent,
+    AplicationsTransferComponent,
+    ListTransferComponent,
+    NewTransferComponent,
+    ViewTransferComponent,
+    CommonListAdmitionsActivesComponent
   ],
   imports: [
     CommonModule,
@@ -82,7 +93,8 @@ import { ClosedTestComponent } from './aplications-test/closed-test/closed-test.
     AdmitionsService,
     IsolationsCenterService,
     TestService,
-    LaboratoryService
+    LaboratoryService,
+    TransferService
   ],
   })
 export class AplicationsModule { }

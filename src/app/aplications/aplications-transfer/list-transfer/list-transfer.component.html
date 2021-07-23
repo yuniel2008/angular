@@ -1,0 +1,91 @@
+<title-view [titles]="'Listar'" [subtitle]="'transferencias'"></title-view>
+<alert *ngIf="msgError != 'null'" [type]="'danger'" [dismissible]="!dismissible" (onClosed)="onClosed()">{{msgError}}</alert>
+
+<section>
+  <div class="row">
+
+    <div class="col-lg-6 form-group">
+      <label for="nohc" class="font-weight-bold">Número de historia clínica</label>
+      <input id="nohc" placeholder="Número de historia clínica" class="form-control" type="search" #nohcBusqueda >
+    </div>
+
+    <div class="col-lg-6 form-group">
+      <label for="name" class="font-weight-bold">Nombre</label>
+      <input id="name" placeholder="Nombre" class="form-control" type="search" #namebusqueda >
+    </div>
+  </div>
+
+  <btn-search router="/transfer/list"
+              (click)="list( nohcBusqueda.value, namebusqueda.value)">
+  </btn-search>
+</section>
+
+
+<section *ngIf="!loading">
+  <loading-view></loading-view>
+</section>
+<section *ngIf="loading">
+
+  <section class="pb-2 pt-3">
+    <btn-new router="/select/admitions"></btn-new>
+  </section>
+
+  <div  class="table table-responsive">
+    <table class="table table-hover">
+      <thead class="thead-light">
+      <tr>
+        <th>HC</th>
+        <th>Nombre paciente</th>
+        <th>Fecha tranferencia</th>
+
+        <th>Origen</th>
+
+        <th>Destino</th>
+
+        <th>Acciones</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr  *ngFor="let item of lists">
+        <td>
+          {{ item.app_admitions.hcs.nohc }}
+        </td>
+
+        <td>
+          {{ item.app_admitions.hcs.name }}
+        </td>
+        <td>
+          {{ item.date | date: 'd/M/yy' : 'UTC'}}
+        </td>
+
+        <td>
+          {{ item.isolation_center_source.value}}
+        </td>
+
+        <td>
+          {{ item.isolation_center_destinations.value }}
+        </td>
+
+
+
+        <td style="width: 25%">
+          <btn-details ngClass="pr-2" router="/transfer/view/{{item.id}}"></btn-details>
+        </td>
+
+      </tr>
+      <tr *ngIf="lists.length === 0" >
+        <td>No hay datos que mostrar.</td>
+        <td></td>
+        <td></td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+</section>
+
+
+
+
+
+

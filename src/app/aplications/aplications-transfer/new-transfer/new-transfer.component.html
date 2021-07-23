@@ -1,0 +1,92 @@
+<title-view [titles]="'Registrar'" [subtitle]="'transferencia'"></title-view>
+
+<alert *ngIf="msgError != 'null'" [type]="'danger'" [dismissible]="!dismissible" (onClosed)="onClosed()">{{msgError}}</alert>
+<section *ngIf="!loading">
+  <loading-view></loading-view>
+</section>
+
+<section *ngIf="loading">
+
+  <div class="row">
+    <div class="col-lg-4">
+      <label class="font-weight-bold mr-2">Número HC: </label>
+      <label > {{admitions.hcs.nohc}} </label>
+    </div>
+
+    <div class="col-lg-4">
+      <label class="font-weight-bold mr-2">Nombre del paciente: </label>
+      <label > {{admitions.hcs.name}} </label>
+    </div>
+
+    <div class="col-lg-4">
+      <label class="font-weight-bold mr-2">CI: </label>
+      <label > {{admitions.hcs.ci}} </label>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6">
+      <label class="font-weight-bold mr-2">Fecha ingreso: </label>
+      <label > {{admitions.entry | date: 'd/M/yy' : 'UTC'}} </label>
+    </div>
+    <div class="col-lg-6">
+      <label class="font-weight-bold mr-2">Centro de aislamiento actual: </label>
+      <label > {{admitions.isolation_center.value}} </label>
+    </div>
+  </div>
+
+  <form  novalidate [formGroup]="form">
+
+
+    <div class="row mt-3 pt-3">
+
+      <div class="col-lg-6">
+        <div class="form-group">
+          <label for="date">Fecha del traslado</label>
+          <input type="date" placeholder="Fecha del traslado" class="form-control" id="date" formControlName="date">
+          <div *ngIf="f.date.errors && f.date.touched">
+            <div *ngIf="f.date.errors.required">
+              <label for="date" class="text-danger"><fa-icon [icon]="faBan" size="ms"></fa-icon> El campo es requerido.</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="form-group">
+
+          <label for="destinations">Destino</label>
+          <select id="destinations"   class="form-control" #comboic (change)="setIC(comboic.value)" formControlName="destinations">
+            <option value="" selected><<---Seleccione-->></option>
+
+            <option *ngFor="let i of comboIC"  value="{{i.id}}">{{i.value}}</option>
+          </select>
+          <div *ngIf="f.destinations.errors && f.destinations.touched">
+            <div *ngIf="f.destinations.errors.required">
+              <label for="destinations" class="text-danger"><fa-icon [icon]="faBan" size="ms"></fa-icon> El campo es requerido.</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div>
+      <div class="row">
+        <div class="col-lg-12 mt-2">
+          <btn-save (click)="new()" ngClass="pr-2" [disabled]="!form.valid"></btn-save>
+          <btn-cancel  router="/test/list"></btn-cancel>
+        </div>
+      </div>
+    </div>
+
+
+
+  </form>
+</section>
+
+
+
+

@@ -20,6 +20,11 @@ import {NewTestComponent} from './aplications-test/new-test/new-test.component';
 import {UpdateTestComponent} from './aplications-test/update-test/update-test.component';
 import {ViewTestComponent} from './aplications-test/view-test/view-test.component';
 import {ClosedTestComponent} from './aplications-test/closed-test/closed-test.component';
+import {AplicationsTransferComponent} from './aplications-transfer/aplications-transfer.component';
+import {ListTransferComponent} from './aplications-transfer/list-transfer/list-transfer.component';
+import {NewTransferComponent} from './aplications-transfer/new-transfer/new-transfer.component';
+import {ViewTransferComponent} from './aplications-transfer/view-transfer/view-transfer.component';
+import {CommonListAdmitionsActivesComponent} from './aplications-common-view/common-list-admitions-actives/common-list-admitions-actives.component';
 
 
 const routes: Routes = [
@@ -40,6 +45,10 @@ const routes: Routes = [
       {
         path: 'select/hc/:origen',
         component: CommonListHcComponent
+      },
+      {
+        path: 'select/admitions',
+        component: CommonListAdmitionsActivesComponent
       },
       {
         path: 'hc',
@@ -123,6 +132,29 @@ const routes: Routes = [
           {
             path: 'view/:id',
             component: ViewTestComponent
+          }
+        ]
+      },
+      {
+        path: 'transfer',
+        component: AplicationsTransferComponent,
+        children: [
+          {
+            path: '',
+            redirectTo: 'list',
+            pathMatch: 'full'
+          },
+          {
+            path: 'list',
+            component: ListTransferComponent
+          },
+          {
+            path: 'new/:idad',
+            component: NewTransferComponent
+          },
+          {
+            path: 'view/:id',
+            component: ViewTransferComponent
           }
         ]
       },
