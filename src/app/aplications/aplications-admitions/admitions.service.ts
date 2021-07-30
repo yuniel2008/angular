@@ -122,6 +122,35 @@ export class AdmitionsService {
         catchError(this.handleError<any>('list')));
   }
 
+  reportClose(
+    value: string,
+    dateint: string,
+    dateout: string
+  ): Observable<any> {
+    let params = new HttpParams();
+
+    if (value){
+      params = params.append('value', value);
+    }
+
+    if (dateint){
+      params = params.append('dateint', dateint);
+    }
+
+    if (dateout){
+      params = params.append('dateout', dateout);
+    }
+
+    const options = {
+      headers: Config.getheaders(this.functionality),
+      params
+    };
+
+    return this.http.get(`${this.url}/reports/close`, options)
+      .pipe(map(r => r),
+        catchError(this.handleError<any>('list')));
+  }
+
   /**
    * Handle Http operation that failed.
    * Let the app continue.

@@ -5,9 +5,8 @@
         <div class="card-header">Reporte de Admisiones</div>
         <div class="card-body">
           <ul>
-            <li style="list-style-type: none"><fa-icon [icon]="faList" size="ms" class="pr-2"></fa-icon> <a href="#" style="text-decoration:none!important;" routerLink="/report/admitions/open">Abiertas</a></li>
-            <li style="list-style-type: none"><fa-icon [icon]="faList" size="ms" class="pr-2"></fa-icon> <a href="#" style="text-decoration:none!important;">Reporte de Traslados</a></li>
-            <li style="list-style-type: none"><fa-icon [icon]="faList" size="ms" class="pr-2"></fa-icon> <a href="#" style="text-decoration:none!important;">Reporte de PCR</a></li>
+            <li style="list-style-type: none"><fa-icon [icon]="faList" size="ms" class="pr-2"></fa-icon> <a href="#" style="text-decoration:none!important;" routerLink="/report/admitions/open">Admisiones abiertas</a></li>
+            <li style="list-style-type: none"><fa-icon [icon]="faList" size="ms" class="pr-2"></fa-icon> <a href="#" style="text-decoration:none!important;" routerLink="/report/admitions/close">Admisiones cerradas</a></li>
           </ul>
         </div>
       </div>
@@ -15,11 +14,12 @@
 
     <div class="col-lg-6">
       <div class="card bg-light ">
-        <div class="card-header">Resumenes</div>
+        <div class="card-header">Reporte de pruebas PCR</div>
         <div class="card-body">
-         <u>
-           <li></li>
-         </u>
+          <ul>
+            <li style="list-style-type: none"><fa-icon [icon]="faList" size="ms" class="pr-2"></fa-icon> <a href="#" style="text-decoration:none!important;" routerLink="/report/admitions/open">Abiertas</a></li>
+            <li style="list-style-type: none"><fa-icon [icon]="faList" size="ms" class="pr-2"></fa-icon> <a href="#" style="text-decoration:none!important;" routerLink="/report/admitions/close">Cerradas</a></li>
+          </ul>
         </div>
       </div>
     </div>

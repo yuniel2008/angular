@@ -27,6 +27,7 @@ import {ViewTransferComponent} from './aplications-transfer/view-transfer/view-t
 import {CommonListAdmitionsActivesComponent} from './aplications-common-view/common-list-admitions-actives/common-list-admitions-actives.component';
 import {ReportDashboardComponent} from './aplications-reports/report-dashboard/report-dashboard.component';
 import {ReportAdmitionsOpenComponent} from './aplications-reports/report-admitions-open/report-admitions-open.component';
+import {ReportAdmitionsCloseComponent} from './aplications-reports/report-admitions-close/report-admitions-close.component';
 
 
 const routes: Routes = [
@@ -176,6 +177,10 @@ const routes: Routes = [
           {
             path: 'admitions/open',
             component: ReportAdmitionsOpenComponent
+          },
+          {
+            path: 'admitions/close',
+            component: ReportAdmitionsCloseComponent
           },
         ]
       },
