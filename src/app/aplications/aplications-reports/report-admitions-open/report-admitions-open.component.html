@@ -1,0 +1,94 @@
+<title-view [titles]="'Listar'" [subtitle]="'admisiones abiertas'"></title-view>
+<alert *ngIf="msgError != 'null'" [type]="'danger'" [dismissible]="!dismissible" (onClosed)="onClosed()">{{msgError}}</alert>
+
+<section>
+  <div class="row">
+
+    <div class="col-lg-4 form-group">
+      <label for="datei" class="font-weight-bold">Fecha inicio</label>
+      <input type="date" placeholder="Fecha de inicio" class="form-control" id="datei" #dateint>
+    </div>
+
+    <div class="col-lg-4 form-group">
+      <label for="dateo" class="font-weight-bold">Fecha fin</label>
+      <input type="date" placeholder="Fecha de fin" class="form-control" id="dateo" #dateout>
+    </div>
+
+
+
+    <div class="col-lg-4 form-group">
+      <label for="comboIsolaceCenter" class="font-weight-bold">Centro de aislamiento</label>
+      <select id="comboIsolaceCenter"   class="form-control" #comboIsolaceCenter >
+        <option value="" selected><<---Seleccione-->></option>
+        <option *ngFor="let i of comboIC"  value="{{i.value}}">{{i.value}}</option>
+      </select>
+    </div>
+  </div>
+
+  <btn-search router="/report/admitions/open"
+              (click)="list( comboIsolaceCenter.value.trim(), dateint.value.trim(), dateout.value.trim())">
+  </btn-search>
+</section>
+
+
+<section *ngIf="!loading">
+  <loading-view></loading-view>
+</section>
+<section *ngIf="loading" class="pt-3">
+
+
+
+  <div  class="table table-responsive">
+    <table class="table table-hover">
+      <thead class="thead-light">
+      <tr>
+        <th>HC</th>
+        <th>Nombre paciente</th>
+        <th>Fecha entrada</th>
+
+        <th>Fecha salida</th>
+
+        <th>Centro de aislamiento actual</th>
+
+        <th>Estado</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr  *ngFor="let item of lists">
+        <td>
+          {{ item.hcs.nohc }}
+        </td>
+
+        <td>
+          {{ item.hcs.name }}
+        </td>
+        <td>
+          {{ item.entry | date: 'd/M/yy' : 'UTC'}}
+        </td>
+
+        <td>
+          {{ item.egress | date: 'dd/MM/yyyy'  : 'UTC'}}
+        </td>
+
+        <td>
+          {{ item.isolation_center.value }}
+        </td>
+
+        <td>
+          <span class="text-success" *ngIf="item.status === true"> Abierta</span>
+          <span class="text-secondary" *ngIf="item.status === false"> Cerrada</span>
+        </td>
+
+
+
+      </tr>
+      <tr *ngIf="lists.length === 0" >
+        <td>No hay datos que mostrar.</td>
+        <td></td>
+        <td></td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+</section>

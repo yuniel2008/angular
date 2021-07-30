@@ -46,7 +46,7 @@ import { CommonListAdmitionsActivesComponent } from './aplications-common-view/c
 import {TransferService} from './aplications-transfer/transfer.service';
 import { AplicationsReportsComponent } from './aplications-reports/aplications-reports.component';
 import { ReportDashboardComponent } from './aplications-reports/report-dashboard/report-dashboard.component';
-import { ReportAdmitionsComponent } from './aplications-reports/report-admitions/report-admitions.component';
+import { ReportAdmitionsOpenComponent } from './aplications-reports/report-admitions-open/report-admitions-open.component';
 
 
 @NgModule({
@@ -80,7 +80,7 @@ import { ReportAdmitionsComponent } from './aplications-reports/report-admitions
     CommonListAdmitionsActivesComponent,
     AplicationsReportsComponent,
     ReportDashboardComponent,
-    ReportAdmitionsComponent
+    ReportAdmitionsOpenComponent
   ],
   imports: [
     CommonModule,
