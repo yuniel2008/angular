@@ -25,6 +25,8 @@ import {ListTransferComponent} from './aplications-transfer/list-transfer/list-t
 import {NewTransferComponent} from './aplications-transfer/new-transfer/new-transfer.component';
 import {ViewTransferComponent} from './aplications-transfer/view-transfer/view-transfer.component';
 import {CommonListAdmitionsActivesComponent} from './aplications-common-view/common-list-admitions-actives/common-list-admitions-actives.component';
+import {ReportDashboardComponent} from './aplications-reports/report-dashboard/report-dashboard.component';
+import {ReportAdmitionsComponent} from './aplications-reports/report-admitions/report-admitions.component';
 
 
 const routes: Routes = [
@@ -156,6 +158,25 @@ const routes: Routes = [
             path: 'view/:id',
             component: ViewTransferComponent
           }
+        ]
+      },
+      {
+        path: 'report',
+        component: AplicationsTransferComponent,
+        children: [
+          {
+            path: '',
+            redirectTo: 'dashboard',
+            pathMatch: 'full'
+          },
+          {
+            path: 'dashboard',
+            component: ReportDashboardComponent
+          },
+          {
+            path: 'admitions',
+            component: ReportAdmitionsComponent
+          },
         ]
       },
     ]

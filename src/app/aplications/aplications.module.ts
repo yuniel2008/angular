@@ -44,6 +44,9 @@ import { NewTransferComponent } from './aplications-transfer/new-transfer/new-tr
 import { ViewTransferComponent } from './aplications-transfer/view-transfer/view-transfer.component';
 import { CommonListAdmitionsActivesComponent } from './aplications-common-view/common-list-admitions-actives/common-list-admitions-actives.component';
 import {TransferService} from './aplications-transfer/transfer.service';
+import { AplicationsReportsComponent } from './aplications-reports/aplications-reports.component';
+import { ReportDashboardComponent } from './aplications-reports/report-dashboard/report-dashboard.component';
+import { ReportAdmitionsComponent } from './aplications-reports/report-admitions/report-admitions.component';
 
 
 @NgModule({
@@ -74,7 +77,10 @@ import {TransferService} from './aplications-transfer/transfer.service';
     ListTransferComponent,
     NewTransferComponent,
     ViewTransferComponent,
-    CommonListAdmitionsActivesComponent
+    CommonListAdmitionsActivesComponent,
+    AplicationsReportsComponent,
+    ReportDashboardComponent,
+    ReportAdmitionsComponent
   ],
   imports: [
     CommonModule,
