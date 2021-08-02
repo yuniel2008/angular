@@ -48,6 +48,8 @@ import { AplicationsReportsComponent } from './aplications-reports/aplications-r
 import { ReportDashboardComponent } from './aplications-reports/report-dashboard/report-dashboard.component';
 import { ReportAdmitionsOpenComponent } from './aplications-reports/report-admitions-open/report-admitions-open.component';
 import { ReportAdmitionsCloseComponent } from './aplications-reports/report-admitions-close/report-admitions-close.component';
+import { ReportPueblasPcrAdmisionesComponent } from './aplications-reports/report-pueblas-pcr-admisiones/report-pueblas-pcr-admisiones.component';
+import {PcrAdmitionsService} from './aplications-reports/report-pueblas-pcr-admisiones/pcr-admitions.service';
 
 
 @NgModule({
@@ -82,7 +84,8 @@ import { ReportAdmitionsCloseComponent } from './aplications-reports/report-admi
     AplicationsReportsComponent,
     ReportDashboardComponent,
     ReportAdmitionsOpenComponent,
-    ReportAdmitionsCloseComponent
+    ReportAdmitionsCloseComponent,
+    ReportPueblasPcrAdmisionesComponent
   ],
   imports: [
     CommonModule,
@@ -102,7 +105,8 @@ import { ReportAdmitionsCloseComponent } from './aplications-reports/report-admi
     IsolationsCenterService,
     TestService,
     LaboratoryService,
-    TransferService
+    TransferService,
+    PcrAdmitionsService
   ],
   })
 export class AplicationsModule { }

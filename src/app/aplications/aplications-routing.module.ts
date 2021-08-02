@@ -28,6 +28,7 @@ import {CommonListAdmitionsActivesComponent} from './aplications-common-view/com
 import {ReportDashboardComponent} from './aplications-reports/report-dashboard/report-dashboard.component';
 import {ReportAdmitionsOpenComponent} from './aplications-reports/report-admitions-open/report-admitions-open.component';
 import {ReportAdmitionsCloseComponent} from './aplications-reports/report-admitions-close/report-admitions-close.component';
+import {ReportPueblasPcrAdmisionesComponent} from './aplications-reports/report-pueblas-pcr-admisiones/report-pueblas-pcr-admisiones.component';
 
 
 const routes: Routes = [
@@ -181,6 +182,10 @@ const routes: Routes = [
           {
             path: 'admitions/close',
             component: ReportAdmitionsCloseComponent
+          },
+          {
+            path: 'admitions/pcr',
+            component: ReportPueblasPcrAdmisionesComponent
           },
         ]
       },
