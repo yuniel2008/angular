@@ -17,7 +17,7 @@ export class CommonSwitchRoundedComponent implements OnInit {
   notifyData: EventEmitter<boolean> = new EventEmitter<boolean>();
   constructor() {  }
 
-  ngOnInit(): void {console.log(this.status);
+  ngOnInit(): void {
   }
 
   change(): void  {

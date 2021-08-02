@@ -29,6 +29,7 @@ import {ReportDashboardComponent} from './aplications-reports/report-dashboard/r
 import {ReportAdmitionsOpenComponent} from './aplications-reports/report-admitions-open/report-admitions-open.component';
 import {ReportAdmitionsCloseComponent} from './aplications-reports/report-admitions-close/report-admitions-close.component';
 import {ReportPueblasPcrAdmisionesComponent} from './aplications-reports/report-pueblas-pcr-admisiones/report-pueblas-pcr-admisiones.component';
+import {ReportTestPcrComponent} from './aplications-reports/report-test-pcr/report-test-pcr.component';
 
 
 const routes: Routes = [
@@ -186,6 +187,10 @@ const routes: Routes = [
           {
             path: 'admitions/pcr',
             component: ReportPueblasPcrAdmisionesComponent
+          },
+          {
+            path: 'test/pcr',
+            component: ReportTestPcrComponent
           },
         ]
       },

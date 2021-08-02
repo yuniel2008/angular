@@ -3,12 +3,13 @@ import {Config} from '../../../config';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
 import {catchError, map} from 'rxjs/operators';
+import {Test} from '../../aplications-test/test';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PcrAdmitionsService {
-  private url = Config.urlApiRes() + '/aplications/admitionspcr/reports';
+export class ReportTestPcrService {
+  private url = Config.urlApiRes() + '/aplications/testpcr/reports';
 
   private functionality = 'APPREPORT';
 
@@ -16,9 +17,11 @@ export class PcrAdmitionsService {
     private  http: HttpClient
   ) { }
 
-
-  reportPCRAdmitions(
+  reportTest(
     value: string,
+    // tslint:disable-next-line:variable-name
+    status_test: string,
+    result: string,
     dateint: string,
     dateout: string
   ): Observable<any> {
@@ -26,6 +29,14 @@ export class PcrAdmitionsService {
 
     if (value){
       params = params.append('value', value);
+    }
+
+    if ((status_test) && (status_test !== 'null')){
+      params = params.append('status_test', status_test);
+    }
+
+    if ((result) && (result !== 'null')){
+      params = params.append('result', result);
     }
 
     if (dateint){

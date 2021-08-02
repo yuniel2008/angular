@@ -1,34 +1,31 @@
-<title-view [titles]="'Listar'" [subtitle]="'Pruebas PCR'"></title-view>
+<title-view [titles]="'Listar'" [subtitle]="'pruebas PCR'"></title-view>
 <alert *ngIf="msgError != 'null'" [type]="'danger'" [dismissible]="!dismissible" (onClosed)="onClosed()">{{msgError}}</alert>
 
 <section>
   <div class="row">
 
     <div class="col-lg-4 form-group">
-      <label for="nohc" class="font-weight-bold">Número de historia clínica</label>
-      <input id="nohc" placeholder="Número de historia clínica" class="form-control" type="search" #nohcBusqueda >
+      <label for="datei" class="font-weight-bold">Fecha inicio </label>
+      <input type="date" placeholder="Fecha de inicio" class="form-control" id="datei" #dateint value="{{dateINT}}">
     </div>
 
     <div class="col-lg-4 form-group">
-      <label for="name" class="font-weight-bold">Nombre</label>
-      <input id="name" placeholder="Nombre" class="form-control" type="search" #namebusqueda >
+      <label for="dateo" class="font-weight-bold">Fecha fin</label>
+      <input type="date" placeholder="Fecha de fin" class="form-control" id="dateo" #dateout value="{{dateINT}}">
     </div>
+
+
 
     <div class="col-lg-4 form-group">
       <label for="comboLab" class="font-weight-bold">Laboratorio</label>
-      <select id="comboLab"   class="form-control" #comboLab >
+      <select id="comboLab"   class="form-control" #comboLAB >
         <option value="" selected><<---Seleccione-->></option>
-        <option *ngFor="let i of comboLAB"  value="{{i.value}}">{{i.value}}</option>
+        <option *ngFor="let i of comboLab"  value="{{i.value}}">{{i.value}}</option>
       </select>
     </div>
   </div>
 
   <div class="row">
-
-    <div class="col-lg-4 form-group">
-      <label for="ftm" class="font-weight-bold">Fecha toma muestra</label>
-      <input id="ftm" placeholder="Fecha toma muestra" class="form-control" value="{{now}}"  type="date" #ftmBusqueda >
-    </div>
 
     <div class="col-lg-4 form-group">
       <label for="statusTest" class="font-weight-bold">Estado de la prueba</label>
@@ -50,11 +47,13 @@
       </select>
     </div>
 
+    <div class="col-lg-4 form-group">
 
+    </div>
   </div>
 
-  <btn-search router="/test/list"
-              (click)="list( nohcBusqueda.value, namebusqueda.value, comboLab.value, ftmBusqueda.value, statustestbusqueda.value, resultbusqueda.value)">
+  <btn-search router="/report/test/pcr"
+              (click)="list( comboLAB.value.trim(), statustestbusqueda.value.trim(), resultbusqueda.value.trim(),  dateint.value.trim(), dateout.value.trim())">
   </btn-search>
 </section>
 
@@ -62,11 +61,9 @@
 <section *ngIf="!loading">
   <loading-view></loading-view>
 </section>
-<section *ngIf="loading">
+<section *ngIf="loading" class="pt-3">
 
-  <section class="pb-2 pt-3">
-    <btn-new router="/select/hc/test"></btn-new>
-  </section>
+
 
   <div  class="table table-responsive">
     <table class="table table-hover">
@@ -83,8 +80,6 @@
         <th>Estado de la prueba</th>
 
         <th>Resultado</th>
-
-        <th>Acciones</th>
       </tr>
       </thead>
       <tbody>
@@ -122,14 +117,6 @@
         <td *ngIf="item.status_test === '1'">
           <span class="text-primary" > Pendinete</span>
         </td>
-
-        <td style="width: 25%">
-          <btn-details ngClass="pr-2" router="/test/view/{{item.id}}"></btn-details>
-          <btn-update ngClass="pr-2" *ngIf = "item.status_test === '1'" router="/test/update/{{item.id}}"></btn-update>
-          <a *ngIf = "item.status_test === '1'" class="btn btn-primary btn-sm text-white mt-2" href="#" routerLink="/test/closed/{{item.id}}">
-            <fa-icon [icon]="faRetweet" size="ms"></fa-icon> Cerrar</a>
-        </td>
-
       </tr>
       <tr *ngIf="lists.length === 0" >
         <td>No hay datos que mostrar.</td>
@@ -141,8 +128,3 @@
 
   </div>
 </section>
-
-
-
-
-
