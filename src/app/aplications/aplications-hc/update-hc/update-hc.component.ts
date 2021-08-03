@@ -76,7 +76,11 @@ export class UpdateHcComponent implements OnInit {
       id: [''],
       name: ['', [Validators.required]],
       id_municipalities_hc: ['', [Validators.required]],
-      ci: ['', [Validators.required]],
+      ci: ['', Validators.compose([
+        Validators.required,
+        Validators.minLength(11),
+        Validators.pattern('^\\d+$')
+      ])],
       address: ['', [Validators.required]],
       phone: [''],
       patologies: [''],

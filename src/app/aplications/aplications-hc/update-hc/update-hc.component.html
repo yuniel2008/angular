@@ -1,4 +1,4 @@
-<title-view [titles]="'Actualizar'" [subtitle]="'centros de aislamientos'"></title-view>
+<title-view [titles]="'Actualizar'" [subtitle]="'historia clínica'"></title-view>
 <form  novalidate [formGroup]="form">
 
   <div class="row">
@@ -18,10 +18,18 @@
     <div class="col-lg-4">
       <div class="form-group">
         <label for="ci">Carnet de identidad</label>
-        <input type="number" placeholder="Carnet de identidad"  class="form-control" id="ci" formControlName="ci">
+        <input type="text" placeholder="Carnet de identidad"  class="form-control" maxlength="11" id="ci" formControlName="ci">
         <div *ngIf="f.ci.errors && f.ci.touched">
           <div *ngIf="f.ci.errors.required">
             <label for="ci" class="text-danger"><fa-icon [icon]="faBan" size="ms"></fa-icon> El campo es requerido.</label>
+          </div>
+          <div *ngIf="f.ci.errors.minlength">
+            <div *ngIf="f.ci.errors.minlength.actualLength <= 11">
+              <label for="ci" class="text-danger"><fa-icon [icon]="faBan" size="ms"></fa-icon> Debe tener 11 números</label>
+            </div>
+          </div>
+          <div *ngIf="f.ci.errors.pattern">
+            <label for="ci" class="text-danger"><fa-icon [icon]="faBan" size="ms"></fa-icon> Solo se aceptan números</label>
           </div>
         </div>
       </div>
