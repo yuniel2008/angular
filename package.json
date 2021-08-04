@@ -27,6 +27,8 @@
     "@types/jquery": "^3.5.5",
     "bootstrap": "^4.6.0",
     "core-js": "^3.10.2",
+    "exceljs": "^4.2.1",
+    "file-saver": "^2.0.5",
     "font-awesome": "^4.7.0",
     "jquery": "^3.6.0",
     "ngx-bootstrap": "^6.2.0",

@@ -3,6 +3,7 @@ import {ReportTestPcr} from './report-test-pcr';
 import {ReportTestPcrService} from './report-test-pcr.service';
 import {LaboratoryService} from '../../../system/system-nomenclators/nomenclators-laboratory/laboratory.service';
 import {Laboratory} from '../../../system/system-nomenclators/nomenclators-laboratory/laboratory';
+import {ExcelService} from '../excel.service';
 
 @Component({
   selector: 'app-report-test-pcr',
@@ -17,11 +18,14 @@ export class ReportTestPcrComponent implements OnInit {
   public comboLab: Laboratory[] = [];
   public dateINT = '';
  // public dateNow = new Date();
+  public data: any[];
 
   constructor(
     private service: ReportTestPcrService,
     private serviceLab: LaboratoryService,
+    private excelService: ExcelService
   ) {
+    this.data = [];
     this.dateINT = this.getDateNow();
     this.list( '', '', '', this.dateINT, this.dateINT);
     this.getComboLab();
@@ -88,6 +92,7 @@ export class ReportTestPcrComponent implements OnInit {
             this.msgError = rt.error;
           } else {
             this.lists = rt.data;
+            this.setData();
           }
           this.loading = true;
         },
@@ -97,6 +102,55 @@ export class ReportTestPcrComponent implements OnInit {
         },
         () => console.log('ready')
       );
+  }
+
+  setData(): void{
+    // tslint:disable-next-line:prefer-for-of
+    for (let i = 0; i < this.lists.length ; i++){
+      let status = 'Procesada';
+      // @ts-ignore
+      if (this.lists[i].status_test === '1'){
+        status = 'En proceso';
+      } else {
+        if (this.lists[i].status_test === '3'){
+          status = 'Inivida';
+        }
+      }
+
+      let result = 'Pendinete';
+      if (this.lists[i].status_test !== '1'){
+        if (this.lists[i].result === false){
+          result = 'Negativa';
+        } else {
+          result = 'Positiva';
+        }
+      }
+
+      const obj  = [
+        this.lists[i].hc.nohc,
+        this.lists[i].hc.name,
+        new Date(this.lists[i].date_samples).toLocaleDateString('es'),
+        new Date(this.lists[i].result_date).toLocaleDateString('es'),
+        this.lists[i].laboratory.value,
+        status,
+        result,
+      ];
+      this.data.push(obj);
+    }
+  }
+
+  generateExcel(): void {
+
+    const title = 'Reporte de pruebas PCR';
+    const header = ['HC', 'Nombre paciente', 'Fecha envio', 'Fecha resultado', 'Laboratorio', 'Estado', 'Resultado'];
+    const sheet = 'pcr';
+    const withColum = [20, 40, 20, 20, 40, 20, 20];
+    const fileName = 'Reporte de pruebas PCR';
+    const mergeHeader = 'G2';
+    const mergeSystem = 'G5';
+
+    // console.log('called');
+    this.excelService.generatePCRExcel(title, header, mergeHeader, mergeSystem, this.data, sheet, withColum, fileName);
   }
 
   onClosed(): void {

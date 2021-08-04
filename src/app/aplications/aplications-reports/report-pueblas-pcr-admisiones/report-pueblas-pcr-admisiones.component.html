@@ -36,6 +36,8 @@
 </section>
 <section *ngIf="loading" class="pt-3">
 
+  <btn-export-excel (click)="generateExcel()"></btn-export-excel>
+
   <section *ngFor="let item of lists">
     <div class="card bg-light mb-3">
 

@@ -52,6 +52,8 @@ import { ReportPueblasPcrAdmisionesComponent } from './aplications-reports/repor
 import {PcrAdmitionsService} from './aplications-reports/report-pueblas-pcr-admisiones/pcr-admitions.service';
 import { ReportTestPcrComponent } from './aplications-reports/report-test-pcr/report-test-pcr.component';
 import {ReportTestPcrService} from './aplications-reports/report-test-pcr/report-test-pcr.service';
+import {ExcelService} from './aplications-reports/excel.service';
+import {Workbook} from 'exceljs';
 
 
 @NgModule({
@@ -98,7 +100,7 @@ import {ReportTestPcrService} from './aplications-reports/report-test-pcr/report
     ReactiveFormsModule,
     HttpClientModule,
     FontAwesomeModule,
-    AlertModule
+    AlertModule,
   ],
   providers: [
     AuthGuardSystem,
@@ -110,7 +112,8 @@ import {ReportTestPcrService} from './aplications-reports/report-test-pcr/report
     LaboratoryService,
     TransferService,
     PcrAdmitionsService,
-    ReportTestPcrService
+    ReportTestPcrService,
+    ExcelService
   ],
   })
 export class AplicationsModule { }

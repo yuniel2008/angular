@@ -35,8 +35,7 @@
   <loading-view></loading-view>
 </section>
 <section *ngIf="loading" class="pt-3">
-
-
+  <btn-export-excel (click)="generateExcel()"></btn-export-excel>
 
   <div  class="table table-responsive">
     <table class="table table-hover">
@@ -45,9 +44,6 @@
         <th>HC</th>
         <th>Nombre paciente</th>
         <th>Fecha entrada</th>
-
-        <th>Fecha salida</th>
-
         <th>Centro de aislamiento actual</th>
 
         <th>Estado</th>
@@ -66,9 +62,6 @@
           {{ item.entry | date: 'd/M/yy' : 'UTC'}}
         </td>
 
-        <td>
-          {{ item.egress | date: 'dd/MM/yyyy'  : 'UTC'}}
-        </td>
 
         <td>
           {{ item.isolation_center.value }}
