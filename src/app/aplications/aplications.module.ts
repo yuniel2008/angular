@@ -54,6 +54,7 @@ import { ReportTestPcrComponent } from './aplications-reports/report-test-pcr/re
 import {ReportTestPcrService} from './aplications-reports/report-test-pcr/report-test-pcr.service';
 import {ExcelService} from './aplications-reports/excel.service';
 import {Workbook} from 'exceljs';
+import {TestHcService} from './aplications-common-view/common-list-hc/test-hc.service';
 
 
 @NgModule({
@@ -113,7 +114,8 @@ import {Workbook} from 'exceljs';
     TransferService,
     PcrAdmitionsService,
     ReportTestPcrService,
-    ExcelService
+    ExcelService,
+    TestHcService
   ],
   })
 export class AplicationsModule { }

@@ -2,6 +2,8 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Hc} from '../../aplications-hc/hc';
 import {HcService} from '../../aplications-hc/hc.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {TemplateAccessibilityTableScopeRule} from 'codelyzer';
+import {TestHcService} from './test-hc.service';
 
 @Component({
   selector: 'app-common-list-hc',
@@ -10,26 +12,29 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class CommonListHcComponent implements OnInit {
 
-  public lists: Hc[] = [];
+  public lists: any[] = [];
   public msgError = 'null';
   public loading = false;
   public rout = '';
+  public origen = '';
 
   constructor(
     private service: HcService,
+    private servicetest: TestHcService,
     private router: Router,
     private  route: ActivatedRoute
   ) {
-    this.list('', '', '');
   }
 
   ngOnInit(): void {
-    const origen = this.route.snapshot.params.origen;
-    if (origen === 'admitions'){
+    this.origen = this.route.snapshot.params.origen;
+    if (this.origen === 'admitions'){
       this.rout = '/admitions/new';
     } else {
       this.rout = '/test/new';
     }
+
+    this.list('', '', '');
   }
 
   // tslint:disable-next-line:typedef
@@ -40,23 +45,41 @@ export class CommonListHcComponent implements OnInit {
   ) {
 
     this.lists = [];
-
-    this.service.list(nohc, name, ci)
-      .subscribe(
-        rt => {
-          if (rt.error) {
-            this.msgError = rt.error;
-          } else {
-            this.lists = rt.data;
-          }
-          this.loading = true;
-        },
-        er => {
-          this.msgError = er;
-          this.loading = true;
-        },
-        () => console.log('ready')
-      );
+    if (this.origen === 'admitions'){
+      this.service.list(nohc, name, ci)
+        .subscribe(
+          rt => {
+            if (rt.error) {
+              this.msgError = rt.error;
+            } else {
+              this.lists = rt.data;
+            }
+            this.loading = true;
+          },
+          er => {
+            this.msgError = er;
+            this.loading = true;
+          },
+          () => console.log('ready')
+        );
+    } else {
+      this.servicetest.list(nohc, name, ci, '' , 'true')
+        .subscribe(
+          rt => {
+            if (rt.error) {
+              this.msgError = rt.error;
+            } else {
+              this.lists = rt.data;
+            }
+            this.loading = true;
+          },
+          er => {
+            this.msgError = er;
+            this.loading = true;
+          },
+          () => console.log('ready')
+        );
+    }
   }
 
   onClosed(): void {

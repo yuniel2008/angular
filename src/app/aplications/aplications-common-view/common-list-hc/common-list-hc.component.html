@@ -47,7 +47,7 @@
         <th>Acciones</th>
       </tr>
       </thead>
-      <tbody>
+      <tbody *ngIf="origen === 'admitions'">
       <tr  *ngFor="let item of lists">
         <td>
           {{item.nohc}}
@@ -67,6 +67,36 @@
 
         <td style="width: 25%">
           <btn-select ngClass="pr-2" router="{{rout}}/{{item.id}}"></btn-select>
+        </td>
+
+      </tr>
+      <tr *ngIf="lists.length === 0" >
+        <td>No hay datos que mostrar.</td>
+        <td></td>
+        <td></td>
+      </tr>
+      </tbody>
+
+      <tbody *ngIf="origen === 'test'">
+      <tr  *ngFor="let item of lists">
+        <td>
+          {{item.hcs.nohc}}
+        </td>
+
+        <td>
+          {{item.hcs.name}}
+        </td>
+
+        <td>
+          {{item.hcs.ci}}
+        </td>
+
+        <td>
+          {{item.hcs.municipality.value}}
+        </td>
+
+        <td style="width: 25%">
+          <btn-select ngClass="pr-2" router="{{rout}}/{{item.hcs.id}}"></btn-select>
         </td>
 
       </tr>
