@@ -55,6 +55,8 @@ import {ReportTestPcrService} from './aplications-reports/report-test-pcr/report
 import {ExcelService} from './aplications-reports/excel.service';
 import {Workbook} from 'exceljs';
 import {TestHcService} from './aplications-common-view/common-list-hc/test-hc.service';
+import {ReportAdmitionsCloseService} from './aplications-reports/report-admitions-close/report-admitions-close.service';
+import {ReportAdmitionsOpenService} from './aplications-reports/report-admitions-open/report-admitions-open.service';
 
 
 @NgModule({
@@ -115,7 +117,9 @@ import {TestHcService} from './aplications-common-view/common-list-hc/test-hc.se
     PcrAdmitionsService,
     ReportTestPcrService,
     ExcelService,
-    TestHcService
+    TestHcService,
+    ReportAdmitionsCloseService,
+    ReportAdmitionsOpenService
   ],
   })
 export class AplicationsModule { }

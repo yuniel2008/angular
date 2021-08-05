@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Admitions} from '../../aplications-admitions/admitions';
 import {IsolationsCenter} from '../../../system/system-nomenclators/nomenclators-isolations-center/isolations-center';
-import {AdmitionsService} from '../../aplications-admitions/admitions.service';
 import {IsolationsCenterService} from '../../../system/system-nomenclators/nomenclators-isolations-center/isolations-center.service';
 import {ExcelService} from '../excel.service';
+import {ReportAdmitionsOpenService} from './report-admitions-open.service';
 
 
 
@@ -20,7 +20,7 @@ export class ReportAdmitionsOpenComponent implements OnInit {
   public data: any[];
 
   constructor(
-    private service: AdmitionsService,
+    private service: ReportAdmitionsOpenService,
     private serviceIC: IsolationsCenterService,
     private excelService: ExcelService
   ) {
