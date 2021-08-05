@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-lg-4">
       <div class="form-group">
-        <label for="value">Nombre del laboratorio</label>
+        <label for="value" class="font-weight-bold">Nombre <span class="text-danger">*</span></label>
         <input type="text" placeholder="Nombre del laboratorio"  class="form-control" id="value" formControlName="value">
         <div *ngIf="f.value.errors && f.value.touched">
           <div *ngIf="f.value.errors.required">
@@ -16,7 +16,7 @@
 
     <div class="col-lg-4">
       <div class="form-group">
-        <label for="code">Código del laboratorio</label>
+        <label for="code" class="font-weight-bold">Código <span class="text-danger">*</span></label>
         <input type="text" placeholder="Código del laboratorio" class="form-control" id="code" formControlName="code">
         <div *ngIf="f.code.errors && f.code.touched">
           <div *ngIf="f.code.errors.required">

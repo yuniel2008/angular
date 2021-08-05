@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-lg-4">
       <div class="form-group">
-        <label for="name">Nombre</label>
+        <label for="name" class="font-weight-bold">Nombre <span class="text-danger">*</span></label>
         <input type="text" placeholder="Nombre completo"  class="form-control" id="name" formControlName="fullname">
         <div *ngIf="f.fullname.errors && f.fullname.touched">
           <div *ngIf="f.fullname.errors.required">
@@ -16,7 +16,7 @@
 
     <div class="col-lg-4">
       <div class="form-group">
-        <label for="name">Carnet de identidad</label>
+        <label for="name" class="font-weight-bold">Carnet de identidad <span class="text-danger">*</span></label>
         <input type="text" placeholder="Carnet de identidad" class="form-control" maxlength="11" id="ci" formControlName="ci">
         <div *ngIf="f.ci.errors && f.ci.touched">
           <div *ngIf="f.ci.errors.required">
@@ -36,7 +36,7 @@
 
     <div class="col-lg-4">
       <div class="form-group">
-        <label for="gender">Género</label>
+        <label for="gender" class="font-weight-bold">Género <span class="text-danger">*</span></label>
         <select id="gender"   class="form-control"  formControlName="gender">
           <option value="" selected><<---Seleccione-->></option>
           <option value="m" >Masculino</option>
@@ -56,7 +56,7 @@
     <div class="col-lg-4">
       <div class="form-group">
 
-        <label for="roles">Rol</label>
+        <label for="roles" class="font-weight-bold">Rol <span class="text-danger">*</span></label>
         <select id="roles"   class="form-control"  #rol (change)="setRol(rol.value)" formControlName="roles">
           <option value="" selected><<---Seleccione-->></option>
           <option *ngFor="let i of arrayRoles" value="{{i.rol}}">{{i.name}}</option>
@@ -71,14 +71,14 @@
 
     <div class="col-lg-4">
       <div class="form-group">
-        <label for="phone">Teléfono</label>
+        <label for="phone" class="font-weight-bold">Teléfono</label>
         <input type="telephone" placeholder="Teléfono"  class="form-control" id="phone" formControlName="phone">
       </div>
     </div>
 
     <div class="col-lg-4">
       <div class="form-group">
-        <label for="email">Correo</label>
+        <label for="email" class="font-weight-bold">Correo <span class="text-danger">*</span></label>
         <input  type="email" placeholder="Correo"  class="form-control" id="email" formControlName="email">
         <div *ngIf="f.email.errors && f.email.touched">
           <div *ngIf="f.email.errors.email">

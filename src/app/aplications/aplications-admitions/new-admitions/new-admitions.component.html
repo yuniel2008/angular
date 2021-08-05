@@ -8,7 +8,7 @@
 
     <div class="col-lg-4">
       <div class="form-group">
-        <label for="entry">Fecha de ingreso</label>
+        <label for="entry" class="font-weight-bold">Fecha de ingreso <span class="text-danger">*</span></label>
         <input type="date" placeholder="Fecha de ingreso" class="form-control" id="entry" formControlName="entry">
         <div *ngIf="f.entry.errors && f.entry.touched">
           <div *ngIf="f.entry.errors.required">
@@ -21,10 +21,11 @@
     <div class="col-lg-4">
       <div class="form-group">
 
-        <label for="combotest">Test rápido</label>
+        <label for="combotest" class="font-weight-bold">Test rápido <span class="text-danger">*</span></label>
         <select id="combotest"   class="form-control" #comboTest formControlName="t0r_positive">
+          <option value="" selected><<---Seleccione-->></option>
           <option value="true" selected>Sí</option>
-          <option value="false" selected>No</option>
+          <option value="false" >No</option>
         </select>
         <div *ngIf="f.t0r_positive.errors && f.t0r_positive.touched">
           <div *ngIf="f.t0r_positive.errors.required">
@@ -38,7 +39,7 @@
     <div class="col-lg-4">
       <div class="form-group">
 
-        <label for="comboIsolaceCenter">Centro de aislamiento</label>
+        <label for="comboIsolaceCenter" class="font-weight-bold">Centro de aislamiento <span class="text-danger">*</span></label>
         <select id="comboIsolaceCenter"   class="form-control" #comboIsolaceCenter (change)="setIC(comboIsolaceCenter.value)" formControlName="id_isolation_center">
           <option value="" selected><<---Seleccione-->></option>
           <option *ngFor="let i of comboIC"  value="{{i.id}}">{{i.value}}</option>

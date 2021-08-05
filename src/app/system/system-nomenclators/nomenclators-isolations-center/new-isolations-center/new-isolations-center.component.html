@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-lg-4">
       <div class="form-group">
-        <label for="value">Nombre del centro de aislamiento</label>
+        <label for="value" class="font-weight-bold">Nombre <span class="text-danger">*</span></label>
         <input type="text" placeholder="Nombre del centro de aislamiento"  class="form-control" id="value" formControlName="value">
         <div *ngIf="f.value.errors && f.value.touched">
           <div *ngIf="f.value.errors.required">
@@ -16,7 +16,7 @@
 
     <div class="col-lg-4">
       <div class="form-group">
-        <label for="code">Código del centro de aislamiento</label>
+        <label for="code" class="font-weight-bold">Código <span class="text-danger">*</span></label>
         <input type="text" placeholder="Código del centro de aislamiento" class="form-control" id="code" formControlName="code">
         <div *ngIf="f.code.errors && f.code.touched">
           <div *ngIf="f.code.errors.required">
@@ -29,7 +29,7 @@
     <div class="col-lg-4">
       <div class="form-group">
 
-        <label for="comboMunicipality">Municipio</label>
+        <label for="comboMunicipality" class="font-weight-bold">Municipio <span class="text-danger">*</span></label>
         <select id="comboMunicipality"   class="form-control" #comboMunicipalitie (change)="setMunicipality(comboMunicipalitie.value)" formControlName="id_municipalities">
           <option value="" selected><<---Seleccione-->></option>
           <option *ngFor="let i of comboMunicipality"  value="{{i.id}}">{{i.code}} --- {{i.value}}</option>
@@ -46,7 +46,7 @@
   <div class="row">
     <div class="col-lg-2">
       <div class="form-group">
-        <label for="capacity">Capacidad</label>
+        <label for="capacity" class="font-weight-bold">Capacidad <span class="text-danger">*</span></label>
         <input type="number" placeholder="Capacidad del centro de aislamiento"  class="form-control" id="capacity" formControlName="capacity">
         <div *ngIf="f.capacity.errors && f.value.touched">
           <div *ngIf="f.capacity.errors.required">
@@ -58,19 +58,14 @@
 
     <div class="col-lg-3">
       <div class="form-group">
-        <label for="phone">Teléfono del centro de aislamiento</label>
+        <label for="phone" class="font-weight-bold">Teléfono</label>
         <input type="tel" placeholder="Teléfono del centro de aislamiento"  class="form-control" id="phone" formControlName="phone">
-        <div *ngIf="f.phone.errors && f.phone.touched">
-          <div *ngIf="f.phone.errors.required">
-            <label for="phone" class="text-danger"><fa-icon [icon]="faBan" size="ms"></fa-icon> El campo es requerido.</label>
-          </div>
-        </div>
       </div>
     </div>
 
     <div class="col-lg-4">
       <div class="form-group">
-        <label for="address">Dirección del centro de aislamiento</label>
+        <label for="address" class="font-weight-bold">Dirección <span class="text-danger">*</span></label>
         <textarea type="text" placeholder="Dirección del centro de aislamiento" class="form-control" id="address" formControlName="address"></textarea>
         <div *ngIf="f.address.errors && f.code.touched">
           <div *ngIf="f.address.errors.required">
@@ -83,7 +78,7 @@
     <div class="col-lg-3">
       <div class="form-group">
 
-        <label for="type">Tipo de centro</label>
+        <label for="type" class="font-weight-bold">Tipo de centro <span class="text-danger">*</span></label>
         <select id="type"   class="form-control" #comboType (change)="setType(comboType.value)" formControlName="type">
           <option value="" selected><<---Seleccione-->></option>
           <option value="positivos" selected>Positivos</option>

@@ -43,7 +43,7 @@
 
       <div class="col-lg-6">
         <div class="form-group">
-          <label for="date">Fecha del traslado</label>
+          <label for="date" class="font-weight-bold">Fecha del traslado <span class="text-danger">*</span></label>
           <input type="date" placeholder="Fecha del traslado" class="form-control" id="date" formControlName="date">
           <div *ngIf="f.date.errors && f.date.touched">
             <div *ngIf="f.date.errors.required">
@@ -56,7 +56,7 @@
       <div class="col-lg-6">
         <div class="form-group">
 
-          <label for="destinations">Destino</label>
+          <label for="destinations" class="font-weight-bold">Destino <span class="text-danger">*</span></label>
           <select id="destinations"   class="form-control" #comboic (change)="setIC(comboic.value)" formControlName="destinations">
             <option value="" selected><<---Seleccione-->></option>
 
@@ -77,7 +77,7 @@
       <div class="row">
         <div class="col-lg-12 mt-2">
           <btn-save (click)="new()" ngClass="pr-2" [disabled]="!form.valid"></btn-save>
-          <btn-cancel  router="/test/list"></btn-cancel>
+          <btn-cancel  router="/transfer/list"></btn-cancel>
         </div>
       </div>
     </div>

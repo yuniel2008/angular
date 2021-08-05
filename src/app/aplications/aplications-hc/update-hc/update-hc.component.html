@@ -5,7 +5,7 @@
 
     <div class="col-lg-4">
       <div class="form-group">
-        <label for="name">Nombre del paciente</label>
+        <label for="name" class="font-weight-bold">Nombre del paciente <span class="text-danger">*</span></label>
         <input type="text" placeholder="Nombre del paciente" class="form-control" id="name" formControlName="name">
         <div *ngIf="f.name.errors && f.name.touched">
           <div *ngIf="f.name.errors.required">
@@ -17,7 +17,7 @@
 
     <div class="col-lg-4">
       <div class="form-group">
-        <label for="ci">Carnet de identidad</label>
+        <label for="ci" class="font-weight-bold">Carnet de identidad <span class="text-danger">*</span></label>
         <input type="text" placeholder="Carnet de identidad"  class="form-control" maxlength="11" id="ci" formControlName="ci">
         <div *ngIf="f.ci.errors && f.ci.touched">
           <div *ngIf="f.ci.errors.required">
@@ -38,7 +38,7 @@
     <div class="col-lg-4">
       <div class="form-group">
 
-        <label for="comboMunicipality">Municipio</label>
+        <label for="comboMunicipality" class="font-weight-bold">Municipio <span class="text-danger">*</span></label>
         <select id="comboMunicipality"   class="form-control" #comboMunicipalitie (change)="setMunicipality(comboMunicipalitie.value)" formControlName="id_municipalities_hc">
           <option value="" selected><<---Seleccione-->></option>
           <option *ngFor="let i of comboMunicipality"  value="{{i.id}}">{{i.code}} --- {{i.value}}</option>
@@ -58,7 +58,7 @@
 
     <div class="col-lg-4">
       <div class="form-group">
-        <label for="phone">Teléfono del centro de aislamiento</label>
+        <label for="phone" class="font-weight-bold">Teléfono</label>
         <input type="tel" placeholder="Teléfono del centro de aislamiento"  class="form-control" id="phone" formControlName="phone">
         <div *ngIf="f.phone.errors && f.phone.touched">
           <div *ngIf="f.phone.errors.required">
@@ -69,8 +69,8 @@
     </div>
 
     <div class="col-lg-4">
-      <div class="form-group">
-        <label for="address">Dirección del paciente</label>
+      <div class="form-group" class="font-weight-bold">
+        <label for="address">Dirección del paciente <span class="text-danger">*</span></label>
         <textarea type="text" placeholder="Dirección del paciente" class="form-control" id="address" formControlName="address"></textarea>
         <div *ngIf="f.address.errors && f.address.touched">
           <div *ngIf="f.address.errors.required">
@@ -81,7 +81,7 @@
     </div>
 
     <div class="col-lg-4">
-      <div class="form-group">
+      <div class="form-group" class="font-weight-bold">
         <label for="patologies">Patologías</label>
         <textarea type="text" placeholder="Patologías" class="form-control" id="patologies" formControlName="patologies"></textarea>
         <div *ngIf="f.patologies.errors && f.patologies.touched">

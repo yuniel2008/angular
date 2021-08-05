@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-lg-4">
       <div class="form-group">
-        <label for="value">Nombre de la provincia</label>
+        <label for="value" class="font-weight-bold">Nombre <span class="text-danger">*</span></label>
         <input type="text" placeholder="Nombre de la provincia"  class="form-control" id="value" formControlName="value">
         <div *ngIf="f.value.errors && f.value.touched">
           <div *ngIf="f.value.errors.required">
@@ -16,7 +16,7 @@
 
     <div class="col-lg-4">
       <div class="form-group">
-        <label for="code">Código de la provincia</label>
+        <label for="code" class="font-weight-bold">Código <span class="text-danger">*</span></label>
         <input type="text" placeholder="Código de la provincia" class="form-control" id="code" formControlName="code">
         <div *ngIf="f.code.errors && f.code.touched">
           <div *ngIf="f.code.errors.required">
@@ -29,7 +29,7 @@
     <div class="col-lg-4">
       <div class="form-group">
 
-        <label for="comboCountries">País</label>
+        <label for="comboCountries" class="font-weight-bold">País <span class="text-danger">*</span></label>
         <select id="comboCountries"   class="form-control" #comboCountrie (change)="setCountry(comboCountrie.value)" formControlName="n_country_id">
           <option value="" selected><<---Seleccione-->></option>
           <option *ngFor="let i of comboCountry"  value="{{i.id}}">{{i.value}}</option>

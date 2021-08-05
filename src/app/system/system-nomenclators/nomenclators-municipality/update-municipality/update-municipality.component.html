@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-lg-4">
       <div class="form-group">
-        <label for="value">Nombre del municipio</label>
+        <label for="value" class="font-weight-bold">Nombre <span class="text-danger">*</span></label>
         <input type="text" placeholder="Nombre de la provincia"  class="form-control" id="value" formControlName="value">
         <div *ngIf="f.value.errors && f.value.touched">
           <div *ngIf="f.value.errors.required">
@@ -16,7 +16,7 @@
 
     <div class="col-lg-4">
       <div class="form-group">
-        <label for="code">Código del municipio</label>
+        <label for="code" class="font-weight-bold">Código <span class="text-danger">*</span></label>
         <input type="text" placeholder="Código de la provincia" class="form-control" id="code" formControlName="code">
         <div *ngIf="f.code.errors && f.code.touched">
           <div *ngIf="f.code.errors.required">
@@ -29,7 +29,7 @@
     <div class="col-lg-4">
       <div class="form-group">
 
-        <label for="comboProvince">Provincia</label>
+        <label for="comboProvince" class="font-weight-bold">Provincia <span class="text-danger">*</span></label>
         <select id="comboProvince"   class="form-control" #comboProvince (change)="setProvince(comboProvince.value)" formControlName="n_province_id">
           <option value="" selected><<---Seleccione-->></option>
           <option *ngFor="let i of comboProvinces" value="{{i.id}}">{{i.code}} --- {{i.value}}</option>
@@ -46,7 +46,7 @@
   <div class="row">
     <div class="col-lg-4">
       <div class="form-group">
-        <label  for="status">Estado</label>
+        <label  for="status" class="font-weight-bold">Estado <span class="text-danger">*</span></label>
         <br>
         <common-switch-rounded id="status" [status]="status" (notifyData)='setEmiterData($event)'></common-switch-rounded>
       </div>
