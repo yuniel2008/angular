@@ -44,7 +44,8 @@ export class UpdateAdmitionsComponent implements OnInit {
             if (this.obj !== null) {
               this.form.patchValue({
                 id: this.obj.id,
-                egress: this.obj.egress
+                egress: this.obj.egress,
+                idhc: this.obj.c.hcs.id
               });
               this.status = this.obj.status;
             }
@@ -62,7 +63,8 @@ export class UpdateAdmitionsComponent implements OnInit {
   crearControles(): void {
     this.form = this.formBuilder.group({
       id: [''],
-      egress: ['', [Validators.required]]
+      egress: ['', [Validators.required]],
+      idhc: [''],
     });
   }
 

@@ -41,9 +41,13 @@
           <span class="text-secondary" *ngIf="item.status_test === '3'"> Inivida</span>
         </td>
 
-        <td>
-          <span class="text-success" *ngIf="item.result === true"> Positiva</span>
+        <td *ngIf="item.status_test !== '1'">
+          <span class="text-danger" *ngIf="item.result === true"> Positiva</span>
           <span class="text-secondary" *ngIf="item.result === false"> Negativa</span>
+        </td>
+
+        <td *ngIf="item.status_test === '1'">
+          <span class="text-primary" > Pendinete</span>
         </td>
       </tr>
       <tr *ngIf="lists.length === 0" >
