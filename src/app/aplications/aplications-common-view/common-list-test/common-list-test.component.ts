@@ -42,7 +42,7 @@ export class CommonListTestComponent implements OnInit {
     this.lists = [];
     nohc = this.nohc;
 
-    this.service.list(nohc, name, value, date_samples, status_test, result)
+    this.service.list(nohc, name, value, date_samples, status_test, result, 0, null)
       .subscribe(
         rt => {
           if (rt.error) {

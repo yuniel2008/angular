@@ -19,7 +19,9 @@ export class IsolationsCenterService {
 
   list(value: string,
        type: string,
-       municipality: string): Observable<any> {
+       municipality: string,
+       start: number,
+       length: number): Observable<any> {
     let params = new HttpParams();
 
     if (value){
@@ -34,8 +36,8 @@ export class IsolationsCenterService {
       params = params.append('municipality', municipality);
     }
 
-   /* params = params.append('start', start.toString());
-    params = params.append('length', length.toString());*/
+    params = params.append('start', start.toString());
+    params = params.append('length', length.toString());
 
     const options = {
       headers: Config.getheaders(this.functionality),

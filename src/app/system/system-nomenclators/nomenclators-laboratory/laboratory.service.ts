@@ -17,15 +17,19 @@ export class LaboratoryService {
     private  http: HttpClient
   ) { }
 
-  list(value: string): Observable<any> {
+  list(
+    value: string,
+    start: number,
+    length: number
+  ): Observable<any> {
     let params = new HttpParams();
 
     if (value){
       params = params.append('value', value);
     }
 
-   /* params = params.append('start', start.toString());
-    params = params.append('length', length.toString());*/
+    params = params.append('start', start.toString());
+    params = params.append('length', length.toString());
 
     const options = {
       headers: Config.getheaders(this.functionality),

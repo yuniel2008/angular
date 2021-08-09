@@ -109,6 +109,12 @@
       </tbody>
     </table>
 
+    <div *ngIf="showPaginate()">
+      <list-paginate (notifyData)='setEmiterDataPagination($event, valueBusqueda.value.trim(), comboType.value.trim(), comboMunicipalities.value.trim())'
+                     router="/system/nomenclators/isolationsCenter/list"
+                     [length]="length" [start]="start" [total]="total">
+      </list-paginate>
+    </div>
   </div>
 </section>
 

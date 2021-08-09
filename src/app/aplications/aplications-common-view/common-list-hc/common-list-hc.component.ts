@@ -18,6 +18,10 @@ export class CommonListHcComponent implements OnInit {
   public rout = '';
   public origen = '';
 
+  private length = 10;
+  private start = 0;
+  private total: number;
+
   constructor(
     private service: HcService,
     private servicetest: TestHcService,
@@ -37,6 +41,31 @@ export class CommonListHcComponent implements OnInit {
     this.list('', '', '');
   }
 
+  // método para recibir el valor del componente hijo y paginar
+  setEmiterDataPagination(obj: {
+                            start: string,
+                            length: string
+                          },
+                          nohc: string,
+                          name: string,
+                          ci: string
+  ): void {
+    // tslint:disable-next-line:radix
+    this.start = parseInt(obj.start);
+    // tslint:disable-next-line:radix
+    this.length = parseInt(obj.length);
+    this.list(nohc, name, ci);
+  }
+
+  // metodo para mostrar el paginado
+  showPaginate(): boolean {
+    if (this.length >= this.total){
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   // tslint:disable-next-line:typedef
   list(
     nohc: string,
@@ -45,14 +74,17 @@ export class CommonListHcComponent implements OnInit {
   ) {
 
     this.lists = [];
+    this.total = 0;
+
     if (this.origen === 'admitions'){
-      this.service.list(nohc, name, ci)
+      this.service.list(nohc, name, ci, this.start, this.length)
         .subscribe(
           rt => {
             if (rt.error) {
               this.msgError = rt.error;
             } else {
               this.lists = rt.data;
+              this.total = rt.total;
             }
             this.loading = true;
           },
@@ -63,7 +95,7 @@ export class CommonListHcComponent implements OnInit {
           () => console.log('ready')
         );
     } else {
-      this.servicetest.list(nohc, name, ci, '' , 'true')
+      this.servicetest.list(nohc, name, ci, '' , 'true', this.start, this.length)
         .subscribe(
           rt => {
             if (rt.error) {

@@ -18,7 +18,9 @@ export class ProvinceService {
   ) { }
 
   list(value: string,
-       country: string): Observable<any> {
+       country: string,
+       start: number,
+       length: number): Observable<any> {
     let params = new HttpParams();
 
     if (value){
@@ -28,6 +30,9 @@ export class ProvinceService {
     if (country){
       params = params.append('country', country);
     }
+
+    params = params.append('start', start.toString());
+    params = params.append('length', length.toString());
 
     const options = {
       headers: Config.getheaders(this.functionality),

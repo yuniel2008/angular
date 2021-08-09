@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {faRetweet, faUserShield} from '@fortawesome/free-solid-svg-icons';
+import {faRetweet} from '@fortawesome/free-solid-svg-icons';
 import {Municipality} from '../municipality';
 import {MunicipalityService} from '../municipality.service';
 import {Country} from '../../nomenclators-country/country';
@@ -17,8 +17,11 @@ export class ListMunicipalityComponent implements OnInit {
   public msgError = 'null';
   public loading = false;
   public faRetweet = faRetweet;
-  public faUserShield = faUserShield;
   public comboProvince: Province[] = [];
+
+  private length = 10;
+  private start = 0;
+  private total: number;
 
   constructor(
     private service: MunicipalityService,
@@ -49,19 +52,45 @@ export class ListMunicipalityComponent implements OnInit {
       );
   }
 
+  // método para recibir el valor del componente hijo y paginar
+  setEmiterDataPagination(obj: {
+                            start: string,
+                            length: string
+                          },
+                          value: string,
+                          province: string
+  ): void {
+    // tslint:disable-next-line:radix
+    this.start = parseInt(obj.start);
+    // tslint:disable-next-line:radix
+    this.length = parseInt(obj.length);
+    this.list(value, province);
+  }
+
+  // metodo para mostrar el paginado
+  showPaginate(): boolean {
+    if (this.length >= this.total){
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   // tslint:disable-next-line:typedef
   list(value: string,
        province: string) {
 
     this.lists = [];
+    this.total = 0;
 
-    this.service.list(value, province)
+    this.service.list(value, province, this.start, this.length)
       .subscribe(
         rt => {
           if (rt.error) {
             this.msgError = rt.error;
           } else {
             this.lists = rt.data;
+            this.total = rt.total;
           }
           this.loading = true;
         },

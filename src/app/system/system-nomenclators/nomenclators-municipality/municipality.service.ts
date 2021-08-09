@@ -18,7 +18,9 @@ export class MunicipalityService {
   ) { }
 
   list(value: string,
-       province: string): Observable<any> {
+       province: string,
+       start: number,
+       length: number): Observable<any> {
     let params = new HttpParams();
 
     if (value){
@@ -28,6 +30,9 @@ export class MunicipalityService {
     if (province){
       params = params.append('province', province);
     }
+
+    params = params.append('start', start.toString());
+    params = params.append('length', length.toString());
 
     const options = {
       headers: Config.getheaders(this.functionality),

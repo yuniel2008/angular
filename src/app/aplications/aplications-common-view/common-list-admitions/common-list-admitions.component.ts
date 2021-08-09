@@ -33,7 +33,7 @@ export class CommonListAdmitionsComponent implements OnInit {
     this.lists = [];
     nohc = this.nohc;
 
-    this.service.list(nohc, name, value, status)
+    this.service.list(nohc, name, value, status, 0, null)
       .subscribe(
         rt => {
           if (rt.error) {

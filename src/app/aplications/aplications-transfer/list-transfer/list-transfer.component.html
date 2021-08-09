@@ -80,7 +80,12 @@
       </tr>
       </tbody>
     </table>
-
+    <div *ngIf="showPaginate()">
+      <list-paginate (notifyData)='setEmiterDataPagination($event, nohcBusqueda.value.trim(), namebusqueda.value.trim())'
+                     router="/transfer/list"
+                     [length]="length" [start]="start" [total]="total">
+      </list-paginate>
+    </div>
   </div>
 </section>
 

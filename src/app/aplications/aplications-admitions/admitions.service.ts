@@ -21,7 +21,9 @@ export class AdmitionsService {
     nohc: string,
     name: string,
     value: string,
-    status: string
+    status: string,
+    start: number,
+    length: number
   ): Observable<any> {
     let params = new HttpParams();
 
@@ -40,6 +42,13 @@ export class AdmitionsService {
     if ((status) && (status !== 'null')) {
       params = params.append('status', status);
     }
+
+    // @ts-ignore
+    if ((length) && (length !== 'null')) {
+      params = params.append('length', length.toString());
+    }
+
+    params = params.append('start', start.toString());
 
     const options = {
       headers: Config.getheaders(this.functionality),

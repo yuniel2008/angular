@@ -69,5 +69,11 @@
       </tbody>
     </table>
 
+    <div *ngIf="showPaginate()">
+      <list-paginate (notifyData)='setEmiterDataPagination($event, valueBusqueda.value.trim())'
+                     router="/system/nomenclators/laboratory/list"
+                     [length]="length" [start]="start" [total]="total">
+      </list-paginate>
+    </div>
   </div>
 </section>

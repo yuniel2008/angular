@@ -44,7 +44,6 @@ export class NewTransferComponent implements OnInit {
     this.form.patchValue({
       id_admitions: this.id
     });
-    this.getComboIC();
   }
 
   crearControles(): void {
@@ -75,6 +74,8 @@ export class NewTransferComponent implements OnInit {
               source: this.admitions.isolation_center.id
             });
 
+            this.getComboIC();
+
             this.loading = true;
           }
         },
@@ -96,7 +97,6 @@ export class NewTransferComponent implements OnInit {
           if (rt.error) {
             this.msgError = rt.error;
           } else {
-
             let arrayCombo = [];
             // tslint:disable-next-line:prefer-for-of
             for (let i = 0; i < rt.data.length; i++){

@@ -139,6 +139,12 @@
       </tbody>
     </table>
 
+    <div *ngIf="showPaginate()">
+      <list-paginate (notifyData)='setEmiterDataPagination($event, nohcBusqueda.value, namebusqueda.value, comboLab.value, ftmBusqueda.value, statustestbusqueda.value, resultbusqueda.value)'
+                     router="/test/list"
+                     [length]="length" [start]="start" [total]="total">
+      </list-paginate>
+    </div>
   </div>
 </section>
 

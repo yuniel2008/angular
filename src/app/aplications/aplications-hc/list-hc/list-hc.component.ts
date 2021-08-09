@@ -12,6 +12,10 @@ export class ListHcComponent implements OnInit {
   public msgError = 'null';
   public loading = false;
 
+  private length = 10;
+  private start = 0;
+  private total: number;
+
   constructor(
     private service: HcService
   ) {
@@ -20,6 +24,32 @@ export class ListHcComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  // método para recibir el valor del componente hijo y paginar
+  setEmiterDataPagination(obj: {
+                            start: string,
+                            length: string
+                          },
+                          nohc: string,
+                          name: string,
+                          ci: string
+  ): void {
+    // tslint:disable-next-line:radix
+    this.start = parseInt(obj.start);
+    // tslint:disable-next-line:radix
+    this.length = parseInt(obj.length);
+    this.list(nohc, name, ci);
+  }
+
+  // metodo para mostrar el paginado
+  showPaginate(): boolean {
+    if (this.length >= this.total){
+      return false;
+    } else {
+      return true;
+    }
+  }
+
 
   // tslint:disable-next-line:typedef
   list(
@@ -30,14 +60,16 @@ export class ListHcComponent implements OnInit {
 
     this.loading = false;
     this.lists = [];
+    this.total = 0;
 
-    this.service.list(nohc, name, ci)
+    this.service.list(nohc, name, ci, this.start, this.length)
       .subscribe(
         rt => {
           if (rt.error) {
             this.msgError = rt.error;
           } else {
             this.lists = rt.data;
+            this.total = rt.total;
           }
           this.loading = true;
         },

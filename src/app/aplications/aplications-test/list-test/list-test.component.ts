@@ -20,6 +20,10 @@ export class ListTestComponent implements OnInit {
 
   public now = new Date();
 
+  private length = 10;
+  private start = 0;
+  private total: number;
+
   constructor(
     private service: TestService,
     private serviceLab: LaboratoryService,
@@ -48,6 +52,36 @@ export class ListTestComponent implements OnInit {
       );
   }
 
+  // método para recibir el valor del componente hijo y paginar
+  setEmiterDataPagination(obj: {
+                            start: string,
+                            length: string
+                          },
+                          nohc: string,
+                          name: string,
+                          value: string,
+                          // tslint:disable-next-line:variable-name
+                          date_samples: string,
+                          // tslint:disable-next-line:variable-name
+                          status_test: string,
+                          result: string
+  ): void {
+    // tslint:disable-next-line:radix
+    this.start = parseInt(obj.start);
+    // tslint:disable-next-line:radix
+    this.length = parseInt(obj.length);
+    this.list(nohc, name, value, date_samples, status_test, result);
+  }
+
+  // metodo para mostrar el paginado
+  showPaginate(): boolean {
+    if (this.length >= this.total){
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   // tslint:disable-next-line:typedef
   list(  nohc: string,
          name: string,
@@ -61,14 +95,16 @@ export class ListTestComponent implements OnInit {
 
     this.loading = false;
     this.lists = [];
+    this.total = 0;
 
-    this.service.list(nohc, name, value, date_samples, status_test, result)
+    this.service.list(nohc, name, value, date_samples, status_test, result, this.start, this.length)
       .subscribe(
         rt => {
           if (rt.error) {
             this.msgError = rt.error;
           } else {
             this.lists = rt.data;
+            this.total = rt.total;
           }
           this.loading = true;
         },

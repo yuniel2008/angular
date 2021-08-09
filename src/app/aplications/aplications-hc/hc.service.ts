@@ -20,7 +20,9 @@ export class HcService {
   list(
     nohc: string,
     name: string,
-    ci: string
+    ci: string,
+    start: number,
+    length: number
   ): Observable<any> {
     let params = new HttpParams();
 
@@ -35,6 +37,13 @@ export class HcService {
     if (ci){
       params = params.append('ci', ci);
     }
+
+    // @ts-ignore
+    if ((length) && (length !== 'null')) {
+      params = params.append('length', length.toString());
+    }
+
+    params = params.append('start', start.toString());
 
     const options = {
       headers: Config.getheaders(this.functionality),

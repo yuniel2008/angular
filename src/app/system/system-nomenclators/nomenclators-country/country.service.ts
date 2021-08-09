@@ -17,12 +17,18 @@ export class CountryService {
     private  http: HttpClient
   ) { }
 
-  list(value: string): Observable<any> {
+  list(
+    value: string,
+    start: number,
+    length: number): Observable<any> {
     let params = new HttpParams();
 
     if (value){
       params = params.append('value', value);
     }
+
+    params = params.append('start', start.toString());
+    params = params.append('length', length.toString());
 
     const options = {
       headers: Config.getheaders(this.functionality),
@@ -30,6 +36,18 @@ export class CountryService {
     };
 
     return this.http.get(`${this.url}`, options)
+      .pipe(map(r => r),
+        catchError(this.handleError<any>('list')));
+  }
+
+  getCombo(
+   ): Observable<any> {
+
+    const options = {
+      headers: Config.getheaders(this.functionality),
+    };
+
+    return this.http.get(`${this.url}/getcombo`, options)
       .pipe(map(r => r),
         catchError(this.handleError<any>('list')));
   }

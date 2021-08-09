@@ -43,7 +43,7 @@ export class NewProvinceComponent implements OnInit {
   }
 
   getComboContry(): void {
-    this.serviceCountry.list('')
+    this.serviceCountry.getCombo()
       .subscribe(
         rt => {
           if (rt.error) {

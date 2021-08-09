@@ -15,14 +15,18 @@ export class ActionsService {
     private  http: HttpClient
   ) { }
 
-  list(): Observable<any> {
-    /*let params = new HttpParams();
+  list(
+    start: number,
+    length: number
+  ): Observable<any> {
+    let params = new HttpParams();
 
     params = params.append('start', start.toString());
-    params = params.append('length', length.toString());*/
+    params = params.append('length', length.toString());
 
     const options = {
       headers: Config.getheaders(this.functionality),
+      params
     };
     return this.http.get(`${this.url}`, options)
       .pipe(map(r => r),

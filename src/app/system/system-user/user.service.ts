@@ -18,7 +18,9 @@ export class UserService {
   ) { }
 
   list(username: string,
-       fullname: string): Observable<any> {
+       fullname: string,
+       start: number,
+       length: number): Observable<any> {
     let params = new HttpParams();
 
     if (username){
@@ -28,8 +30,9 @@ export class UserService {
     if (fullname){
       params = params.append('fullname', fullname);
     }
-   /* params = params.append('start', start.toString());
-    params = params.append('length', length.toString());*/
+
+    params = params.append('start', start.toString());
+    params = params.append('length', length.toString());
 
     const options = {
       headers: Config.getheaders(this.functionality),

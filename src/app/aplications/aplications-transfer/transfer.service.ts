@@ -19,7 +19,9 @@ export class TransferService {
 
   list(
     nohc: string,
-    name: string
+    name: string,
+    start: number,
+    length: number
   ): Observable<any> {
     let params = new HttpParams();
 
@@ -30,6 +32,11 @@ export class TransferService {
     if (name){
       params = params.append('name', name);
     }
+
+    if ((length) && (length !== null)){
+      params = params.append('length', length.toString());
+    }
+    params = params.append('start', start.toString());
 
     const options = {
       headers: Config.getheaders(this.functionality),

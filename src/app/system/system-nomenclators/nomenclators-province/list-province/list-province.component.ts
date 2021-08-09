@@ -17,6 +17,10 @@ export class ListProvinceComponent implements OnInit {
   public faRetweet = faRetweet;
   public comboCountry: Country[] = [];
 
+  private length = 10;
+  private start = 0;
+  private total: number;
+
   constructor(
     private service: ProvinceService,
     private serviceCountry: CountryService,
@@ -29,7 +33,7 @@ export class ListProvinceComponent implements OnInit {
   }
 
   getComboContry(): void {
-    this.serviceCountry.list('')
+    this.serviceCountry.getCombo()
       .subscribe(
         rt => {
           if (rt.error) {
@@ -45,19 +49,45 @@ export class ListProvinceComponent implements OnInit {
       );
   }
 
+  // método para recibir el valor del componente hijo y paginar
+  setEmiterDataPagination(obj: {
+                            start: string,
+                            length: string
+                          },
+                          value: string,
+                          country: string
+  ): void {
+    // tslint:disable-next-line:radix
+    this.start = parseInt(obj.start);
+    // tslint:disable-next-line:radix
+    this.length = parseInt(obj.length);
+    this.list(value, country);
+  }
+
+  // metodo para mostrar el paginado
+  showPaginate(): boolean {
+    if (this.length >= this.total){
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   // tslint:disable-next-line:typedef
   list(value: string,
        country: string) {
 
     this.lists = [];
+    this.total = 0;
 
-    this.service.list(value, country)
+    this.service.list(value, country, this.start, this.length)
       .subscribe(
         rt => {
           if (rt.error) {
             this.msgError = rt.error;
           } else {
             this.lists = rt.data;
+            this.total = rt.total;
           }
           this.loading = true;
         },

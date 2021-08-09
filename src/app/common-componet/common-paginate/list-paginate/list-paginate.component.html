@@ -1,0 +1,36 @@
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li *ngIf="!showInit" class="page-item disabled">
+        <a  (click)="pageInitList()" class="page-link" href="#" routerLink="{{router}}" tabindex="-1">Inicio</a>
+      </li>
+
+      <li *ngIf="showInit" class="page-item">
+        <a (click)="pageInitList()" class="page-link" href="#" routerLink="{{router}}" tabindex="-1">Inicio</a>
+      </li>
+
+      <li *ngIf="!showPrevious" class="page-item disabled">
+        <a (click)="pagePreviousList()" class="page-link" href="#" routerLink="{{router}}"  tabindex="-1">&laquo; Anterior</a>
+      </li>
+
+      <li *ngIf="showPrevious" class="page-item">
+        <a (click)="pagePreviousList()" class="page-link" href="#" routerLink="{{router}}"  tabindex="-1">&laquo; Anterior</a>
+      </li>
+
+      <li *ngIf="!showNex" class="page-item disabled">
+        <a (click)="pageNexList()" class="page-link" href="#" routerLink="{{router}}"  tabindex="-1"> Siguiente &raquo;</a>
+      </li>
+      <li *ngIf="showNex" class="page-item">
+        <a (click)="pageNexList()" class="page-link" href="#" routerLink="{{router}}"  tabindex="-1"> Siguiente &raquo;</a>
+      </li>
+
+      <li *ngIf="!showEnd" class="page-item disabled">
+        <a (click)="pageEndList()" class="page-link" href="#"  routerLink="{{router}}"  tabindex="-1">Fin</a>
+      </li>
+
+      <li *ngIf="showEnd" class="page-item">
+        <a (click)="pageEndList()" class="page-link" href="#" routerLink="{{router}}"  tabindex="-1">Fin</a>
+      </li>
+    </ul>
+</nav>
+
+

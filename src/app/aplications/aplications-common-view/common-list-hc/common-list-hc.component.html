@@ -108,6 +108,12 @@
       </tbody>
     </table>
 
+    <div *ngIf="showPaginate()">
+      <list-paginate (notifyData)='setEmiterDataPagination($event, nohcBusqueda.value.trim(), namebusqueda.value.trim(), cibusqueda.value.trim())'
+                     router="/select/hc/admitions"
+                     [length]="length" [start]="start" [total]="total">
+      </list-paginate>
+    </div>
   </div>
 </section>
 

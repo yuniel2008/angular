@@ -17,6 +17,10 @@ export class CommonListAdmitionsActivesComponent implements OnInit {
   public comboIC: IsolationsCenter[] = [];
   public faRetweet = faRetweet;
 
+  private length = 10;
+  private start = 0;
+  private total: number;
+
   constructor(
     private service: AdmitionsService,
     private serviceIC: IsolationsCenterService,
@@ -45,6 +49,32 @@ export class CommonListAdmitionsActivesComponent implements OnInit {
       );
   }
 
+  // método para recibir el valor del componente hijo y paginar
+  setEmiterDataPagination(obj: {
+                            start: string,
+                            length: string
+                          },
+                          nohc: string,
+                          name: string,
+                          value: string,
+                          status: string
+  ): void {
+    // tslint:disable-next-line:radix
+    this.start = parseInt(obj.start);
+    // tslint:disable-next-line:radix
+    this.length = parseInt(obj.length);
+    this.list(nohc, name, value, status);
+  }
+
+  // metodo para mostrar el paginado
+  showPaginate(): boolean {
+    if (this.length >= this.total){
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   // tslint:disable-next-line:typedef
   list( nohc: string,
         name: string,
@@ -53,14 +83,16 @@ export class CommonListAdmitionsActivesComponent implements OnInit {
 
     this.loading = false;
     this.lists = [];
+    this.total = 0;
 
-    this.service.list(nohc, name, value, status)
+    this.service.list(nohc, name, value, status, this.start, this.length)
       .subscribe(
         rt => {
           if (rt.error) {
             this.msgError = rt.error;
           } else {
             this.lists = rt.data;
+            this.total = rt.total;
           }
           this.loading = true;
         },

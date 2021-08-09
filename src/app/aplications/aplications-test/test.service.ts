@@ -27,6 +27,8 @@ export class TestService {
     // tslint:disable-next-line:variable-name
     status_test: string,
     result: string,
+    start: number,
+    length: number
   ): Observable<any> {
     let params = new HttpParams();
 
@@ -53,6 +55,11 @@ export class TestService {
     if ((result) && (result !== 'null')) {
       params = params.append('result', result);
     }
+
+    if ((length) && (length !== null)){
+      params = params.append('length', length.toString());
+    }
+    params = params.append('start', start.toString());
 
     const options = {
       headers: Config.getheaders(this.functionality),
