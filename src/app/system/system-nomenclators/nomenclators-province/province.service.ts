@@ -31,8 +31,12 @@ export class ProvinceService {
       params = params.append('country', country);
     }
 
+    // @ts-ignore
+    if ((length) && (length !== 'null')) {
+      params = params.append('length', length.toString());
+    }
+
     params = params.append('start', start.toString());
-    params = params.append('length', length.toString());
 
     const options = {
       headers: Config.getheaders(this.functionality),

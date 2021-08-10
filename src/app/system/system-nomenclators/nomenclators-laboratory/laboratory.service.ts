@@ -28,8 +28,12 @@ export class LaboratoryService {
       params = params.append('value', value);
     }
 
+    // @ts-ignore
+    if ((length) && (length !== 'null')) {
+      params = params.append('length', length.toString());
+    }
+
     params = params.append('start', start.toString());
-    params = params.append('length', length.toString());
 
     const options = {
       headers: Config.getheaders(this.functionality),

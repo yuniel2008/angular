@@ -21,8 +21,12 @@ export class ActionsService {
   ): Observable<any> {
     let params = new HttpParams();
 
+    // @ts-ignore
+    if ((length) && (length !== 'null')) {
+      params = params.append('length', length.toString());
+    }
+
     params = params.append('start', start.toString());
-    params = params.append('length', length.toString());
 
     const options = {
       headers: Config.getheaders(this.functionality),
