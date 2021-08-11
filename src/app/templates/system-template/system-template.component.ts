@@ -4,6 +4,7 @@ import {
    faList, faPlus, faCogs, faDatabase, faSignOutAlt
 } from '@fortawesome/free-solid-svg-icons';
 import {ActivatedRoute, Router} from '@angular/router';
+import {SecurityService} from '../../security/security.service';
 
 @Component({
   selector: 'app-system-template',
@@ -22,7 +23,8 @@ export class SystemTemplateComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private securityService: SecurityService
   ) {
     this.appName = Config.systemName();
     this.userLogin = atob(localStorage.getItem(Config.userLogin()));
@@ -33,11 +35,8 @@ export class SystemTemplateComponent implements OnInit {
   }
 
   logout(): void {
-    localStorage.setItem(Config.token(), '');
-    localStorage.setItem(Config.userLogin(), '');
-    localStorage.setItem(Config.rol(), '');
-    localStorage.setItem(Config.isLogin(), btoa('false'));
-    this.goLogin();
+   this.securityService.logout();
+   this.goLogin();
   }
 
   goLogin(): void {

@@ -31,6 +31,7 @@ export class LoginSystemComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.service.logout();
   }
 
   crearControles(): void {
@@ -42,10 +43,7 @@ export class LoginSystemComponent implements OnInit {
 
   login(): void {
     this.msgError = 'null';
-    localStorage.setItem(Config.token(), '');
-    localStorage.setItem(Config.userLogin(), '');
-    localStorage.setItem(Config.rol(), '');
-    localStorage.setItem(Config.isLogin(), btoa('false'));
+
     this.service.login(this.form.value)
       .subscribe(
         rt => {
@@ -71,6 +69,8 @@ export class LoginSystemComponent implements OnInit {
     const link = [''];
     this.router.navigate(link);
   }
+
+
 
   /**
    * Convenience getter for easy access to form fields

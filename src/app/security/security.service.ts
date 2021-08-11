@@ -45,6 +45,14 @@ export class SecurityService {private url = Config.urlApiRes() ;
       ;
   }
 
+  logout(): void {
+    localStorage.removeItem(Config.userLogin());
+    localStorage.removeItem(Config.token());
+    localStorage.removeItem(Config.userLogin());
+    localStorage.removeItem(Config.rol());
+    localStorage.removeItem(Config.isLogin());
+  }
+
   /**
    * Handle Http operation that failed.
    * Let the app continue.

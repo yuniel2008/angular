@@ -4,6 +4,7 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
 import {catchError, map} from 'rxjs/operators';
 import {Municipality} from './municipality';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,8 @@ export class MunicipalityService {
   private functionality = 'NMUNICIPALITY';
 
   constructor(
-    private  http: HttpClient
+    private  http: HttpClient,
+    private router: Router,
   ) { }
 
   list(value: string,
@@ -115,6 +117,10 @@ export class MunicipalityService {
       // log to console instead
       if ((error.status === 500) || (error.status === 401) || (error.status === 403)) {
         err = error.error.msg_error; console.error(err);
+        if (err === 'Token inválido'){
+          const link = ['/security/system'];
+          this.router.navigate(link);
+        }
       } else {
         err = 'Falló la respuesta Http por un error desconocido';
       }
