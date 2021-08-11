@@ -20,7 +20,10 @@ export class ListAdmitionsComponent implements OnInit {
 
   private length = 10;
   private start = 0;
-  private total: number;
+  private total = 0;
+
+  public routerNavigate = '';
+  public isNavigate = false;
 
   constructor(
     private service: AdmitionsService,

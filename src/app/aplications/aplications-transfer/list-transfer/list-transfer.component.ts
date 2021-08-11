@@ -18,6 +18,9 @@ export class ListTransferComponent implements OnInit {
   private start = 0;
   private total: number;
 
+  public routerNavigate = '';
+  public isNavigate = false;
+
   constructor(
     private service: TransferService,
   ) {

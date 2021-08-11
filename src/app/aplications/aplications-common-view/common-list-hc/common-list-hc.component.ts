@@ -22,6 +22,9 @@ export class CommonListHcComponent implements OnInit {
   private start = 0;
   private total: number;
 
+  public routerNavigate = '';
+  public isNavigate = true;
+
   constructor(
     private service: HcService,
     private servicetest: TestHcService,
@@ -34,8 +37,10 @@ export class CommonListHcComponent implements OnInit {
     this.origen = this.route.snapshot.params.origen;
     if (this.origen === 'admitions'){
       this.rout = '/admitions/new';
+      this.routerNavigate = '/admitions/list';
     } else {
       this.rout = '/test/new';
+      this.routerNavigate = '/test/list';
     }
 
     this.list('', '', '');

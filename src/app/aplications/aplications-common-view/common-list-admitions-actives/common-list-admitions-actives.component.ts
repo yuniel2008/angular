@@ -21,6 +21,9 @@ export class CommonListAdmitionsActivesComponent implements OnInit {
   private start = 0;
   private total: number;
 
+  public routerNavigate = '/transfer/list';
+  public isNavigate = true;
+
   constructor(
     private service: AdmitionsService,
     private serviceIC: IsolationsCenterService,

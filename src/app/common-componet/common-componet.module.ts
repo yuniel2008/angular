@@ -5,6 +5,7 @@ import {CommonLoadingModule} from './common-loading/common-loading.module';
 import {CommonButtonModule} from './common-button/common-button.module';
 import {CommonSwitchModule} from './common-switch/common-switch.module';
 import {CommontPaginateModule} from './common-paginate/commont-paginate.module';
+import {CommontListHeadModule} from './common-list-head/commont-list-head.module';
 
 
 
@@ -18,7 +19,8 @@ import {CommontPaginateModule} from './common-paginate/commont-paginate.module';
     CommonLoadingModule,
     CommonButtonModule,
     CommonSwitchModule,
-    CommontPaginateModule
+    CommontPaginateModule,
+    CommontListHeadModule
 
   ]
 })
