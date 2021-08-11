@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {faSignOutAlt} from '@fortawesome/free-solid-svg-icons';
+import {ActivatedRoute, Router} from '@angular/router';
+import {SecurityService} from '../../security/security.service';
+import {Config} from '../../config';
 
 @Component({
   selector: 'app-aplications-template',
@@ -6,10 +10,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./aplications-template.component.css']
 })
 export class AplicationsTemplateComponent implements OnInit {
+  public faSign = faSignOutAlt;
+  public appName: string;
+  public userLogin: string;
+  public rolLogin: string;
+  public copyrigth = '';
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private securityService: SecurityService
+  ) {
+    this.copyrigth = Config.copyrigth();
+    this.appName = Config.systemName();
+    this.userLogin = atob(localStorage.getItem(Config.userLogin()));
+    this.rolLogin = atob(localStorage.getItem(Config.rol()));
+  }
 
   ngOnInit(): void {
   }
 
+  logout(): void {
+    this.securityService.logout();
+    this.goLogin();
+  }
+
+  goLogin(): void {
+    const link = ['/security/system'];
+    this.router.navigate(link);
+  }
 }

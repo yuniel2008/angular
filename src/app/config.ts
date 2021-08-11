@@ -67,9 +67,9 @@ export class Config {
     const years =  new Date().getFullYear();
     if (years === 2021)
     {
-      return '2021';
+      return 'División territorial Desoft Sancti Spirtus 2021';
     } else {
-      return `2021-` + years;
+      return `División territorial Desoft Sancti Spirtus 2021-` + years;
     }
   }
 

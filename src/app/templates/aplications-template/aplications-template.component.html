@@ -1,50 +1,60 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-  <a class="navbar-brand" href="#">Logo</a>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
+  <a class="navbar-brand" href="#" routerLink="/home">Salutem</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#" routerLink="/home">Inicio <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
+      <li class="nav-item active" >
         <a class="nav-link" href="#" routerLink="/hc/list">Historias clínicas</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="#" routerLink="/admitions/list">Admisión</a>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="#" routerLink="/test/list">Pruebas PCR</a>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="#" routerLink="/transfer/list">Tranferencias</a>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="#" routerLink="/report/dashboard">Reportes</a>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="#" routerLink="/system">Administración</a>
       </li>
 
     </ul>
-   
+
+    <ul class="navbar-nav px-3">
+      <li class="nav-item text-nowrap">
+        <div class="nav-link">
+          <img class="rounded-circle" src="img/person_notfound.png" alt="" width="30" height="30"/>
+          <span class="text-white"> {{userLogin}} ({{rolLogin}})</span>
+        </div>
+      </li>
+      <li class="nav-item text-nowrap">
+        <a class="nav-link text-white" (click)="logout()" href="#" routerLink="/system/home"><fa-icon [icon]="faSign" size="ms"></fa-icon> Salir</a>
+      </li>
+    </ul>
+
   </div>
 </nav>
 
-<main role="main" class="container pt-5 mt-5">
+<main role="main" class="container pt-5 mt-5" style="min-height: 490px">
 
   <router-outlet></router-outlet>
 
 
 </main>
 
-<!--<footer class="footer">
-  <div class="container">
-    <span class="text-muted">Place sticky footer content here.</span>
+
+<footer class="footer" style="position: relative;">
+  <div class="container text-center">
+    <span class="text-muted ">&copy; {{copyrigth}}</span>
   </div>
-</footer>-->
+</footer>

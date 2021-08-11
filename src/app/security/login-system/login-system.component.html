@@ -1,7 +1,14 @@
 <div class="text-center pt-5">
   <form class="form-signin"  novalidate [formGroup]="form">
     <alert *ngIf="msgError != 'null'" [type]="'danger'" [dismissible]="!dismissible" (onClosed)="onClosed()">{{msgError}}</alert>
-    <img class="mb-4" src="img/logo.png" alt="" width="72" height="72">
+    <!--<img class="mb-2" src="img/logo.png" alt="" width="72" height="72">-->
+    <p class="text-center text-muted mt-2 mb-0">
+      Salutem
+    </p>
+    <p class="text-center text-muted mt-6 mb-10">
+      Sistema de gestión de Historias Clínicas de los pacientes con Covid
+    </p>
+
     <div class="row">
       <div class="col-lg-12">
         <div class="form-group">
@@ -39,11 +46,11 @@
       </div>
     </div>
 
-    <div class="row">
+  <!--  <div class="row">
       <div class="col-lg-12 mt-0">
-        <a class="text-danger"  href="#" routerLink="/security/recovery_password">Olvidé mi contraseña</a>
+        <a class="text-danger" href="#" routerLink="/security/recovery_password">Olvidé mi contraseña</a>
       </div>
-    </div>
+    </div>-->
     <p class="mt-5 mb-3 text-muted">&copy; {{copyrigth}}</p>
 
   </form>
