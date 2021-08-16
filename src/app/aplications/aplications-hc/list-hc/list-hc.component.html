@@ -32,8 +32,8 @@
 </section>
 <section *ngIf="loading">
 
-  <section class="pb-2 pt-3">
-    <btn-new router="/hc/new"></btn-new>
+  <section  class="pb-2 pt-3">
+    <btn-new *ngIf="isAutoriceWritter()" router="/hc/new"></btn-new>
   </section>
 
   <list-head router="{{routerNavigate}}" [navigate] = "isNavigate" [total]="total"></list-head>
@@ -72,7 +72,7 @@
         </td>
 
         <td style="width: 25%">
-          <btn-update ngClass="pr-2" router="/hc/update/{{item.id}}"></btn-update>
+          <btn-update *ngIf="isAutoriceWritter()" ngClass="pr-2" router="/hc/update/{{item.id}}"></btn-update>
           <btn-details ngClass="pr-2" router="/hc/view/{{item.id}}"></btn-details>
         </td>
 

@@ -14,6 +14,7 @@ export class AplicationsTemplateComponent implements OnInit {
   public appName: string;
   public userLogin: string;
   public rolLogin: string;
+  public rolNameLogin: string;
   public copyrigth = '';
 
   constructor(
@@ -25,6 +26,7 @@ export class AplicationsTemplateComponent implements OnInit {
     this.appName = Config.systemName();
     this.userLogin = atob(localStorage.getItem(Config.userLogin()));
     this.rolLogin = atob(localStorage.getItem(Config.rol()));
+    this.rolNameLogin = atob(localStorage.getItem(Config.rolName()));
   }
 
   ngOnInit(): void {
@@ -38,5 +40,13 @@ export class AplicationsTemplateComponent implements OnInit {
   goLogin(): void {
     const link = ['/security/system'];
     this.router.navigate(link);
+  }
+
+  isAdmin(): boolean {
+    let result = false;
+    if (this.rolLogin === 'ROL_ADMIN') {
+      result = true;
+    }
+    return  result;
   }
 }

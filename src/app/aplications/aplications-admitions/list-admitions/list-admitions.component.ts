@@ -4,6 +4,7 @@ import {Admitions} from '../admitions';
 import {AdmitionsService} from '../admitions.service';
 import {IsolationsCenterService} from '../../../system/system-nomenclators/nomenclators-isolations-center/isolations-center.service';
 import {IsolationsCenter} from '../../../system/system-nomenclators/nomenclators-isolations-center/isolations-center';
+import {Config} from '../../../config';
 
 
 @Component({
@@ -106,6 +107,13 @@ export class ListAdmitionsComponent implements OnInit {
         },
         () => console.log('ready')
       );
+  }
+  isAutoriceWritter(): boolean {
+    let result = false;
+    if (atob(localStorage.getItem(Config.rol())) !== 'ROL_DESC') {
+      result = true;
+    }
+    return  result;
   }
 
   onClosed(): void {

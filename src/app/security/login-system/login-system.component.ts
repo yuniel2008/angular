@@ -54,6 +54,7 @@ export class LoginSystemComponent implements OnInit {
             localStorage.setItem(Config.userLogin(), btoa(rt.username));
             localStorage.setItem(Config.isLogin(), btoa('true'));
             localStorage.setItem(Config.rol(), btoa(rt.rol));
+            localStorage.setItem(Config.rolName(), btoa(rt.rolName));
             this.golist();
           }
         },

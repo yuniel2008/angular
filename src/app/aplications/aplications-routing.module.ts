@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {AplicationsComponent} from './aplications.component';
-import {AuthGuardSystem} from '../autgard/authSystem.guard';
 import {AplicationsHomePageComponent} from './aplications-home-page/aplications-home-page.component';
 import {AplicationsHcComponent} from './aplications-hc/aplications-hc.component';
 import {ListHcComponent} from './aplications-hc/list-hc/list-hc.component';
@@ -30,13 +29,14 @@ import {ReportAdmitionsOpenComponent} from './aplications-reports/report-admitio
 import {ReportAdmitionsCloseComponent} from './aplications-reports/report-admitions-close/report-admitions-close.component';
 import {ReportPueblasPcrAdmisionesComponent} from './aplications-reports/report-pueblas-pcr-admisiones/report-pueblas-pcr-admisiones.component';
 import {ReportTestPcrComponent} from './aplications-reports/report-test-pcr/report-test-pcr.component';
+import {AuthGuardAplications} from '../autgard/authAplications.guard';
 
 
 const routes: Routes = [
   {
     path: '',
     component: AplicationsComponent,
-    canActivate: [AuthGuardSystem],
+    canActivate: [AuthGuardAplications],
     children: [
       {
         path: '',

@@ -27,10 +27,17 @@ export class Config {
   }
 
   /**
-   * return userLogin name
+   * return userLogin rol
    */
   static rol(): string {
     return `userRol` + this.systemName();
+  }
+
+  /**
+   * return userLogin rol name
+   */
+  static rolName(): string {
+    return `userRolName` + this.systemName();
   }
 
   /**

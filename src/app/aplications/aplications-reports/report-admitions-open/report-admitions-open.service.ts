@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
 export class ReportAdmitionsOpenService {
   private url = Config.urlApiRes() + '/aplications/admitions/reports/opent';
 
-  private functionality = 'APPADMITIONS';
+  private functionality = 'APPREPORT';
 
   constructor(
     private  http: HttpClient,

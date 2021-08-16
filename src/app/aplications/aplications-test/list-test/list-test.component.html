@@ -65,7 +65,7 @@
 <section *ngIf="loading">
 
   <section class="pb-2 pt-3">
-    <btn-new router="/select/hc/test"></btn-new>
+    <btn-new *ngIf="isAutoriceWritter()" router="/select/hc/test"></btn-new>
   </section>
 
   <list-head router="{{routerNavigate}}" [navigate] = "isNavigate" [total]="total"></list-head>
@@ -127,8 +127,8 @@
 
         <td style="width: 25%">
           <btn-details ngClass="pr-2" router="/test/view/{{item.id}}"></btn-details>
-          <btn-update ngClass="pr-2" *ngIf = "item.status_test === '1'" router="/test/update/{{item.id}}"></btn-update>
-          <a *ngIf = "item.status_test === '1'" class="btn btn-primary btn-sm text-white mt-2" href="#" routerLink="/test/closed/{{item.id}}">
+          <btn-update ngClass="pr-2" *ngIf = "item.status_test === '1' && isAutoriceWritter()" router="/test/update/{{item.id}}"></btn-update>
+          <a *ngIf = "item.status_test === '1' && isAutoriceWritter()" class="btn btn-primary btn-sm text-white mt-2" href="#" routerLink="/test/closed/{{item.id}}">
             <fa-icon [icon]="faRetweet" size="ms"></fa-icon> Cerrar</a>
         </td>
 

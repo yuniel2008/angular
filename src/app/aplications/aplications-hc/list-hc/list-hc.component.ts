@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Hc} from '../hc';
 import {HcService} from '../hc.service';
+import {Config} from '../../../config';
 
 @Component({
   selector: 'app-list-hc',
@@ -82,6 +83,14 @@ export class ListHcComponent implements OnInit {
         },
         () => console.log('ready')
       );
+  }
+
+  isAutoriceWritter(): boolean {
+    let result = false;
+    if (atob(localStorage.getItem(Config.rol())) !== 'ROL_DESC') {
+      result = true;
+    }
+    return  result;
   }
 
   onClosed(): void {

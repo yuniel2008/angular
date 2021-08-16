@@ -50,6 +50,7 @@ export class SecurityService {private url = Config.urlApiRes() ;
     localStorage.removeItem(Config.token());
     localStorage.removeItem(Config.userLogin());
     localStorage.removeItem(Config.rol());
+    localStorage.removeItem(Config.rolName());
     localStorage.removeItem(Config.isLogin());
   }
 

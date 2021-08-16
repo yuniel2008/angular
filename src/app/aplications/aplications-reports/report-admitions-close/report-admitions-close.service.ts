@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
 export class ReportAdmitionsCloseService {
   private url = Config.urlApiRes() + '/aplications/admitions/reports/close';
 
-  private functionality = 'APPADMITIONS';
+  private functionality = 'APPREPORT';
 
   constructor(
     private  http: HttpClient,

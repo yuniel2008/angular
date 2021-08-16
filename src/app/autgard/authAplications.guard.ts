@@ -5,7 +5,7 @@ import { Router, CanActivate} from '@angular/router';
 
 
 @Injectable()
-export class AuthGuardSystem implements CanActivate {
+export class AuthGuardAplications implements CanActivate {
 
 
   constructor(
@@ -16,8 +16,7 @@ export class AuthGuardSystem implements CanActivate {
     // tslint:disable-next-line:max-line-length
     if (
       (atob(localStorage.getItem(Config.isLogin())) === 'true')
-      && (localStorage.getItem(Config.token()) != null )
-      && (atob(localStorage.getItem(Config.rol())) === 'ROL_ADMIN')){
+      && (localStorage.getItem(Config.token()) != null )){
       return true;
     } else {
       this.router.navigate(['/security/system']);

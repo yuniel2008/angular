@@ -4,6 +4,7 @@ import {Test} from '../test';
 import {Laboratory} from '../../../system/system-nomenclators/nomenclators-laboratory/laboratory';
 import {TestService} from '../test.service';
 import {LaboratoryService} from '../../../system/system-nomenclators/nomenclators-laboratory/laboratory.service';
+import {Config} from '../../../config';
 
 
 @Component({
@@ -117,6 +118,14 @@ export class ListTestComponent implements OnInit {
         },
         () => console.log('ready')
       );
+  }
+
+  isAutoriceWritter(): boolean {
+    let result = false;
+    if (atob(localStorage.getItem(Config.rol())) !== 'ROL_DESC') {
+      result = true;
+    }
+    return  result;
   }
 
   onClosed(): void {
