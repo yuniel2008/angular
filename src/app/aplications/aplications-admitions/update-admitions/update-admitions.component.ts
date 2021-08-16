@@ -45,7 +45,7 @@ export class UpdateAdmitionsComponent implements OnInit {
               this.form.patchValue({
                 id: this.obj.id,
                 egress: this.obj.egress,
-                idhc: this.obj.c.hcs.id
+                idhc: this.obj.hcs.id
               });
               this.status = this.obj.status;
             }
