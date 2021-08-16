@@ -46,10 +46,15 @@
           <label > {{obj.date_samples | date: 'd/M/yy' : 'UTC'}} </label>
         </div>
 
-        <div class="col-lg-4">
+        <div *ngIf="obj.status_test !== '1'" class="col-lg-4">
           <label class="font-weight-bold mr-2">Resultado: </label>
           <label class="text-success" *ngIf="obj.result === true"> Positiva </label>
           <label class="text-secondary" *ngIf="obj.result === false"> Negativa </label>
+        </div>
+
+        <div *ngIf="obj.status_test === '1'" class="col-lg-4">
+          <label class="font-weight-bold mr-2">Resultado: </label>
+          <label class="text-primary" *ngIf="obj.status_test === '1'"> Pendiente </label>
         </div>
 
 
