@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {DateLessThanToday} from '../../../custom-validators/date-less-than-today';
 import {ActivatedRoute, Router} from '@angular/router';
 import {faBan} from '@fortawesome/free-solid-svg-icons';
-import {IsolationsCenter} from '../../../system/system-nomenclators/nomenclators-isolations-center/isolations-center';
-import {AdmitionsService} from '../../aplications-admitions/admitions.service';
-import {IsolationsCenterService} from '../../../system/system-nomenclators/nomenclators-isolations-center/isolations-center.service';
 import {Laboratory} from '../../../system/system-nomenclators/nomenclators-laboratory/laboratory';
 import {TestService} from '../test.service';
 import {LaboratoryService} from '../../../system/system-nomenclators/nomenclators-laboratory/laboratory.service';
@@ -46,7 +44,7 @@ export class NewTestComponent implements OnInit {
   crearControles(): void {
     this.form = this.formBuilder.group({
       id: [''],
-      date_samples: ['', [Validators.required]],
+      date_samples: ['', [Validators.required, DateLessThanToday.notDateNow]],
       id_laboratories: ['', [Validators.required]],
       id_hc: ['', [Validators.required]]
     });

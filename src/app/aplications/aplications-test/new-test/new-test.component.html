@@ -14,6 +14,9 @@
           <div *ngIf="f.date_samples.errors.required">
             <label for="date_samples" class="text-danger"><fa-icon [icon]="faBan" size="ms"></fa-icon> El campo es requerido.</label>
           </div>
+          <div *ngIf="f.date_samples.errors.notDateNow">
+            <label for="date_samples" class="text-danger"><fa-icon [icon]="faBan" size="ms"></fa-icon> La fecha debe de ser menor o igual que el dia actual .</label>
+          </div>
         </div>
       </div>
     </div>
