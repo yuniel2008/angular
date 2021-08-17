@@ -32,6 +32,10 @@
 </section>
 <section *ngIf="loading" class="pt-3">
 
+  <section *ngIf="origen === 'admitions'"  class="pb-2">
+    <btn-new *ngIf="isAutoriceWritter()" router="/hc/new/admitions"></btn-new>
+  </section>
+
   <list-head router="{{routerNavigate}}" [navigate] = "isNavigate" [total]="total"></list-head>
 
   <div  class="table table-responsive">

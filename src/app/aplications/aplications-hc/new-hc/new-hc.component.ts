@@ -16,6 +16,7 @@ export class NewHcComponent implements OnInit {
   public form: FormGroup;
   public msgError = 'null';
   public comboMunicipality: Municipality[] = [];
+  public origen = '';
 
   constructor(
     private service: HcService,
@@ -31,7 +32,9 @@ export class NewHcComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.origen = this.route.snapshot.params.origen;
+  }
 
   crearControles(): void {
     this.form = this.formBuilder.group({
@@ -95,7 +98,11 @@ export class NewHcComponent implements OnInit {
   }
 
   golist(): void {
-    const link = ['/hc/list'];
+    let link = ['/hc/list'];
+    if (this.origen === 'admitions'){
+      link = ['/select/hc/admitions'];
+    }
+
     this.router.navigate(link);
   }
 

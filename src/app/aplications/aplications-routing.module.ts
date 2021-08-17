@@ -69,7 +69,7 @@ const routes: Routes = [
             component: ListHcComponent
           },
           {
-            path: 'new',
+            path: 'new/:origen',
             component: NewHcComponent
           },
           {

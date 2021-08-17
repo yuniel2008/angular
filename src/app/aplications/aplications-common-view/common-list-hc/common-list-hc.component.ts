@@ -4,6 +4,7 @@ import {HcService} from '../../aplications-hc/hc.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {TemplateAccessibilityTableScopeRule} from 'codelyzer';
 import {TestHcService} from './test-hc.service';
+import {Config} from "../../../config";
 
 @Component({
   selector: 'app-common-list-hc',
@@ -117,6 +118,14 @@ export class CommonListHcComponent implements OnInit {
           () => console.log('ready')
         );
     }
+  }
+
+  isAutoriceWritter(): boolean {
+    let result = false;
+    if (atob(localStorage.getItem(Config.rol())) !== 'ROL_DESC') {
+      result = true;
+    }
+    return  result;
   }
 
   onClosed(): void {
