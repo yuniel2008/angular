@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {DateLessThanToday} from '../../../custom-validators/date-less-than-today';
 import {ActivatedRoute, Router} from '@angular/router';
 import {faBan} from '@fortawesome/free-solid-svg-icons';
 import {IsolationsCenter} from '../../../system/system-nomenclators/nomenclators-isolations-center/isolations-center';
@@ -49,10 +50,11 @@ export class NewTransferComponent implements OnInit {
   crearControles(): void {
     this.form = this.formBuilder.group({
       id: [''],
-      date: ['', [Validators.required]],
+      date: ['', [Validators.required, DateLessThanToday.notDateNow]],
       id_admitions: ['', [Validators.required]],
       source: ['', [Validators.required]],
-      destinations: ['', [Validators.required]]
+      destinations: ['', [Validators.required]],
+      observations: [''],
     });
   }
 

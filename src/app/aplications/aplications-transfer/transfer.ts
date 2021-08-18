@@ -2,6 +2,7 @@ export class Transfer {
   constructor(
     public id: string,
     public date: string,
+    public observations: string,
     // tslint:disable-next-line:variable-name
     public app_admitions: {
       id: string,

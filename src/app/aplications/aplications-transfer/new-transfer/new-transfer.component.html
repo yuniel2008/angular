@@ -34,6 +34,7 @@
       <label class="font-weight-bold mr-2">Centro de aislamiento actual: </label>
       <label > {{admitions.isolation_center.value}} </label>
     </div>
+
   </div>
 
   <form  novalidate [formGroup]="form">
@@ -41,7 +42,7 @@
 
     <div class="row mt-3 pt-3">
 
-      <div class="col-lg-6">
+      <div class="col-lg-4">
         <div class="form-group">
           <label for="date" class="font-weight-bold">Fecha del traslado <span class="text-danger">*</span></label>
           <input type="date" placeholder="Fecha del traslado" class="form-control" id="date" formControlName="date">
@@ -49,11 +50,15 @@
             <div *ngIf="f.date.errors.required">
               <label for="date" class="text-danger"><fa-icon [icon]="faBan" size="ms"></fa-icon> El campo es requerido.</label>
             </div>
+
+            <div *ngIf="f.date.errors.notDateNow">
+              <label for="date" class="text-danger"><fa-icon [icon]="faBan" size="ms"></fa-icon> La fecha debe de ser menor o igual que el dia actual .</label>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="col-lg-6">
+      <div class="col-lg-4">
         <div class="form-group">
 
           <label for="destinations" class="font-weight-bold">Destino <span class="text-danger">*</span></label>
@@ -67,6 +72,13 @@
               <label for="destinations" class="text-danger"><fa-icon [icon]="faBan" size="ms"></fa-icon> El campo es requerido.</label>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="form-group">
+          <label for="observation" class="font-weight-bold">Observaciones</label>
+          <textarea type="text" placeholder="Patologías" class="form-control" id="observation" formControlName="observations"></textarea>
         </div>
       </div>
     </div>
