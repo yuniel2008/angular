@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Admitions} from '../../../../aplications/aplications-admitions/admitions';
-import {AdmitionsService} from '../../../../aplications/aplications-admitions/admitions.service';
+import {CountryService} from '../country.service';
+import {Country} from '../country';
 
 @Component({
   selector: 'app-view-country',
@@ -9,12 +9,12 @@ import {AdmitionsService} from '../../../../aplications/aplications-admitions/ad
   styleUrls: ['./view-country.component.css']
 })
 export class ViewCountryComponent implements OnInit {
-  public obj: Admitions = null;
+  public obj: Country = null;
   public msgError = 'null';
   public loading = false;
 
   constructor(
-    private service: AdmitionsService,
+    private service: CountryService,
     private router: Router,
     private  route: ActivatedRoute
   ) { }
