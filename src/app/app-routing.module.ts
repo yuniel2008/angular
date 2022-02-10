@@ -5,15 +5,11 @@ import {NotFoundComponent} from './common-views/not-found/not-found.component';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./aplications/aplications.module').then(m => m.AplicationsModule)
+    loadChildren: () => import('./system/system.module').then(m => m.SystemModule)
   },
   {
     path: 'security',
     loadChildren: () => import('./security/security.module').then(m => m.SecurityModule)
-  },
-  {
-    path: 'system',
-    loadChildren: () => import('./system/system.module').then(m => m.SystemModule)
   },
   {
     path: 'page_Notfound',
